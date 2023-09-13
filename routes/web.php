@@ -20,7 +20,3 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 })->name('login.php');
-
-Route::get('/admin', function () {
-    return view('admin');
-})->name('admin.php');
