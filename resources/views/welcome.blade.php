@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<html lang="es">
 <head>
     <title>Turjoy - ¡Reserva tus viajes ahora mismo!</title>
     <!-- Incluir los archivos CSS de Bootstrap -->
