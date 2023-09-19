@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <!-- Estilos personalizados -->
     <style>
-        /* Fondo para la barra de neavegacion, #0a74da si se quiere el color requierdo en los ERS */
+        /* Fondo para la barra de navegacion, #0a74da si se quiere el color requierdo en los ERS */
         .navbar {
-            background-color: transparent;
+            background-color: #0a74d4;
         }
         /* Color del texto en la barra de navegacion */
         .navbar-dark .navbar-text {
@@ -44,7 +44,7 @@
             align-items: center;
             height: 100vh;
             position: relative;
-            background-image: url(https://i.ibb.co/LYSFR5J/peakpx.jpg);
+            background-image: ;
             background-size: cover;
             background-position: center;
         }
@@ -62,12 +62,12 @@
     </style>
 </head>
 <body>
-    <!-- Barra de navegación transparente -->
+    <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">ByteBridge Inc.</a>
             <div class="navbar-text ml-auto">
-                <a href="#">Log-in</a>
+                <a href="{{ route('login.php') }}">Log-in</a>
             </div>
         </div>
     </nav>
@@ -76,7 +76,8 @@
     <div class="container-main">
         <div class="col-md-6 custom-rectangle">
             <!-- Logo -->
-            <img src="{{ asset('storage/logoturjoy.png') }}" alt="Logo" style="max-width: 100%;">
+            <!-- Establece el directorio en donde esta la imagen a utilizar -->
+            <img src="{{ Storage::url('images/logoturjoy.png') }}" alt="Logo" style="max-width: 100%;">
             <!-- Botones -->
             <button class="btn btn-primary custom-button">Buscar reservas</button>
             <button class="btn btn-success custom-button">Reservar pasajes</button>
