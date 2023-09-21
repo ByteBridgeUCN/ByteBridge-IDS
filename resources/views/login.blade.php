@@ -67,7 +67,7 @@
         input {
             width: 460px;
             height: 30px;
-            border: 2px solid #333333; /* Borde del campo de entrada */
+            border: solid #333333; /* Borde del campo de entrada */
             border-radius: 15px;
             padding: 10px;
             margin: 30px;
@@ -94,6 +94,18 @@
             cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
             text-decoration: none; /* Elimina la decoración de texto predeterminada */
         }
+
+        button{
+            border: solid #333333;
+        }
+
+        /* Estilos para el botón de mostrar/ocultar contraseña */
+        .show-password-button {
+            background-color: transparent;
+            color: #333333;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -101,13 +113,39 @@
         <div class="inner-box">
             <div class="content">
                 <h1>Iniciar sesión</h1>
-                <!-- Aquí puedes agregar los campos de inicio de sesión, como el formulario, campos de usuario y contraseña, etc. -->
+                @if(session('error'))
+                    <div style="color: #ff8a80;">{{ session('error') }}</div>
+                @endif
                 <div class="input-container">
-                <input type="text" placeholder="Correo electrónico">
-                <input type="password" placeholder="Contraseña">
+                    <input type="text" name="email" id="correo" placeholder="correo electrónico">
+                    <div class="input-container">
+                        <input type="password" name="contrasena" id="contrasena" placeholder="contraseña">
+                        <button type="button" class="show-password-button" onclick="togglePasswordVisibility()">Mostrar constraseña</button>
+                    </div>
+                </div>
+                <button class="login-button" onclick="parametrosAdministrador()">Ingresar</button>
             </div>
-            <a class="login-button">Ingresar</a>
         </div>
     </div>
+
+    <script>
+        // Función para alternar la visibilidad de la contraseña
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("contrasena");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        }
+        // Función para leer el valor del campo de entrada de correo electrónico y contraseña
+        function parametrosAdministrador() {
+            var coreoElectronico = document.getElementById("correo");
+            var passwordInput = document.getElementById("contrasena");
+            window.location.href = "/";
+        }
+
+    </script>
+    
 </body>
 </html>

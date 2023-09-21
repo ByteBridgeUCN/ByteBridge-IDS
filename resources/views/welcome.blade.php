@@ -6,9 +6,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <!-- Estilos personalizados -->
     <style>
+        body {
+            background-color: #ffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
         /* Fondo para la barra de neavegacion, #0a74da si se quiere el color requierdo en los ERS */
         .navbar {
-            background-color: #0a74d4;
+            background-color: #0a74da;
         }
         /* Color del texto en la barra de navegacion */
         .navbar-dark .navbar-text {
@@ -65,9 +73,9 @@
     <!-- Barra de navegación transparente -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">ByteBridge Inc.</a>
+            <a class="navbar-brand">ByteBridge Inc.</a>
             <div class="navbar-text ml-auto">
-                <a href="{{ route('login.php') }}">Log-in</a>
+                <a href="login">Log-in</a>
             </div>
         </div>
     </nav>
@@ -76,7 +84,7 @@
     <div class="container-main">
         <div class="col-md-6 custom-rectangle">
             <!-- Logo -->
-            <img src="{{ asset('logoturjoy.png') }}" alt="Logo" style="max-width: 100%;">
+            <img src="logoturjoy.png" alt="Logo" style="max-width: 100%;">
             <!-- Botones -->
             <button class="btn btn-primary custom-button">Buscar reservas</button>
             <button class="btn btn-success custom-button">Reservar pasajes</button>

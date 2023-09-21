@@ -19,4 +19,8 @@ Route::get('/', function () {
 
 Route::get('/login', function () {
     return view('login');
-})->name('login.php');
+});
+
+Route::get('/administrador', function () {
+    return view('administrador');
+});

@@ -9,14 +9,13 @@ class AdministradorController extends Controller
     public function store(Request $request){
         // Validar
 
-        // Creamos el administrador
+        // Crear un nuevo administrador en la base de datos
         Administrador::create(
             [
                 'nombre' => $request->nombre,
                 'email' => $request->email,
                 'contrasena' => $request->contrasena,
-                'estado' => $request->estado
-            ]
-        );
+                'estado' => $request->estado,
+            ]);
     }
 }
