@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
     <!-- Configuración de la página -->
     <title>Iniciar Sesión</title>
     <style>
         /* Estilos CSS */
         .logo {
-            width: 100px; /* Ancho de la imagen del logo */
+            width: 100px; /* Ancho de la imagen */
             height: auto; /* Altura automática para mantener la proporción */
+            margin-bottom: 20px; /* Espacio inferior entre la imagen y el encabezado */
         }
         body {
             background-color: white; /* Color de fondo para todo el cuerpo de la página */
@@ -53,7 +55,6 @@
             text-shadow: 1px 1px 2px #fff;
             text-shadow:
                 1px 10px 7px #fff, /* Sombra de texto principal (arriba y a la derecha) */
-
                 1px -1px 1px #fff; /* Sombra de reflejo (abajo y a la derecha) */
         }
 
@@ -62,7 +63,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-
         }
 
         input {
@@ -84,10 +84,12 @@
             color: #ffffff; /* Color del texto del botón */
             font-family: 'Arial', sans-serif; /* Fuente del botón */
             font-size: 25px;
+
             width: 200px;
             height: 50px;
             border-radius: 10px;
             margin-top: 20px;
+
             cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
             text-decoration: none; /* Elimina la decoración de texto predeterminada */
             display: flex; /* Utilizar el modelo de caja flexible */
@@ -99,11 +101,12 @@
             color: #ffffff; /* Color del texto del botón */
             font-family: 'Arial', sans-serif; /* Fuente del botón */
             font-size: 20px; /* Tamaño del texto del botón */
+
             width: 260px; /* Ancho del botón */
             height: 50px; /* Altura del botón */
-
             border-radius: 10px; /* Borde redondeado del botón */
-            margin-top: 30px; /* Espacio superior entre el botón y el botón "Ingresar" */
+            margin-top: 20px; /* Espacio superior entre el botón y el botón "Ingresar" */
+
             cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
             text-decoration: none; /* Elimina la decoración de texto predeterminada */
 
@@ -127,7 +130,7 @@
         }
 
         .input-field {
-            width: 460px;
+            width: 600px;
             height: 30px;
             border: none;
             border-bottom: 1px solid #0a74d4; /* Línea de color azul debajo del campo de entrada */
@@ -139,31 +142,85 @@
             color: #ffff; /* Cambia el color del texto (por ejemplo, negro #333) */
         }
 
+
+        .button-container {
+            display: flex; /* Utilizar el modelo de caja flexible */
+            justify-content: center; /* Centrar horizontalmente */
+            align-items: center; /* Centrar verticalmente */
+            gap: 20px; /* Espacio entre botones */
+        }
+
+
     </style>
 </head>
+
 <body>
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <p>Datos ingresados erróneos. Por favor, complete todos los campos.</p>
+        </div>
+    </div>
 
     <div class="container">
-        <h1>Iniciar sesión</h1>
-        <div class="content">
-
-            <!-- Campos de entrada con etiquetas -->
+        <form id="login-form" class ="black-bg">
+            <h1>Iniciar sesión</h1>
             <div class="input-container">
                 <label class="input-label" for="correo">Correo electrónico:</label>
-                <input class="input-field" type="text" id="correo" ">
+                <input class="input-field" type="text" id="correo" name="correo">
+                <span class="error" id="correoError"></span>
             </div>
 
             <div class="input-container">
                 <label class="input-label" for="contrasena">Contraseña:</label>
-                <input class="input-field" type="password" id="contrasena" ">
+                <input class="input-field" type="password" id="contrasena" name="contrasena">
+                <span class="error" id="contrasenaError"></span>
             </div>
 
-            <!-- Botones y enlace -->
-            <a class="login-button">Ingresar</a>
-            <a class="back-button" href="/">Volver a la página principal</a>
-        </div>
+            <div class="button-container">
+                <a class="login-button" href="#" onclick="return validarInicioSesion()">Ingresar</a>
+                <a class="back-button" href="/">Volver a la página principal</a>
 
+            </div>
+
+        </form>
     </div>
+
+    <script>
+        function validarInicioSesion() {
+            // Obtener los valores ingresados
+            var correo = document.getElementById("correo").value;
+            var contrasena = document.getElementById("contrasena").value;
+
+            // Inicializar los mensajes de error
+            var correoError = document.getElementById("correoError");
+            var contrasenaError = document.getElementById("contrasenaError");
+
+            // Restablecer mensajes de error anteriores
+            correoError.textContent = "";
+            contrasenaError.textContent = "";
+
+            // Validar el campo de correo electrónico
+            if (correo.trim() === "") {
+                correoError.textContent = "Debe ingresar su correo electrónico para iniciar sesión";
+                correoError.style.color = "#ff8a80";
+                return false; // Evitar el envío del formulario
+            }
+
+            // Validar el campo de contraseña
+            if (contrasena.trim() === "") {
+                contrasenaError.textContent = "Debe ingresar su contraseña para iniciar sesión";
+                contrasenaError.style.color = "#ff8a80";
+                return false; // Evitar el envío del formulario
+            }
+
+            //Agregar más lógica para verificar el correo y la contraseña en tu base de datos o sistema.
+
+            // Si todo está bien, permitir el envío del formulario
+            return true;
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
