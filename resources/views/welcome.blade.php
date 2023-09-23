@@ -3,6 +3,7 @@
 <html lang="es">
 <head>
     <title>Turjoy - ¡Reserva tus viajes ahora mismo!</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <!-- Incluir los archivos CSS de Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <!-- Estilos personalizados -->
@@ -34,7 +35,8 @@
 
         /* Estilos para los botones */
         .custom-button {
-            margin-top: 20px; /* Espacio superior entre los botones */
+            margin-top: 30px; /* Espacio superior entre los botones */
+            margin-inline: 50px;
         }
 
         /* Estilos para el contenedor principal */
@@ -60,15 +62,19 @@
             text-decoration: none; /* Elimina el subrayado */
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Establece el reflejo con sombra */
         }
+
+
+
     </style>
 </head>
 <body>
+
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">ByteBridge Inc.</a>
             <div class="navbar-text ml-auto">
-                <a href="{{ route('login.php') }}">Log-in</a>
+                <a href="{{ route('login.php') }}" id = "login-link">Log-in</a>
             </div>
         </div>
     </nav>
@@ -82,8 +88,23 @@
             <!-- Botones -->
             <button class="btn btn-primary custom-button">Buscar reservas</button>
             <button class="btn btn-success custom-button">Reservar pasajes</button>
+
         </div>
     </div>
+    <script>
+        document.getElementById('login-link').addEventListener('click', function(event) {
+            event.preventDefault(); // Evitar la acción predeterminada del enlace
+
+            // Agregar una animación de deslizamiento hacia arriba antes de redirigir
+            document.body.style.transition = 'transform 0.5s ease';
+            document.body.style.transform = 'translateX(-100%)';
+
+            // Redirigir al archivo login.php después de la animación
+            setTimeout(function() {
+                window.location.href = '/login';
+            }, 500); // 500 ms es la duración de la animación
+        });
+    </script>
 
     <!-- Incluir los archivos JS de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>

@@ -150,22 +150,24 @@
             gap: 20px; /* Espacio entre botones */
         }
 
+        .password-input {
+            display: flex;
+            align-items: center;
+        }
+
+        #mostrarContrasena {
+            margin-left: 10px; /* Ajusta el margen izquierdo para separar el botón del campo de contraseña */
+        }
 
     </style>
 </head>
 
 <body>
-    <!-- Modal -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="cerrarModal()">&times;</span>
-            <p>Datos ingresados erróneos. Por favor, complete todos los campos.</p>
-        </div>
-    </div>
 
     <div class="container">
         <form id="login-form" class ="black-bg">
             <h1>Iniciar sesión</h1>
+
             <div class="input-container">
                 <label class="input-label" for="correo">Correo electrónico:</label>
                 <input class="input-field" type="text" id="correo" name="correo">
@@ -174,13 +176,19 @@
 
             <div class="input-container">
                 <label class="input-label" for="contrasena">Contraseña:</label>
-                <input class="input-field" type="password" id="contrasena" name="contrasena">
+                <div class="password-input">
+
+                    <input class="input-field" type="password" id="contrasena" name="contrasena">
+                    <img id="padlock" src="/closedpadlock.png" alt="Closed padlock" onclick="togglePasswordVisibility()">
+
+                </div>
                 <span class="error" id="contrasenaError"></span>
+
             </div>
 
             <div class="button-container">
                 <a class="login-button" href="#" onclick="return validarInicioSesion()">Ingresar</a>
-                <a class="back-button" href="/">Volver a la página principal</a>
+                <a class="back-button" href="/" id = "back-button">Volver a la página principal</a>
 
             </div>
 
@@ -220,6 +228,37 @@
             // Si todo está bien, permitir el envío del formulario
             return true;
         }
+    </script>
+
+    <script>
+        function togglePasswordVisibility() {
+            var contrasenaInput = document.getElementById("contrasena");
+            var mostrarContrasenaButton = document.getElementById("padlock");
+
+            if (contrasenaInput.type === "password") {
+                contrasenaInput.type = "text"; // Cambiar el tipo de entrada a texto para mostrar la contraseña
+                padlock.src = "/openpadlock.png"; // Cambiar la imagen del candado a "candado abierto"
+            } else {
+                contrasenaInput.type = "password"; // Cambiar el tipo de entrada a contraseña para ocultarla
+                padlock.src = "/closedpadlock.png"; // Cambiar la imagen del candado a "candado cerrado"
+            }
+        }
+
+    </script>
+
+    <script>
+        document.getElementById('back-button').addEventListener('click', function(event) {
+            event.preventDefault(); // Evitar la acción predeterminada del enlace
+
+            // Agregar una animación de deslizamiento hacia arriba antes de redirigir
+            document.body.style.transition = 'transform 0.5s ease';
+            document.body.style.transform = 'translateX(100%)';
+
+            // Redirigir al archivo login.php después de la animación
+            setTimeout(function() {
+                 window.location.href = '/';
+             }, 500); // 500 ms es la duración de la animación
+        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
