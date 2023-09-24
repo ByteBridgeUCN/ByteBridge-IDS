@@ -86,9 +86,8 @@
             <!-- Establece el directorio en donde esta la imagen a utilizar -->
             <img src="{{ Storage::url('images/logoturjoy.png') }}" alt="Logo" style="max-width: 100%;">
             <!-- Botones -->
-            <button class="btn btn-primary custom-button">Buscar reservas</button>
-            <button class="btn btn-success custom-button">Reservar pasajes</button>
-
+            <a href="{{ route('buscarReserva.php') }}" class="btn btn-primary">Buscar reservas</a>
+            <a href="{{ route('buscarReserva.php') }}" class="btn btn-success">Reservar pasajes</a>
         </div>
     </div>
     <script>

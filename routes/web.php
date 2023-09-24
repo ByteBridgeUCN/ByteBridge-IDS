@@ -37,3 +37,7 @@ Route::get('storage/images/{filename}', function ($filename) {
 
     return $response;
 })->where('filename', '.*');
+
+Route::get('/buscarReserva', function () {
+    return view('buscarReserva');
+})->name('buscarReserva.php');
