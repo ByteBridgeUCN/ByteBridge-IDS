@@ -1,0 +1,54 @@
+/*
+    ESTILOS CSS PARA LA PÁGINA DE INICIO
+*/
+.navbar {
+    background-color: #0a74da;
+}
+/* Color del texto en la barra de navegacion */
+.navbar-dark .navbar-text {
+    color: #fff;
+}
+/* Ajustar el margen superior para la imagen */
+.custom-image {
+    margin-top: 0; /* Elimina el margen superior para que la imagen esté justo debajo de la barra */
+    padding: 0; /* Elimina el relleno */
+}
+
+/* Estilos para el rectangulo */
+.custom-rectangle {
+    /*background-color: rgba(10, 116, 218, 0.4);  Color azul con 40% de transparencia */
+    padding: 20px; /* Espacio interno para contenido */
+    padding-left: 200px;
+    padding-right: 200px;
+    text-align: center;
+    color: #fff; /* Color del texto dentro del rectangulo */
+    margin-top: 0; /* Elimina el margen superior */
+}
+
+/* Estilos para los botones */
+.custom-button {
+    margin-top: 20px; /* Espacio superior entre los botones */
+}
+
+/* Estilos para el contenedor principal */
+.container-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Estilos para el título con sombreado */
+.navbar-brand {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Establece el reflejo con sombra */
+}
+
+/* Estilos para el enlace "Log-in" */
+.navbar-text a {
+    text-decoration: none; /* Elimina el subrayado */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Establece el reflejo con sombra */
+}

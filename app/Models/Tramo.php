@@ -10,7 +10,7 @@ class Tramo extends Model
     use HasFactory;
 
     protected $fillable = [
-        'idAministrador',
+        'idAdministrador',
         'idOrigen',
         'idDestino',
         'totalAsientos',

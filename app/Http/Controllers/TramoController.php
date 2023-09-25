@@ -12,7 +12,7 @@ class TramoController extends Controller
         // Creamos el tramo
         Tramo::create(
             [
-                'idAministrador' => $request->idAministrador,
+                'idAdministrador' => $request->idAdministrador,
                 'idOrigen' => $request->idOrigen,
                 'idDestino' => $request->idDestino,
                 'totalAsientos' => $request->totalAsientos,
