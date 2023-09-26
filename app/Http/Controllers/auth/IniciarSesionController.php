@@ -9,12 +9,12 @@ class IniciarSesionController extends Controller
 {
 
     // Crear función que muestre la vista para iniciar de sesión
-    public function create(){
+    public function crear(){
         return view('auth.login');
     }
 
     // Crear función que permita validar los datos ingresados en el formulario de inicio de sesión
-    public function store(Request $request){
+    public function almacenar(Request $request){
 
         // Validar
         $this->validate($request, [

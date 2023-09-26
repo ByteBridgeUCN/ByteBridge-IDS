@@ -151,7 +151,7 @@
         <div class="inner-box">
             <div class="content">
                 <h1>Iniciar sesión</h1>
-                <form method="POST" action="{{ route('iniciarsesion.store') }}">
+                <form method="POST" action="{{ route('iniciarsesion.almacenar') }}">
                     <div class="input-container">
                         <input type="email" name="email" id="email" placeholder="correo electrónico">
                         @error('email')
@@ -165,7 +165,7 @@
                             @enderror
                             <div class="button-container">
                                 <button type ="submit" class="login-button">Ingresar</button>
-                                <a href="{{ route('cargarRutas') }}" class="back-button">Volver</a>
+                                <a href="{{ route('inicio') }}" class="back-button">Volver</a>
                             </div>
                         </div>
                 </form>

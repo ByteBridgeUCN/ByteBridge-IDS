@@ -9,7 +9,7 @@ class InicioAdminController extends Controller
 {
 
     // Crear función que muestre la vista de inicio de sesión de administrador
-    public function create(){
+    public function crear(){
         return view('auth.inicioAdministrador');
     }
 }

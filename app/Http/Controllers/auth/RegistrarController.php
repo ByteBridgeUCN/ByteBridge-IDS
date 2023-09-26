@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class RegistrarController extends Controller
 {
-    public function create(){
+    public function crear(){
         return view('auth.register');
     }
 }

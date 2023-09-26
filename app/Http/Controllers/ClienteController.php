@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ClienteController extends Controller
 {
-    public function store(Request $request){
+    public function almacenar(Request $request){
 
         // Creamos el cliente
         Cliente::create(

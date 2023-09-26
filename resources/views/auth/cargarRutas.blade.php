@@ -27,7 +27,7 @@
         <div class="row justify-content-center align-items-center" style="height: 100vh;">
             <div class="col-6 text-center">
                 <h1>Cargar Rutas</h1>
-                <form class="form" method="POST" action="{{ route('cargarRutas.import') }}" enctype="multipart/form-data">
+                <form class="form" method="POST" action="{{ route('cargarRutas.importar') }}" enctype="multipart/form-data">
                     @csrf
                     <label>Escoge un archivo</label>
                     <input type="file" name="archivo" class="form-control" />

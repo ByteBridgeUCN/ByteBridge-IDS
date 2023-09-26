@@ -18,7 +18,7 @@ class DestinoImport implements ToModel, WithHeadingRow
     public function model(array $row){
 
         // Validar que la fila tenga todos los datos necesarios
-        if (!empty($row['origen'] && $row['destino'] && $row['cantidad_asientos'] && $row['tarifa_base'])) {
+        if ($this->validacion($row)) {
 
             // Obtener el la ciudad de destino
             $ciudad = Ciudad::where('nombre', $row['destino'])->first();
@@ -34,5 +34,37 @@ class DestinoImport implements ToModel, WithHeadingRow
 
             return $ciudad;
         }
+
+        return null;
+    }
+
+    public function validacion(array $fila){
+
+        // Validar que la fila tenga todos los datos necesarios
+        if (empty($fila['origen'] && $fila['destino'] && $fila['cantidad_asientos'] && $fila['tarifa_base'])) {
+            return false;
+        }
+
+        // Valida que los datos no sean numericos
+        else if(is_numeric($fila['origen']) || is_numeric($fila['destino'])){
+            return false;
+        }
+
+        // Valida que los datos no sean iguales
+        else if($fila['origen'] === $fila['destino']){
+            return false;
+        }
+
+        // Valida que los datos sean numericos
+        else if(!is_numeric($fila['cantidad_asientos']) || !is_numeric($fila['tarifa_base'])){
+            return false;
+        }
+
+        // Valida que los datos sean numéricos positivos
+        else if((int)$fila['cantidad_asientos'] < 0 || (int)$fila['tarifa_base'] < 0){
+            return false;
+        }
+
+        return true;
     }
 }
