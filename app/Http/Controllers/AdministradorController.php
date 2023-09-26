@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 class AdministradorController extends Controller
 {
     public function store(Request $request){
-        // Validar
 
         // Crear un nuevo administrador en la base de datos
         Administrador::create(

@@ -5,7 +5,8 @@ namespace App\Http\Controllers\auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Imports\TramosImport;
-use App\Imports\CiudadesImport;
+use App\Imports\OrigenImport;
+use App\Imports\DestinoImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class CargarRutasController extends Controller
@@ -17,8 +18,10 @@ class CargarRutasController extends Controller
     public function importarRutas(Request $request)
     {
 
-        // Validar que el archivo sea de tipo excel
-        Excel::import(new CiudadesImport, $request->file('archivo'));
+        // Cargar el archivo excel
+        Excel::import(new OrigenImport, $request->file('archivo'));
+
+        Excel::import(new DestinoImport, $request->file('archivo'));
 
         Excel::import(new TramosImport, $request->file('archivo'));
 

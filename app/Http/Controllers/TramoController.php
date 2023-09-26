@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 class TramoController extends Controller
 {
     public function store(Request $request){
-        // Validar
 
         // Creamos el tramo
         Tramo::create(

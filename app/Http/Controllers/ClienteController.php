@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 class ClienteController extends Controller
 {
     public function store(Request $request){
-        // Validar
 
         // Creamos el cliente
         Cliente::create(
@@ -17,6 +16,6 @@ class ClienteController extends Controller
                 'contrasena' => $request->contrasena,
                 'estado' => $request->estado
             ]
-        ); 
+        );
     }
 }
