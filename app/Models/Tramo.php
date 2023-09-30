@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Tramo extends Model
 {
     use HasFactory;
+<<<<<<< HEAD
+=======
+
+    protected $fillable = [
+        'idAdministrador',
+        'idOrigen',
+        'idDestino',
+        'totalAsientos',
+        'tarifaBase'
+    ];
+>>>>>>> 256b4b0beba01b924d780852abea9ed33b20bbd9
 }
