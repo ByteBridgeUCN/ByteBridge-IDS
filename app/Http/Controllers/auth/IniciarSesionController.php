@@ -22,10 +22,8 @@ class IniciarSesionController extends Controller
             'contrasena' => ['required']
         ]);
 
-        if(auth()->attempt([
-            'email' => $request->email,
-            'contrasena' => $request->contrasena])){
-            return back()->with('error', 'El usuario no existe');
+        if(!auth()->attempt($request->only('email', 'contrasena'), $request->remember)){
+            return back()->with('message', 'Las credenciales son incorrectas');
         }
 
         return redirect()->route('inicioAdministrador');
