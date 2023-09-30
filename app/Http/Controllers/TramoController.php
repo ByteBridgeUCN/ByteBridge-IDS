@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class TramoController extends Controller
 {
+<<<<<<< HEAD
     public function almacenar(Request $request){
 
         // Creamos el tramo
@@ -19,4 +20,7 @@ class TramoController extends Controller
             ]
         );
     }
+=======
+    //
+>>>>>>> testing
 }

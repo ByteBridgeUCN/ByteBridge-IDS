@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class CiudadController extends Controller
 {
+<<<<<<< HEAD
     public function almacenar(Request $request){
 
         // Creamos la ciudad
@@ -15,4 +16,7 @@ class CiudadController extends Controller
             ]
         );
     }
+=======
+    //
+>>>>>>> testing
 }

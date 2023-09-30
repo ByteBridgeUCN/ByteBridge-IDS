@@ -36,3 +36,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/mostrarRutas', [MostrarRutasController::class, 'mostrarTabla'])->name('mostrarRutas.mostrarTabla');
 
 });
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login.php');

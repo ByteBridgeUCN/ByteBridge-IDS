@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Reserva extends Model
 {
     use HasFactory;
+<<<<<<< HEAD
 
     protected $fillable = [
         'idTramo',
@@ -17,4 +18,6 @@ class Reserva extends Model
         'fechaCompra',
         'totalPrecio'
     ];  
+=======
+>>>>>>> testing
 }

@@ -8,8 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Ciudad extends Model
 {
     use HasFactory;
+<<<<<<< HEAD
 
     protected $fillable = [
         'nombre'
     ];
+=======
+>>>>>>> testing
 }
