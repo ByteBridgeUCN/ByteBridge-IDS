@@ -12,9 +12,15 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="/">ByteBridge Inc.</a>
+            <a class="navbar-brand">ByteBridge Inc.</a>
             <div class="navbar-text ml-auto">
-                <a href="{{ route('iniciarsesion') }}">Iniciar Sesión</a>
+                @auth
+                    <a href="{{ route('inicio') }}">Cerrar sesión</a>
+                @endauth
+
+                @guest
+                    <a href="{{ route('iniciarSesion') }}">Iniciar Sesión</a>
+                @endguest
             </div>
         </div>
     </nav>

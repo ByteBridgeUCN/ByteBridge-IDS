@@ -13,7 +13,7 @@ use App\Http\Controllers\auth\MostrarRutasController;
 
 class MostrarRutasController extends Controller
 {
-    public function crear(){
+    public function vista(){
         return view('auth.mostrarRutas');
     }
 }

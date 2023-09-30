@@ -151,22 +151,21 @@
         <div class="inner-box">
             <div class="content">
                 <h1>Iniciar sesión</h1>
-                <form method="POST" action="{{ route('iniciarsesion.almacenar') }}">
+                <form method = "POST">
                     <div class="input-container">
+                        @csrf
                         <input type="email" name="email" id="email" placeholder="correo electrónico">
                         @error('email')
                             <p class="bg-red-500 text-white my-2 rounded-lg text-lg text-center p-2">{{ $message }}</p>
                         @enderror
-                        <div class="input-container">
-                            <input type="password" name="contrasena" id="contrasena" placeholder="contraseña">
-                            <button type="button" class="show-password-button" onclick="togglePasswordVisibility()">Mostrar contraseña</button>
-                            @error('password')
-                                <p class="bg-red-500 text-white my-2 rounded-lg text-lg text-center p-2">{{ $message }}</p>
-                            @enderror
-                            <div class="button-container">
-                                <button type ="submit" class="login-button">Ingresar</button>
-                                <a href="{{ route('inicio') }}" class="back-button">Volver</a>
-                            </div>
+                        <input type="password" name="contrasena" id="contrasena" placeholder="contraseña">
+                        <button type="button" class="show-password-button" onclick="togglePasswordVisibility()">Mostrar contraseña</button>
+                        @error('contrasena')
+                            <p class="bg-red-500 text-white my-2 rounded-lg text-lg text-center p-2">{{ $message }}</p>
+                        @enderror
+                        <div class="button-container">
+                            <button type ="submit" class="login-button">Ingresar</button>
+                            <a href="{{ route('inicio') }}" class="back-button">Volver</a>
                         </div>
                 </form>
             </div>
@@ -182,12 +181,6 @@
             } else {
                 passwordInput.type = "password";
             }
-        }
-        // Función para leer el valor del campo de entrada de correo electrónico y contraseña
-        function parametrosAdministrador() {
-            var correoElectronico = document.getElementById("correo").value;
-            var contrasena = document.getElementById("contrasena").value;
-
         }
     </script>
 

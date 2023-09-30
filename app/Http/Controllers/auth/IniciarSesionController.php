@@ -4,29 +4,30 @@ namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Helpers\MyHelper;
 
 class IniciarSesionController extends Controller
 {
 
     // Crear función que muestre la vista para iniciar de sesión
-    public function crear(){
+    public function vista(){
         return view('auth.login');
     }
 
     // Crear función que permita validar los datos ingresados en el formulario de inicio de sesión
-    public function almacenar(Request $request){
-
+    public function entrar(Request $request){
         // Validar
         $this->validate($request, [
             'email' => ['required', 'email'],
-            'password' => 'required'
-        ], makeMessages());
+            'contrasena' => ['required']
+        ]);
 
-        // Verificar si el usuario existe en la base de datos
-        if(!auth()->attempt($request->only('email', 'password'), $request->remember)){
-            return back()->with('message', 'Usuario no registrado o contraseña incorrecta');
+        if(auth()->attempt([
+            'email' => $request->email,
+            'contrasena' => $request->contrasena])){
+            return back()->with('error', 'El usuario no existe');
         }
 
-        return redirect()->route('inicio');
+        return redirect()->route('inicioAdministrador');
     }
 }

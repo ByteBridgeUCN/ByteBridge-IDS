@@ -8,15 +8,27 @@ use App\Imports\TramosImport;
 use App\Imports\OrigenImport;
 use App\Imports\DestinoImport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Validator;
 
 class CargarRutasController extends Controller
 {
-    public function crear(){
+    public function vista(){
         return view('auth.cargarRutas');
     }
 
     public function importarRutas(Request $pedido)
     {
+        if(!$pedido->hasFile('archivo')){
+            return redirect('cargarRutas')->with('error', 'No se ha seleccionado ningún archivo.');
+        }
+
+        $validator = Validator::make($pedido->all(), ['archivo' => 'required|file|mimes:xlsx|max:5120',]);
+
+        if ($validator->fails()) {
+            return redirect('cargarRutas')
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         // Cargar el archivo excel
         if(Excel::import(new OrigenImport, $pedido->file('archivo')) != null){
@@ -37,6 +49,6 @@ class CargarRutasController extends Controller
             }
         }
 
-        return redirect('/')->with('success', 'All good!');
+        return redirect('inicioAdministrador')->with('success', 'All good!');
     }
 }

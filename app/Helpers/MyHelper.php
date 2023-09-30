@@ -1,10 +1,10 @@
 <?php
 
 function crearMensaje(){
-    $messages = [
+    $mensaje = [
         'email.required' => 'debe ingresar su correo electrónico para iniciar sesión',
-        'password.required' => 'debe ingresar su contraseña para iniciar sesión',
+        'contrasena.required' => 'debe ingresar su contraseña para iniciar sesión',
     ];
 
-    return $messages;
+    return $mensaje;
 }
