@@ -19,14 +19,19 @@ class IniciarSesionController extends Controller
     public function autenticar(Request $request){
         $this->validate($request, [
             'email' => ['required', 'email'],
-            'contrasena' => ['required']
+            'password' => ['required']
         ]);
 
-        if(!Administrador::where('email', $request->email)->exists() || !Administrador::where('contrasena', $request->contrasena)->exists()){
-            return back()->withErrors(['contrasena' => 'usuario no registrado o contraseña incorrecta']);
+        if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
+            return back()->with('message', 'usuario no registrado o contraseña incorrecta');
         }
 
-        auth()->login(Administrador::where('email', $request->email)->first());
+        // if(!Administrador::where('email', $request->email)->exists() || !Administrador::where('contrasena', $request->contrasena)->exists()){
+        //     return back()->withErrors(['contrasena' => 'usuario no registrado o contraseña incorrecta']);
+        // }
+
+        // auth()->login(Administrador::where('email', $request->email)->first());
+
         return redirect()->route('inicioAdministrador');
     }
 

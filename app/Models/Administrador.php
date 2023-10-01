@@ -16,12 +16,12 @@ class Administrador extends Authenticatable
     protected $fillable = [
         'nombre',
         'email',
-        'contrasena',
+        'password',
         'estado'
     ];
 
     protected $hidden = [
-        'contrasena',
+        'password',
         'recordar_token',
     ];
 
@@ -32,6 +32,6 @@ class Administrador extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'contrasena' => 'hashed',
+        'password' => 'hashed',
     ];
 }

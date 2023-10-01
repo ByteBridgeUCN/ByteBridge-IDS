@@ -13,7 +13,7 @@ class AdministradorController extends Controller
             [
                 'nombre' => $request->nombre,
                 'email' => $request->email,
-                'contrasena' => $request->contrasena,
+                'password' => $request->contrasena,
                 'estado' => $request->estado,
             ]);
     }
