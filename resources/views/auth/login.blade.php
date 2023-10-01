@@ -156,13 +156,17 @@
                     <div class="input-container">
                         <input type="email" name="email" id="email" placeholder="correo electrónico">
                         @error('email')
-                            <p class="bg-red-500 text-white my-2 rounded-lg text-lg text-center p-2">{{ $message }}</p>
+                            <p>{{ $message }}</p>
                         @enderror
-                        <input type="password" name="contrasena" id="contrasena" placeholder="contraseña">
+                        <input type="password" name="password" id="contrasena" placeholder="contraseña">
                         <button type="button" class="show-password-button" onclick="togglePasswordVisibility()">Mostrar contraseña</button>
-                        @error('contrasena')
-                            <p class="bg-red-500 text-white my-2 rounded-lg text-lg text-center p-2">{{ $message }}</p>
+                        @error('password')
+                            <p>{{ $message }}</p>
                         @enderror
+                        @if (session('message'))
+                            <p>{{ session('message') }}</p>
+
+                        @endif
                         <button type ="submit" class="login-button">Ingresar</button>
                         <a href="{{ route('inicio') }}" class="back-button">Volver</a>
                 </form>

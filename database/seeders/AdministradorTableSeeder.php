@@ -16,7 +16,7 @@ class AdministradorTableSeeder extends Seeder
         Administrador::create([
             'nombre' => 'Italo Donoso',
             'email' => 'italo.donoso@ucn.cl',
-            'contrasena' => 'Turjoy91',
+            'password' => 'Turjoy91',
             'estado' => 'Habilitado'
         ]);
     }
