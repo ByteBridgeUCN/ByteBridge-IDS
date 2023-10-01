@@ -13,6 +13,11 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 class TramosImport implements ToModel, WithHeadingRow{
     protected $excel = [];
+
+    public function __construct()
+    {
+        $this->excel = []; // Inicializa la variable excel en un nuevo array
+    }
     /**
     * @param array $fila
     *
@@ -33,7 +38,7 @@ class TramosImport implements ToModel, WithHeadingRow{
             // Si el tramo no existe y los datos numéricos son positivos se crea
             if (!$tramo) {
 
-                $this->excel[] = $origen->id . '-' . $destino->id;
+                $this->excel[] = [$origen->id . '-' . $destino->id];
                 // Obtener el administrador
                 $admin = Administrador::where('email', 'italo.donoso@ucn.cl')->first();
 
@@ -47,8 +52,9 @@ class TramosImport implements ToModel, WithHeadingRow{
                 ]);
             }
 
-            // Si el tramo ya existe en el mismo excel o si se carga otro archivo se actualiza
-            else if (!in_array($origen->id . '-' . $destino->id, $this->excel)) {
+            // Si el tramo no se encuntra repetido en el excel pero se encuentra en la base de datos se actualiza
+            else if ($tramo && !in_array([$origen->id . '-' . $destino->id], $this->excel)) {
+                $this->excel[] = [$origen->id . '-' . $destino->id];
                 $tramo->totalAsientos = $fila['cantidad_asientos'];
                 $tramo->tarifaBase = $fila['tarifa_base'];
             }

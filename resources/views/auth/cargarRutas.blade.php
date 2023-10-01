@@ -17,6 +17,14 @@
             height: 100vh;
             margin: 0;
         }
+
+        .corner-button {
+            background-color: #ffff;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 10px;
+        }
     </style>
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
@@ -32,9 +40,12 @@
                     <label>Escoge un archivo</label>
                     <input type="file" name="archivo" class="form-control" />
                     <div>
-                        <button type="submit" class="btn btn-info">Cargar</button>
+                        <button type="submit" class="btn btn-info" >Cargar</button>
                     </div>
                 </form>
+                <div class="corner-button">
+                    <a href="{{ route('inicioAdministrador') }}" class="btn btn-secondary" style="background-color: #0a74d4; color: #fff;">Volver</a>
+                </div>
             </div>
         </div>
     </div>

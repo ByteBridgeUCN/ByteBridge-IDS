@@ -151,9 +151,9 @@
         <div class="inner-box">
             <div class="content">
                 <h1>Iniciar sesión</h1>
-                <form method = "POST">
+                <form method = "POST" action = "{{ route('autenticar') }}" novalidate>
+                    @csrf
                     <div class="input-container">
-                        @csrf
                         <input type="email" name="email" id="email" placeholder="correo electrónico">
                         @error('email')
                             <p class="bg-red-500 text-white my-2 rounded-lg text-lg text-center p-2">{{ $message }}</p>
@@ -163,10 +163,8 @@
                         @error('contrasena')
                             <p class="bg-red-500 text-white my-2 rounded-lg text-lg text-center p-2">{{ $message }}</p>
                         @enderror
-                        <div class="button-container">
-                            <button type ="submit" class="login-button">Ingresar</button>
-                            <a href="{{ route('inicio') }}" class="back-button">Volver</a>
-                        </div>
+                        <button type ="submit" class="login-button">Ingresar</button>
+                        <a href="{{ route('inicio') }}" class="back-button">Volver</a>
                 </form>
             </div>
         </div>

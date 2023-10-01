@@ -19,5 +19,22 @@ use App\Http\Controllers\auth\MostrarRutasController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.inicio');
+})->name('inicio');
+
+Route::get('iniciarsesion', [IniciarSesionController::class, 'vista'])->name('iniciarSesion');
+Route::post('/iniciarsesion', [IniciarSesionController::class, 'autenticar'])->name('autenticar');
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('inicio', [IniciarSesionController::class, 'cerrarSesion'])->name('cerrarSesion');
+
+    Route::get('inicioAdministrador', [InicioAdminController::class, 'vista'])->name('inicioAdministrador');
+
+    Route::get('cargarRutas', [CargarRutasController::class, 'vista'])->name('cargarRutas');
+    Route::post('/cargarRutas', [CargarRutasController::class, 'importarRutas'])->name('cargarRutas.importar');
+
+    Route::get('mostrarRutas', [MostrarRutasController::class, 'vista'])->name('mostrarRutas');
+    Route::post('/mostrarRutas', [MostrarRutasController::class, 'mostrarTabla'])->name('mostrarRutas.mostrarTabla');
+
 });
