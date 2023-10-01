@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\auth\IniciarSesionController;
+use App\Http\Controllers\auth\InicioController;
+use App\Http\Controllers\auth\InicioAdminController;
+use App\Http\Controllers\auth\CargarRutasController;
+use App\Http\Controllers\auth\MostrarRutasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,27 +21,3 @@ use Illuminate\Support\Facades\Storage;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/login', function () {
-    return view('login');
-})->name('login.php');
-
-Route::get('storage/images/{filename}', function ($filename) {
-    $path = storage_path('app/public/images/' . $filename);
-
-    if (!Storage::exists('public/images/' . $filename) || !file_exists($path)) {
-        abort(404);
-    }
-
-    $file = Storage::get('public/images/' . $filename);
-    $type = Storage::mimeType('public/images/' . $filename);
-
-    $response = response($file, 200);
-    $response->header("Content-Type", $type);
-
-    return $response;
-})->where('filename', '.*');
-
-Route::get('/buscarReserva', function () {
-    return view('buscarReserva');
-})->name('buscarReserva.php');
