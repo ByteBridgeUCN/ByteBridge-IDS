@@ -25,7 +25,7 @@
     <p> Hola, {{ Auth::user()['nombre'] }}. Bienvenido a Turjoy! </p>
     <div class="button-container">
         <a href="{{ route('cargarRutas') }}" class="btn btn-primary">Cargar rutas</a>
-        <a href="{{ route('inicio') }}" class="btn btn-secondary">Buscar reservas</a>
+        <a class="btn btn-secondary">Buscar reservas</a>
     </div>
 </body>
 

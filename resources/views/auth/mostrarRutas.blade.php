@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Tu código de encabezado aquí -->
+
 </head>
 <body>
+
+    <a href="{{ route('inicioAdministrador') }}" class="btn btn-secondary" style="background-color: #0a74d4; color: #fff;">Volver</a>
+
     <h1>Mostrar tabla de las rutas</h1>
 
     @if (isset($error))
