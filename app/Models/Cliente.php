@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     use HasFactory;
-<<<<<<< HEAD
 
     protected $fillable = [
         'nombre',
@@ -16,6 +15,4 @@ class Cliente extends Model
         'contrasena',
         'estado'
     ];
-=======
->>>>>>> testing
 }

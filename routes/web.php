@@ -23,9 +23,11 @@ Route::get('/', function () {
 })->name('inicio');
 
 Route::get('iniciarsesion', [IniciarSesionController::class, 'vista'])->name('iniciarSesion');
-Route::post('/iniciarsesion', [IniciarSesionController::class, 'entrar'])->name('iniciarSesion.entrar');
+Route::post('/iniciarsesion', [IniciarSesionController::class, 'autenticar'])->name('autenticar');
 
 Route::middleware(['auth'])->group(function () {
+
+    Route::get('inicio', [IniciarSesionController::class, 'cerrarSesion'])->name('cerrarSesion');
 
     Route::get('inicioAdministrador', [InicioAdminController::class, 'vista'])->name('inicioAdministrador');
 
@@ -36,7 +38,3 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/mostrarRutas', [MostrarRutasController::class, 'mostrarTabla'])->name('mostrarRutas.mostrarTabla');
 
 });
-
-Route::get('/login', function () {
-    return view('login');
-})->name('login.php');

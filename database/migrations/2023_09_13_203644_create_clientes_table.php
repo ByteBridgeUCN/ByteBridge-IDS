@@ -15,11 +15,7 @@ return new class extends Migration
             $table->id('id');
             $table->timestamps();
             $table->string('nombre');
-<<<<<<< HEAD
             $table->string('email')->unique();
-=======
-            $table->string('email');
->>>>>>> testing
             $table->string('contrasena');
             $table->string('estado');
         });

@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 class AdministradorController extends Controller
 {
-<<<<<<< HEAD
     public function almacenar(Request $request){
 
         // Crear un nuevo administrador en la base de datos
@@ -18,7 +17,4 @@ class AdministradorController extends Controller
                 'estado' => $request->estado,
             ]);
     }
-=======
-    //
->>>>>>> testing
 }

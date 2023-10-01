@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-<<<<<<< HEAD
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -35,10 +34,4 @@ class Administrador extends Authenticatable
         'email_verified_at' => 'datetime',
         'contrasena' => 'hashed',
     ];
-=======
-
-class Administrador extends Model
-{
-    use HasFactory;
->>>>>>> testing
 }
