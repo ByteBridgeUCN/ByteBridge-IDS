@@ -9,10 +9,13 @@ class Tramo extends Model
 {
     use HasFactory;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
 >>>>>>> dev
+=======
+>>>>>>> 1ce2dac7168a26586f70cf058c9f4ca69196c6ad
 
     protected $fillable = [
         'idAdministrador',
@@ -22,7 +25,10 @@ class Tramo extends Model
         'tarifaBase'
     ];
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 256b4b0beba01b924d780852abea9ed33b20bbd9
 >>>>>>> dev
+=======
+>>>>>>> 1ce2dac7168a26586f70cf058c9f4ca69196c6ad
 }

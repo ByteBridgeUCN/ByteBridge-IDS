@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+*{
+    font-family: 'poppins',sans-serif;
+}
+
+
+
+/* Establece el cuerpo y el documento HTML para llenar toda la altura de la ventana */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white; /* Cambia el color de fondo si lo deseas */
+    min-height: 100vh; /* Asegura que la página ocupe al menos toda la altura de la ventana */
+}
+
+.container {
+    text-align: center; /* Alinea el contenido en el centro horizontal */
+    background: transparent;
+    border: 4px solid rgba(0, 0, 0, 1);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    padding: 20px; /* Añade un poco de espacio alrededor del contenedor */
+}
+
+.input-container {
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Estilos para el botón de mostrar/ocultar contraseña */
+.show-password-button {
+    margin-top: 5px; /* Espacio entre el campo de contraseña y el botón */
+}
+
+
+
+.button-container {
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center;
+    gap: 10px;
+}
+
+.login-button {
+
+    background: #2ecc71;
+    color: #1d1d1d;
+    cursor: pointer;
+    font-size: 1.3em;
+    padding: 0.5rem;
+    border: 0;
+    transition: all 0.5s;
+    border-radius: 10px;
+    width: auto;
+    position: relative;
+    min-width: 250px;
+
+    &::after {
+        content: "\f2f6";
+
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 400;
+        position: absolute;
+        left: 80%;
+        top: 54%;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+
+    }
+
+    &:hover {
+        background: #0A74DA;
+        transition: all 0.5s;
+        border-radius: 10px;
+        box-shadow: 0px 6px 15px #0000ff61;
+        padding: 1.5rem 3rem 1.5rem 1.5rem;
+        color: #ffffff;
+
+        &::after {
+            opacity: 1;
+            transition: all 0.5s;
+            color: #ffffff;
+
+        }
+    }
+}
+
+.back-button {
+
+    background: #ff6b6b;
+    color: #1d1d1d;
+    cursor: pointer;
+    font-size: 1.3em;
+    padding: 0.5rem;
+    border: 0;
+    transition: all 0.5s;
+    border-radius: 10px;
+    width: auto;
+    position: relative;
+    min-width: 250px;
+
+    &::after {
+        content: "\f2f6";
+
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 400;
+        position: absolute;
+        left: 80%;
+        top: 54%;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+
+    }
+
+    &:hover {
+        background: #0A74DA;
+        transition: all 0.5s;
+        border-radius: 10px;
+        box-shadow: 0px 6px 15px #0000ff61;
+        padding: 1.5rem 3rem 1.5rem 1.5rem;
+        color: #ffffff;
+
+        &::after {
+            opacity: 1;
+            transition: all 0.5s;
+            color: #ffffff;
+
+        }
+    }
+}
