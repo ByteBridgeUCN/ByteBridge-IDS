@@ -30,11 +30,14 @@ class CargarRutasController extends Controller
                 ->withInput();
         }
 
+        $tramosImport = new TramosImport();
+
         // Cargar el archivo excel
         if(Excel::import(new OrigenImport, $pedido->file('archivo')) != null){
             if(Excel::import(new DestinoImport, $pedido->file('archivo')) != null){
-                if(Excel::import(new TramosImport, $pedido->file('archivo')) != null){
-                    $datos = Excel::toArray(new TramosImport, $pedido->file('archivo'));
+                if(Excel::import($tramosImport, $pedido->file('archivo')) != null){
+
+                    $datos = Excel::toArray($tramosImport, $pedido->file('archivo'));
 
                     // Comprobar si hay datos
                     if (count($datos) > 0) {

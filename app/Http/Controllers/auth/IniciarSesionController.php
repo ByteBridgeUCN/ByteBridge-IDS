@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\auth;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Helpers\MyHelper;
+use App\Http\Controllers\Controller;
+use App\Models\Administrador;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class IniciarSesionController extends Controller
 {
@@ -14,20 +16,27 @@ class IniciarSesionController extends Controller
         return view('auth.login');
     }
 
-    // Crear función que permita validar los datos ingresados en el formulario de inicio de sesión
-    public function entrar(Request $request){
-        // Validar
+    public function autenticar(Request $request){
         $this->validate($request, [
             'email' => ['required', 'email'],
-            'contrasena' => ['required']
+            'password' => ['required']
         ]);
 
-        if(auth()->attempt([
-            'email' => $request->email,
-            'contrasena' => $request->contrasena])){
-            return back()->with('error', 'El usuario no existe');
+        if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
+            return back()->with('message', 'usuario no registrado o contraseña incorrecta');
         }
 
+        // if(!Administrador::where('email', $request->email)->exists() || !Administrador::where('contrasena', $request->contrasena)->exists()){
+        //     return back()->withErrors(['contrasena' => 'usuario no registrado o contraseña incorrecta']);
+        // }
+
+        // auth()->login(Administrador::where('email', $request->email)->first());
+
         return redirect()->route('inicioAdministrador');
+    }
+
+    public function cerrarSesion(){
+        auth()->logout();
+        return redirect()->route('inicio');
     }
 }

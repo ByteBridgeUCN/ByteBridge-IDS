@@ -23,9 +23,11 @@ Route::get('/', function () {
 })->name('inicio');
 
 Route::get('iniciarsesion', [IniciarSesionController::class, 'vista'])->name('iniciarSesion');
-Route::post('/iniciarsesion', [IniciarSesionController::class, 'entrar'])->name('iniciarSesion.entrar');
+Route::post('/iniciarsesion', [IniciarSesionController::class, 'autenticar'])->name('autenticar');
 
 Route::middleware(['auth'])->group(function () {
+
+    Route::get('inicio', [IniciarSesionController::class, 'cerrarSesion'])->name('cerrarSesion');
 
     Route::get('inicioAdministrador', [InicioAdminController::class, 'vista'])->name('inicioAdministrador');
 

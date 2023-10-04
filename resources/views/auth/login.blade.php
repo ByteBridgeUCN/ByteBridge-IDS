@@ -12,41 +12,28 @@
 </head>
 
 <body>
-    <section>
-        <div class="form-box">
-            <div class="form-value">
-                <form method = "POST">
-                    <h2>Login</h2>
-
-                    <div class="input-box">
-                        @csrf
-                        <ion-icon name="mail-outline"></ion-icon>
-                        <input type="email" name="email" id="email">
-                        <label>Correo electrónico</label>
+    <div class="container">
+        <div class="inner-box">
+            <div class="content">
+                <h1>Iniciar sesión</h1>
+                <form method = "POST" action = "{{ route('autenticar') }}" novalidate>
+                    @csrf
+                    <div class="input-container">
+                        <input type="email" name="email" id="email" placeholder="correo electrónico">
                         @error('email')
                             <p>{{ $message }}</p>
                         @enderror
-
-                    </div>
-
-                    <div class="input-box">
-                        <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" name="contrasena" id="contrasena">
-                        <label>Contraseña</label>
-                        <button type="button" class="boton-mostrar-contrasena" onclick="togglePasswordVisibility()">Mostrar contraseña</button>
-                        @error('contrasena')
+                        <input type="password" name="password" id="contrasena" placeholder="contraseña">
+                        <button type="button" class="show-password-button" onclick="togglePasswordVisibility()">Mostrar contraseña</button>
+                        @error('password')
                             <p>{{ $message }}</p>
                         @enderror
-                    </div>
+                        @if (session('message'))
+                            <p>{{ session('message') }}</p>
 
-                    <div class="button-container">
+                        @endif
                         <button type ="submit" class="login-button">Ingresar</button>
                         <a href="{{ route('inicio') }}" class="back-button">Volver</a>
-                    </div>
-
-                    <div class="olvidar-contrasena">
-                        <label for=""><input type="checkbox">Recuerdame para otra sesion.<a href="#">¿Olvido su contraseña? Haga click aquí.</a></label>
-                    </div>
                 </form>
             </div>
         </div>
