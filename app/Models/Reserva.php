@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Reserva extends Model
 {
     use HasFactory;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> dev
 
     protected $fillable = [
         'idTramo',
@@ -16,5 +21,10 @@ class Reserva extends Model
         'cantAsientos',
         'fechaCompra',
         'totalPrecio'
+<<<<<<< HEAD
     ];
+=======
+    ];  
+>>>>>>> 256b4b0beba01b924d780852abea9ed33b20bbd9
+>>>>>>> dev
 }

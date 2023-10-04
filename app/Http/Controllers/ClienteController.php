@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class ClienteController extends Controller
 {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    //
+=======
+>>>>>>> dev
     public function almacenar(Request $request){
 
         // Creamos el cliente
@@ -18,4 +24,8 @@ class ClienteController extends Controller
             ]
         );
     }
+<<<<<<< HEAD
+=======
+>>>>>>> 256b4b0beba01b924d780852abea9ed33b20bbd9
+>>>>>>> dev
 }

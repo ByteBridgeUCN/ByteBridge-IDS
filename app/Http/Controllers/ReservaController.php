@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class ReservaController extends Controller
 {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    //
+=======
+>>>>>>> dev
     public function almacenar(Request $request){
         // Validar
 
@@ -21,4 +27,8 @@ class ReservaController extends Controller
             ]
         );
     }
+<<<<<<< HEAD
+=======
+>>>>>>> 256b4b0beba01b924d780852abea9ed33b20bbd9
+>>>>>>> dev
 }
