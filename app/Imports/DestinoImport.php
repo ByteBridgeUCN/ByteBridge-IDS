@@ -40,6 +40,11 @@ class DestinoImport implements ToModel, WithHeadingRow
 
     public function validacion(array $fila){
 
+        // Verificar que las columnas existan en el arreglo
+        if (!isset($fila['origen']) || !isset($fila['destino']) || !isset($fila['cantidad_asientos']) || !isset($fila['tarifa_base'])) {
+            return false;
+        }
+
         // Validar que la fila tenga todos los datos necesarios
         if (empty($fila['origen'] && $fila['destino'] && $fila['cantidad_asientos'] && $fila['tarifa_base'])) {
             return false;

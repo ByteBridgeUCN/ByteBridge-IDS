@@ -15,19 +15,8 @@ return new class extends Migration
             $table->id('id');
             $table->timestamps();
             $table->string('nombre');
-<<<<<<< HEAD
-<<<<<<< HEAD
             $table->string('email')->unique();
-=======
-<<<<<<< HEAD
-            $table->string('email');
-=======
             $table->string('email')->unique();
->>>>>>> 256b4b0beba01b924d780852abea9ed33b20bbd9
->>>>>>> dev
-=======
-            $table->string('email')->unique();
->>>>>>> 1ce2dac7168a26586f70cf058c9f4ca69196c6ad
             $table->string('contrasena');
             $table->string('estado');
         });

@@ -73,7 +73,8 @@
 
                     echo '<tr>';
 
-                    foreach ($fila as $clave => $valor) {
+                    foreach (['origen', 'destino', 'cantidad_asientos', 'tarifa_base'] as $clave) {
+                        $valor = $fila[$clave];
                         if(!empty($valor) || $fila['origen'] || $fila['destino'] || $fila['cantidad_asientos'] || $fila['tarifa_base']){
                             if (empty($fila['origen'] || $fila['destino'] || $fila['cantidad_asientos'] || $fila['tarifa_base']) ||
                             is_numeric($fila['origen']) || is_numeric($fila['destino']) ||

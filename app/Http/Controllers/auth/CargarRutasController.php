@@ -30,6 +30,16 @@ class CargarRutasController extends Controller
                 ->withInput();
         }
 
+        // Obtener la primera fila del archivo Excel
+        $nombresColumnas = current(Excel::toArray([], $pedido->file('archivo')));
+
+        // Verificar que todas las columnas requeridas estén presentes y coincidan
+        foreach (['origen', 'destino', 'cantidad_asientos', 'tarifa_base'] as $columna) {
+            if (!in_array($columna, $nombresColumnas, true)) {
+                return redirect('cargarRutas')->with('error', 'Pasó algo!');
+            }
+        }
+
         $tramosImport = new TramosImport();
 
         // Cargar el archivo excel
@@ -41,17 +51,17 @@ class CargarRutasController extends Controller
 
                     // Comprobar si hay datos
                     if (count($datos) > 0) {
-                        // Obtener la primera hoja del archivo Excel (puedes ajustar esto según tus necesidades)
+                        // Obtener la primera hoja del archivo Excel
                         $hoja = $datos[0];
 
                         return view('auth.mostrarRutas', compact('hoja'));
                     } else {
-                        return view('auth.mostrarRutas')->with('error', 'El archivo Excel está vacío.');
+                        return view('auth.cargarRutas')->with('error', 'El archivo Excel está vacío.');
                     }
                 }
             }
         }
 
-        return redirect('inicioAdministrador')->with('success', 'All good!');
+        return redirect('cargarRutas')->with('error', 'Pasó algo!');
     }
 }
