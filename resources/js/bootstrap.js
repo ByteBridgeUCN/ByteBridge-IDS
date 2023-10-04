@@ -6,7 +6,7 @@
 
 import axios from 'axios';
 import $ from 'jquery';
-import 'bootstrap-datepicker';
+//import 'bootstrap-datepicker';
 
 window.$ = window.jQuery = $;
 window.axios = axios;

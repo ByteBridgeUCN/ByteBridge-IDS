@@ -38,11 +38,13 @@
             transition: all 0.3;
         }
         .btn-reservar:hover{
-            transform: translateY(-10px);
+            background-color: black;
+
         }
 
         .btn-buscar-reserva:hover{
-            transform: translateY(-10px);
+            background-color: black;
+
         }
 
 
