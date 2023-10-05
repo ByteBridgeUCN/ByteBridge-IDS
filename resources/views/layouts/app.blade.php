@@ -20,7 +20,7 @@
                 @endauth
 
                 @guest
-                    <a href="{{ route('iniciarSesion') }}">Iniciar Sesión</a>
+                    <a href="{{ route('iniciarSesion') }}">Iniciar sesión</a>
                 @endguest
             </div>
         </div>

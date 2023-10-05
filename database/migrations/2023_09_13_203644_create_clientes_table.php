@@ -16,7 +16,6 @@ return new class extends Migration
             $table->timestamps();
             $table->string('nombre');
             $table->string('email')->unique();
-            $table->string('email')->unique();
             $table->string('contrasena');
             $table->string('estado');
         });

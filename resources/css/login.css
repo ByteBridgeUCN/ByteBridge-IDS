@@ -17,30 +17,56 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white; /* Cambia el color de fondo si lo deseas */
-    min-height: 100vh; /* Asegura que la página ocupe al menos toda la altura de la ventana */
+    background-color: white;
+    min-height: 100vh;
+    transform: scale(1); /* Establece una escala inicial mayor que 1 */
+    opacity: 0; /* Establece la opacidad inicial en 0 para que el contenido no sea visible */
+    transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+body.loaded {
+    transform: scale(1);
+    opacity: 1; /* Establece la opacidad completa para mostrar el contenido */
 }
 
 .container {
-    text-align: center; /* Alinea el contenido en el centro horizontal */
+    text-align: center;
     background: transparent;
     border: 4px solid rgba(0, 0, 0, 1);
     border-radius: 20px;
     backdrop-filter: blur(15px);
-    padding: 20px; /* Añade un poco de espacio alrededor del contenedor */
+    padding: 20px;
 }
 
-.input-container {
-    margin: 40px;
+
+.correo-container{
+    margin: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
+.contrasena-container{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-/* Estilos para el botón de mostrar/ocultar contraseña */
+}
+
+p{
+    color:#ff6b6b;
+}
+
 .show-password-button {
-    margin-top: 5px; /* Espacio entre el campo de contraseña y el botón */
+    margin-top: 10px;
+    background: none;
+    border: none;
+    text-shadow: 3px 3px 6px;
+    font-size: 15px;
+    cursor:pointer;
+
 }
 
 
@@ -55,7 +81,7 @@ body {
 .login-button {
 
     background: #2ecc71;
-    color: #1d1d1d;
+    color: black;
     cursor: pointer;
     font-size: 1.3em;
     padding: 0.5rem;
@@ -67,8 +93,6 @@ body {
     min-width: 250px;
 
     &::after {
-        content: "\f2f6";
-
         font-family: "Font Awesome 5 Pro";
         font-weight: 400;
         position: absolute;
@@ -101,7 +125,7 @@ body {
 .back-button {
 
     background: #ff6b6b;
-    color: #1d1d1d;
+    color: black;
     cursor: pointer;
     font-size: 1.3em;
     padding: 0.5rem;
@@ -110,10 +134,10 @@ body {
     border-radius: 10px;
     width: auto;
     position: relative;
-    min-width: 250px;
+    min-width: 240px;
+    text-decoration: none;
 
     &::after {
-        content: "\f2f6";
 
         font-family: "Font Awesome 5 Pro";
         font-weight: 400;

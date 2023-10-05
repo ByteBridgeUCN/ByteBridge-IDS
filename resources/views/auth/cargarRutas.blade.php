@@ -4,32 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Turjoy - ¡Reserva tus viajes ahora mismo!</title>
-    <!-- Incluir los archivos CSS de Bootstrap -->
+    <title>Turjoy | Cargar rutas</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <!-- Estilos personalizados -->
-    <style>
-        body {
-            background-color: #ffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .corner-button {
-            background-color: #ffff;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            padding: 10px;
-        }
-
-    </style>
-    @vite('resources/css/app.css')
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
+    @vite('resources/css/cargarRutas.css')
     @extends('layouts.app')
+
 </head>
 <body>
     <div class="container">
@@ -44,9 +24,14 @@
                         <button type="submit" class="btn btn-secondary" style="background-color: #2ecc71; color: #fff;" >Cargar</button>
                     </div>
                 </form>
-                <div class="corner-button">
-                    <a href="{{ route('inicioAdministrador') }}" class="btn btn-secondary" style="background-color: #ff6b6b; color: #fff;">Volver</a>
+                <div class="container-boton-volver">
+                    <a href="{{ route('inicioAdministrador') }}" class="boton-volver">Volver</a>
                 </div>
+                @if(session('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error') }}
+                </div>
+                @endif
             </div>
         </div>
     </div>

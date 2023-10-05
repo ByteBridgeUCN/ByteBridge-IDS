@@ -1,0 +1,51 @@
+body {
+    background-color: #ffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    transform: scale(1.2); /* Establece una escala inicial mayor que 1 */
+    opacity: 0; /* Establece la opacidad inicial en 0 para que el contenido no sea visible */
+    transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+body.loaded {
+    transform: scale(1);
+    opacity: 1; /* Establece la opacidad completa para mostrar el contenido */
+}
+
+
+.btn-reservar {
+    background-color: #2ecc71;
+    /* Otros estilos, como el color del texto, el padding, etc., si es necesario */
+    color: #fff; /* Cambiar el color del texto a blanco para que se vea mejor en el fondo verde */
+    padding: 10px 20px;
+    border: none; /* Si deseas quitar el borde del botón */
+    text-decoration: none; /* Para quitar subrayado si es un enlace */
+    border-radius: 5px; /* Agrega bordes redondos */
+
+    transition: all 0.3;
+}
+
+
+
+.btn-buscar-reserva {
+    background-color: #0a74da;
+    /* Otros estilos, como el color del texto, el padding, etc., si es necesario */
+    color: #fff; /* Cambiar el color del texto a blanco para que se vea mejor en el fondo verde */
+    padding: 10px 20px;
+    border: none; /* Si deseas quitar el borde del botón */
+    text-decoration: none; /* Para quitar subrayado si es un enlace */
+    border-radius: 5px; /* Agrega bordes redondos */
+    transition: all 0.3;
+}
+.btn-reservar:hover{
+    background-color: black;
+
+}
+
+.btn-buscar-reserva:hover{
+    background-color: black;
+}
+

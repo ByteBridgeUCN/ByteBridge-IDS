@@ -14,7 +14,7 @@ class AdministradorTableSeeder extends Seeder
     public function run(): void
     {
         Administrador::create([
-            'nombre' => 'Italo Donoso',
+            'nombre' => 'Ítalo Donoso',
             'email' => 'italo.donoso@ucn.cl',
             'password' => 'Turjoy91',
             'estado' => 'Habilitado'

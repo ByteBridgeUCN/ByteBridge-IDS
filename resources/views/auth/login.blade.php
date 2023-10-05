@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/css/login.css'])
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
+
 </head>
 
 <body>
@@ -17,13 +18,13 @@
         <h1>Iniciar sesión</h1>
         <form method="POST" action="{{ route('autenticar') }}" novalidate>
             @csrf
-            <div class="input-container">
+            <div class="correo-container">
                 <input type="email" name="email" id="email" placeholder="Correo electrónico">
                 @error('email')
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <div class="input-container">
+            <div class="contrasena-container">
                 <input type="password" name="password" id="contrasena" placeholder="Contraseña">
 
                 <button type="button" class="show-password-button" onclick="togglePasswordVisibility()">Mostrar contraseña</button>
@@ -41,10 +42,15 @@
                 <a href="{{ route('inicio') }}" class="back-button">Volver</a>
             </div>
 
+
         </form>
     </div>
 
-
+    <script>
+        window.addEventListener("load", function () {
+            document.body.classList.add("loaded");
+        });
+    </script>
 
 
     <script>
@@ -58,8 +64,11 @@
             }
         }
     </script>
+
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 
 </body>
 </html>
