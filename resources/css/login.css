@@ -19,7 +19,7 @@ body {
     align-items: center;
     background-color: white;
     min-height: 100vh;
-    transform: scale(1); /* Establece una escala inicial mayor que 1 */
+    transform: scale(1.1); /* Establece una escala inicial mayor que 1 */
     opacity: 0; /* Establece la opacidad inicial en 0 para que el contenido no sea visible */
     transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
 }
