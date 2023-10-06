@@ -26,15 +26,13 @@ class CargarRutasController extends Controller
         $extension = $archivo->getClientOriginalExtension();
 
         if ($extension !== 'xlsx') {
-            return redirect('cargarRutas')->with('error', 'El archivo seleccionado no es Excel con extensión .xlsx.');
+            return redirect('cargarRutas')->with('error', 'el archivo seleccionado no es Excel con extensión .xlsx.');
         }
 
-        $validator = Validator::make($pedido->all(), ['archivo' => 'required|file|mimes:xlsx|max:5120',]);
+        $validator = Validator::make($pedido->all(), ['archivo' => 'required|file|max:5120',]);
 
         if ($validator->fails()) {
-            return redirect('cargarRutas')
-                ->withErrors($validator)
-                ->withInput();
+            return redirect('cargarRutas')->withErrors('error', 'el tamaño máximo del archivo a cargar no puede superar los 5 megabytes');
         }
 
         // Obtener la primera fila del archivo Excel
@@ -43,7 +41,7 @@ class CargarRutasController extends Controller
         // Verificar que todas las columnas requeridas estén presentes y coincidan
         foreach (['origen', 'destino', 'cantidad_asientos', 'tarifa_base'] as $columna) {
             if (!in_array($columna, $nombresColumnas[0])) {
-                return redirect('cargarRutas')->with('error', 'El archivo Excel que ha cargado posee errores, por favor, verifique su archivo.');
+                return redirect('cargarRutas')->with('error', 'el archivo Excel que ha cargado posee errores, por favor, verifique su archivo.');
             }
         }
 
