@@ -52,7 +52,7 @@ class TramosImport implements ToModel, WithHeadingRow{
                 ]);
             }
 
-            // Si el tramo no se encuntra repetido en el excel pero se encuentra en la base de datos se actualiza
+            // Si el tramo no se encuentra repetido en el excel pero se encuentra en la base de datos se actualiza
             else if ($tramo && !in_array([$origen->id . '-' . $destino->id], $this->excel)) {
                 $this->excel[] = [$origen->id . '-' . $destino->id];
                 $tramo->totalAsientos = $fila['cantidad_asientos'];

@@ -73,18 +73,21 @@
 
                     echo '<tr>';
 
-                    foreach ($fila as $clave => $valor) {
-                        if (empty($fila['origen']) || empty($fila['destino']) || empty($fila['cantidad_asientos']) ||
-                        empty($fila['tarifa_base']) || is_numeric($fila['origen']) || is_numeric($fila['destino']) ||
-                        $fila['origen'] === $fila['destino'] || !is_numeric($fila['cantidad_asientos']) || !is_numeric($fila['tarifa_base']) ||
-                        (int)$fila['cantidad_asientos'] < 0 || (int)$fila['tarifa_base'] < 0) {
-                            echo '<td class="error-fila">' . $valor . '</td>';
-                        }
-                        elseif ($tramoRepetido) {
-                            echo '<td class="repetido-fila">' . $valor . '</td>';
-                        }
-                        else {
-                            echo '<td class="correcto-fila">' . $valor . '</td>';
+                    foreach (['origen', 'destino', 'cantidad_asientos', 'tarifa_base'] as $clave) {
+                        $valor = $fila[$clave];
+                        if(!empty($valor) || $fila['origen'] || $fila['destino'] || $fila['cantidad_asientos'] || $fila['tarifa_base']){
+                            if (empty($fila['origen'] || $fila['destino'] || $fila['cantidad_asientos'] || $fila['tarifa_base']) ||
+                            is_numeric($fila['origen']) || is_numeric($fila['destino']) ||
+                            $fila['origen'] === $fila['destino'] || !is_numeric($fila['cantidad_asientos']) || !is_numeric($fila['tarifa_base']) ||
+                            (int)$fila['cantidad_asientos'] < 0 || (int)$fila['tarifa_base'] < 0) {
+                                echo '<td class="error-fila">' . $valor . '</td>';
+                            }
+                            elseif ($tramoRepetido) {
+                                echo '<td class="repetido-fila">' . $valor . '</td>';
+                            }
+                            else {
+                                echo '<td class="correcto-fila">' . $valor . '</td>';
+                            }
                         }
                     }
                     echo '</tr>';

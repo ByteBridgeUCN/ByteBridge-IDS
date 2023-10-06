@@ -22,12 +22,29 @@ class CargarRutasController extends Controller
             return redirect('cargarRutas')->with('error', 'No se ha seleccionado ningún archivo.');
         }
 
+        $archivo = $pedido->file('archivo');
+        $extension = $archivo->getClientOriginalExtension();
+
+        if ($extension !== 'xlsx') {
+            return redirect('cargarRutas')->with('error', 'El archivo seleccionado no es Excel con extensión .xlsx.');
+        }
+
         $validator = Validator::make($pedido->all(), ['archivo' => 'required|file|mimes:xlsx|max:5120',]);
 
         if ($validator->fails()) {
             return redirect('cargarRutas')
                 ->withErrors($validator)
                 ->withInput();
+        }
+
+        // Obtener la primera fila del archivo Excel
+        $nombresColumnas = current(Excel::toArray([], $pedido->file('archivo')));
+
+        // Verificar que todas las columnas requeridas estén presentes y coincidan
+        foreach (['origen', 'destino', 'cantidad_asientos', 'tarifa_base'] as $columna) {
+            if (!in_array($columna, $nombresColumnas[0])) {
+                return redirect('cargarRutas')->with('error', 'El archivo Excel que ha cargado posee errores, por favor, verifique su archivo.');
+            }
         }
 
         $tramosImport = new TramosImport();
@@ -41,17 +58,17 @@ class CargarRutasController extends Controller
 
                     // Comprobar si hay datos
                     if (count($datos) > 0) {
-                        // Obtener la primera hoja del archivo Excel (puedes ajustar esto según tus necesidades)
+                        // Obtener la primera hoja del archivo Excel
                         $hoja = $datos[0];
 
                         return view('auth.mostrarRutas', compact('hoja'));
                     } else {
-                        return view('auth.mostrarRutas')->with('error', 'El archivo Excel está vacío.');
+                        return view('auth.cargarRutas')->with('error', 'El archivo Excel está vacío.');
                     }
                 }
             }
         }
 
-        return redirect('inicioAdministrador')->with('success', 'All good!');
+        return redirect('cargarRutas')->with('error', 'Pasó algo!');
     }
 }

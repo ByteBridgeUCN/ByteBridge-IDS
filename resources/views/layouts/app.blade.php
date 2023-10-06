@@ -9,6 +9,7 @@
     <title>Document</title>
 </head>
 
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
@@ -19,7 +20,7 @@
                 @endauth
 
                 @guest
-                    <a href="{{ route('iniciarSesion') }}">Iniciar Sesión</a>
+                    <a href="{{ route('iniciarSesion') }}">Iniciar sesión</a>
                 @endguest
             </div>
         </div>

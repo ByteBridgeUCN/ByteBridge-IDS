@@ -2,31 +2,25 @@
 <html lang="es">
 
 <head>
-    <title>Turjoy - ¡Reserva tus viajes ahora mismo!</title>
-    <!-- Incluir los archivos CSS de Bootstrap -->
+    <title>Turjoy | Administrador: {{ Auth::user()['nombre'] }}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <!-- Estilos personalizados -->
-    <style>
-        body {
-            background-color: #ffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-    </style>
-    @vite('resources/css/app.css')
+    @vite(['resources/css/inicioAdministrador.css'])
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
     @extends('layouts.app')
 </head>
 
 <body>
-    <p> Hola, {{ Auth::user()['nombre'] }}. Bienvenido a Turjoy! </p>
-    <div class="button-container">
-        <a href="{{ route('cargarRutas') }}" class="btn btn-primary">Cargar rutas</a>
-        <a class="btn btn-secondary">Buscar reservas</a>
+    <div class="contenedor-administrador">
+        <h1> Hola, {{ Auth::user()['nombre'] }}. ¡Bienvenido a Turjoy!</h1>
+        <div class="button-container">
+            <a href="{{ route('cargarRutas') }}" class="boton-cargar-rutas">Cargar rutas</a>
+            <a href="#" class="boton-buscar-ruta">Buscar rutas</a>
+            <a href="#" class="boton-reporte-reserva" ">Reportes de reserva</a>
+        </div>
     </div>
+
+
+
 </body>
 
 </html>
