@@ -29,6 +29,9 @@ class CargarRutasController extends Controller
             return redirect('cargarRutas')->with('error', 'El archivo seleccionado no es Excel con extensión .xlsx.');
         }
 
+        //TO-DO [08.10.2023] : FALTA IMPLEMENTAR LA VERIFICACION SI EL ARCHIVO PESA MAS DE 5 MB
+
+
         $validator = Validator::make($pedido->all(), ['archivo' => 'required|file|mimes:xlsx|max:5120',]);
 
         if ($validator->fails()) {

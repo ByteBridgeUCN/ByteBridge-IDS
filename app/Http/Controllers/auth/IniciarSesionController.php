@@ -27,14 +27,6 @@ class IniciarSesionController extends Controller
             return back()->with('message', 'Usuario no registrado o contraseña incorrecta.');
         }
 
-        // if(!Administrador::where('email', $request->email)->exists() || !Administrador::where('contrasena', $request->contrasena)->exists()){
-        //     return back()->withErrors(['contrasena' => 'usuario no registrado o contraseña incorrecta']);
-        // }
-
-        // auth()->login(Administrador::where('email', $request->email)->first());
-
-
-
         return redirect()->route('inicioAdministrador');
     }
 
