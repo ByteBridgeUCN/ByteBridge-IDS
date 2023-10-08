@@ -67,6 +67,6 @@ class CargarRutasController extends Controller
             }
         }
 
-        return redirect('cargarRutas')->with('error', 'Pasó algo!');
+        return redirect('cargarRutas')->with('error', 'Pasó algo');
     }
 }
