@@ -5,11 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ciudad extends Model
+class Ticket extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'nombre'
+        'travelId',
+        'userId',
+        'travelDate',
+        'purchaseDate',
+        'purchasedSeats',
+        'price'
     ];
 }

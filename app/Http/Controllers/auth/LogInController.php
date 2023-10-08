@@ -4,41 +4,33 @@ namespace App\Http\Controllers\auth;
 
 use App\Helpers\MyHelper;
 use App\Http\Controllers\Controller;
-use App\Models\Administrador;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class IniciarSesionController extends Controller
+class LogInController extends Controller
 {
 
     // Crear función que muestre la vista para iniciar de sesión
-    public function vista(){
+    public function view(){
         return view('auth.login');
     }
 
-    public function autenticar(Request $request){
-        $mensaje = crearMensaje();
+    public function auth(Request $request){
+        $message = makeMessage();
         $this->validate($request, [
             'email' => ['required', 'email'],
             'password' => ['required']
-        ],$mensaje);
+        ],$message);
 
         if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
             return back()->with('message', 'usuario no registrado o contraseña incorrecta.');
         }
 
-        // if(!Administrador::where('email', $request->email)->exists() || !Administrador::where('contrasena', $request->contrasena)->exists()){
-        //     return back()->withErrors(['contrasena' => 'usuario no registrado o contraseña incorrecta']);
-        // }
-
-        // auth()->login(Administrador::where('email', $request->email)->first());
-
-
-
         return redirect()->route('inicioAdministrador');
     }
 
-    public function cerrarSesion(){
+    public function logout(){
         auth()->logout();
         return redirect()->route('inicio');
     }

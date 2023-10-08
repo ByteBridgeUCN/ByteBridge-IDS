@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clientes', function (Blueprint $table) {
-            $table->id('id');
+        Schema::create('user_roles', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
-            $table->string('nombre');
-            $table->string('email')->unique();
-            $table->string('contrasena');
-            $table->string('estado');
+            $table->unsignedBigInteger('userId');
+            $table->foreign('userId')->references('id')->on('users');
+            $table->unsignedBigInteger('roleId');
+            $table->foreign('roleId')->references('id')->on('roles');
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clientes');
+        Schema::dropIfExists('user_roles');
     }
 };
