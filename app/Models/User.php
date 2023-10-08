@@ -9,15 +9,15 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 
-class Administrador extends Authenticatable
+class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
-        'nombre',
+        'name',
         'email',
         'password',
-        'estado'
+        'state'
     ];
 
     protected $hidden = [
