@@ -20,7 +20,7 @@ use App\Http\Controllers\auth\MostrarRutasController;
 
 Route::get('/', function () {
     return view('auth.inicio');
-})->name('inicio');
+})->name('inicio')->middleware('guest');
 
 Route::get('iniciarsesion', [LogInController::class, 'view'])->name('iniciarSesion');
 Route::post('/iniciarsesion', [LogInController::class, 'auth'])->name('autenticar');
