@@ -20,8 +20,8 @@
                     @csrf
                     <label>Escoge un archivo</label>
                     <input type="file" name="archivo" class="form-control" />
-                    <div>
-                        <button type="submit" class="btn btn-secondary" style="background-color: #2ecc71; color: #fff;" >Cargar</button>
+                    <div class = "load-file-button-container">
+                        <button type="submit" class="boton-cargar"><span>Cargar</span></button>
                     </div>
                 </form>
                 <div class="container-boton-volver">

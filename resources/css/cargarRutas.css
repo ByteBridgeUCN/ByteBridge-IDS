@@ -30,21 +30,23 @@ body {
 .boton-cargar {
     background-color: #2ecc71;
     position: absolute;
-    bottom: 0;
-    left: 0;
     margin-left: 50px;
     text-decoration: none;
     font-weight: 500;
     font-size: 14px;
     color: #333;
-    display: block;
     padding: 14px 20px;
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 10px;
-
+    margin-top: 20px;
+    
 }
 
+.load-file-button-volver{
+    display: flex;
+    justify-content: center;
+}
 
 .btn-secondary{
     margin: 20px;
@@ -57,4 +59,96 @@ body {
     border: 0;
     border-radius: 10px;
     text-align: center;
+}
+
+@keyframes extend {
+    0% {
+        width: 75px;
+        height: 38px;
+        
+    }
+    10% {
+        width: 70px;
+        height: 38px;
+        
+    }
+    20% {
+        width: 60px;
+        height: 38px;
+        
+    }
+    100% {
+        width: 38px;
+        height: 38px;
+        border-radius: 100px;
+    }
+}
+
+@keyframes disappear {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+html {
+    background: #ffff;
+}
+
+input,
+button,
+submit {
+    border: none;
+}
+
+.cont {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    left: 50%;
+    top: 50%;
+    margin: -100px 0 0 -300px;
+}
+
+button > span {
+    font-size: 16px;
+    color: #ffff;
+}
+
+img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: 1;
+    background-image: url('../../public/ticket.png');
+    background-size: cover;
+}
+
+button:focus {
+    animation: extend 0.9s ease-in-out forwards;
+}
+
+button:focus > span {
+    animation: disappear 0.5s ease-in-out forwards;
+}
+
+button:focus > img {
+    animation: appear 1s ease-in-out forwards;
 }
