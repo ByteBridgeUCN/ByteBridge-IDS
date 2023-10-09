@@ -5,15 +5,14 @@ namespace App\Http\Controllers\auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Exports\TablaExcelExport;
-use App\Imports\TramosImport;
-use App\Imports\OrigenImport;
-use App\Imports\DestinoImport;
+use App\Imports\TravelsImport;
+use App\Imports\OriginImport;
+use App\Imports\DestinationImport;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Http\Controllers\auth\MostrarRutasController;
 
-class MostrarRutasController extends Controller
+class ShowTravelsController extends Controller
 {
-    public function vista(){
+    public function view(){
         return view('auth.mostrarRutas');
     }
 }

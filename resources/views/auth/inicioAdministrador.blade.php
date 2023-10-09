@@ -11,7 +11,7 @@
 
 <body>
     <div class="contenedor-administrador">
-        <h1> Hola, {{ Auth::user()['nombre'] }}. ¡Bienvenido a Turjoy!</h1>
+        <h1> Hola, {{ Auth::user()['name'] }}. ¡Bienvenido a Turjoy!</h1>
         <div class="button-container">
             <a href="{{ route('cargarRutas') }}" class="boton-cargar-rutas">Cargar rutas</a>
             <a href="#" class="boton-buscar-ruta">Buscar rutas</a>

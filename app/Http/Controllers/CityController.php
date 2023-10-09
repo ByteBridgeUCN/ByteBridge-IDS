@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CiudadController extends Controller
+class CityController extends Controller
 {
     public function almacenar(Request $request){
 
-        // Creamos la ciudad
-        Ciudad::create(
+        // Create city
+        City::create(
             [
-                'nombre' => $request->nombre
+                'name' => $request->nombre
             ]
         );
     }

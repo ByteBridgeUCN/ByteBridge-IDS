@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\auth\IniciarSesionController;
+use App\Http\Controllers\auth\LogInController;
 use App\Http\Controllers\auth\InicioController;
 use App\Http\Controllers\auth\InicioAdminController;
-use App\Http\Controllers\auth\CargarRutasController;
+use App\Http\Controllers\auth\GetTravelsController;
 use App\Http\Controllers\auth\MostrarRutasController;
 
 /*
@@ -22,19 +22,18 @@ Route::get('/', function () {
     return view('auth.inicio');
 })->name('inicio');
 
-Route::get('iniciarsesion', [IniciarSesionController::class, 'vista'])->name('iniciarSesion');
-Route::post('/iniciarsesion', [IniciarSesionController::class, 'autenticar'])->name('autenticar');
+Route::get('iniciarsesion', [LogInController::class, 'view'])->name('iniciarSesion');
+Route::post('/iniciarsesion', [LogInController::class, 'auth'])->name('autenticar');
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('inicio', [IniciarSesionController::class, 'cerrarSesion'])->name('cerrarSesion');
+    Route::get('inicio', [LogInController::class, 'logout'])->name('cerrarSesion');
 
     Route::get('inicioAdministrador', [InicioAdminController::class, 'vista'])->name('inicioAdministrador');
 
-    Route::get('cargarRutas', [CargarRutasController::class, 'vista'])->name('cargarRutas');
-    Route::post('/cargarRutas', [CargarRutasController::class, 'importarRutas'])->name('cargarRutas.importar');
+    Route::get('cargarRutas', [GetTravelsController::class, 'view'])->name('cargarRutas');
+    Route::post('/cargarRutas', [GetTravelsController::class, 'importTravels'])->name('cargarRutas.importar');
 
-    Route::get('mostrarRutas', [MostrarRutasController::class, 'vista'])->name('mostrarRutas');
-    Route::post('/mostrarRutas', [MostrarRutasController::class, 'mostrarTabla'])->name('mostrarRutas.mostrarTabla');
+    Route::get('mostrarRutas', [ShowTravelsController::class, 'view'])->name('mostrarRutas');
 
 });
