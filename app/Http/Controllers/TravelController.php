@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TravelController extends Controller
-{
-    public function store(Request $request){
+class TravelController extends Controller {
+
+    public function store(Request $request) {
 
         // Create travel
         Tramo::create(
@@ -17,5 +17,7 @@ class TravelController extends Controller
                 'baseRate' => $request->baseRate
             ]
         );
+
     }
+
 }

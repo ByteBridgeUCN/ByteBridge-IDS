@@ -8,13 +8,13 @@ use App\Models\UserRole;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class UserTableSeeder extends Seeder
-{
+class UserTableSeeder extends Seeder {
+
     /**
      * Run the database seeds.
      */
-    public function run(): void
-    {
+    public function run(): void {
+
         User::create([
             'name' => 'Ítalo Donoso',
             'email' => 'italo.donoso@ucn.cl',
@@ -96,4 +96,5 @@ class UserTableSeeder extends Seeder
         ]);
 
     }
+
 }
