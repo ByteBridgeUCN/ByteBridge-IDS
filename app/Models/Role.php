@@ -5,15 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tramo extends Model
+class Role extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'idAdministrador',
-        'idOrigen',
-        'idDestino',
-        'totalAsientos',
-        'tarifaBase'
+        'name'
     ];
 }

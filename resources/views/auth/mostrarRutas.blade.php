@@ -47,7 +47,7 @@
         </div>
     @endif
 
-    @if (isset($hoja) && count($hoja) > 0)
+    @if (isset($sheet) && count($sheet) > 0)
         <table>
             <thead>
                 <tr>
@@ -61,7 +61,7 @@
 
                 <?php
                 $origenesYDestinos = array(); // Un array para almacenar origenes y destinos ya procesados
-                foreach ($hoja as $fila) {
+                foreach ($sheet as $fila) {
                     $tramoRepetido = false;
                     // Verifica si el origen y destino ya existen en filas anteriores
                     if (in_array([$fila['origen'] . $fila['destino']], $origenesYDestinos)) {
