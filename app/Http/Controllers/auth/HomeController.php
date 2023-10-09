@@ -5,11 +5,11 @@ namespace App\Http\Controllers\auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class InicioController extends Controller {
+class HomeController extends Controller {
 
-    public function crear() {
+    public function view() {
 
-        return view('auth.inicio');
+        return view('auth.Home');
 
     }
 

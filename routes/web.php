@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\LogInController;
 use App\Http\Controllers\auth\InicioController;
-use App\Http\Controllers\auth\InicioAdminController;
+use App\Http\Controllers\auth\AdminHomeController;
 use App\Http\Controllers\auth\GetTravelsController;
 use App\Http\Controllers\auth\MostrarRutasController;
 
@@ -19,21 +19,21 @@ use App\Http\Controllers\auth\MostrarRutasController;
 */
 
 Route::get('/', function () {
-    return view('auth.inicio');
-})->name('inicio');
+    return view('auth.Home');
+})->name('Home')->middleware('guest');
 
-Route::get('iniciarsesion', [LogInController::class, 'view'])->name('iniciarSesion');
-Route::post('/iniciarsesion', [LogInController::class, 'auth'])->name('autenticar');
+Route::get('Login', [LogInController::class, 'view'])->name('Login');
+Route::post('/Login', [LogInController::class, 'auth'])->name('Auth');
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('inicio', [LogInController::class, 'logout'])->name('cerrarSesion');
+    Route::get('Home', [LogInController::class, 'logout'])->name('Logout');
 
-    Route::get('inicioAdministrador', [InicioAdminController::class, 'vista'])->name('inicioAdministrador');
+    Route::get('AdminHome', [AdminHomeController::class, 'view'])->name('AdminHome');
 
-    Route::get('cargarRutas', [GetTravelsController::class, 'view'])->name('cargarRutas');
-    Route::post('/cargarRutas', [GetTravelsController::class, 'importTravels'])->name('cargarRutas.importar');
+    Route::get('LoadRoutes', [GetTravelsController::class, 'view'])->name('LoadRoutes');
+    Route::post('/LoadRoutes', [GetTravelsController::class, 'importTravels'])->name('LoadRoutes.import');
 
-    Route::get('mostrarRutas', [ShowTravelsController::class, 'view'])->name('mostrarRutas');
+    Route::get('ShowRoutes', [ShowTravelsController::class, 'view'])->name('ShowRoutes');
 
 });

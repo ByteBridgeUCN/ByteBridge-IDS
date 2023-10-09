@@ -37,7 +37,7 @@
 </head>
 <body>
 
-    <a href="{{ route('inicioAdministrador') }}" class="btn btn-secondary" style="background-color: #0a74d4; color: #fff;">Volver</a>
+    <a href="{{ route('AdminHome') }}" class="btn btn-secondary" style="background-color: #0a74d4; color: #fff;">Volver</a>
 
     <h1>Mostrar tabla de las rutas</h1>
 
@@ -60,33 +60,33 @@
             <tbody>
 
                 <?php
-                $origenesYDestinos = array(); // Un array para almacenar origenes y destinos ya procesados
-                foreach ($sheet as $fila) {
-                    $tramoRepetido = false;
+                $originsAndDestinations = array(); // Un array para almacenar origenes y destinos ya procesados
+                foreach ($sheet as $row) {
+                    $repeatedTravel = false;
                     // Verifica si el origen y destino ya existen en filas anteriores
-                    if (in_array([$fila['origen'] . $fila['destino']], $origenesYDestinos)) {
-                        $tramoRepetido = true;
+                    if (in_array([$row['origen'] . $row['destino']], $originsAndDestinations)) {
+                        $repeatedTravel = true;
                     }
                     else {
-                        $origenesYDestinos[] = [$fila['origen'] . $fila['destino']];
+                        $originsAndDestinations[] = [$row['origen'] . $row['destino']];
                     }
 
                     echo '<tr>';
 
-                    foreach (['origen', 'destino', 'cantidad_asientos', 'tarifa_base'] as $clave) {
-                        $valor = $fila[$clave];
+                    foreach (['origen', 'destino', 'cantidad_asientos', 'tarifa_base'] as $key) {
+                        $value = $row[$key];
                         // Verifica si el valor es vacio o si es un numero o si es un origen igual a destino o si no es un numero o si es menor a 0
-                        if (empty($fila['origen']) || empty($fila['destino']) || empty($fila['cantidad_asientos']) || empty($fila['tarifa_base']) ||
-                        is_numeric($fila['origen']) || is_numeric($fila['destino']) ||
-                        $fila['origen'] === $fila['destino'] || !is_numeric($fila['cantidad_asientos']) || !is_numeric($fila['tarifa_base']) ||
-                        (int)$fila['cantidad_asientos'] < 0 || (int)$fila['tarifa_base'] < 0) {
-                            echo '<td class="error-fila">' . $valor . '</td>';
+                        if (empty($row['origen']) || empty($row['destino']) || empty($row['cantidad_asientos']) || empty($row['tarifa_base']) ||
+                        is_numeric($row['origen']) || is_numeric($row['destino']) ||
+                        $row['origen'] === $row['destino'] || !is_numeric($row['cantidad_asientos']) || !is_numeric($row['tarifa_base']) ||
+                        (int)$row['cantidad_asientos'] < 0 || (int)$row['tarifa_base'] < 0) {
+                            echo '<td class="error-fila">' . $value . '</td>';
                         }
-                        elseif ($tramoRepetido) {
-                            echo '<td class="repetido-fila">' . $valor . '</td>';
+                        elseif ($repeatedTravel) {
+                            echo '<td class="repetido-fila">' . $value . '</td>';
                         }
                         else {
-                            echo '<td class="correcto-fila">' . $valor . '</td>';
+                            echo '<td class="correcto-fila">' . $value . '</td>';
                         }
                     }
                     echo '</tr>';

@@ -16,7 +16,7 @@
 
     <div class="container">
         <h1>Iniciar sesión</h1>
-        <form method="POST" action="{{ route('autenticar') }}" novalidate>
+        <form method="POST" action="{{ route('Auth') }}" novalidate>
             @csrf
             <div class="correo-container">
                 <input type="email" name="email" id="email" placeholder="Correo electrónico">
@@ -39,7 +39,7 @@
             @endif
             <div class="button-container">
                 <button type="submit" class="login-button">Ingresar</button>
-                <a href="{{ route('inicio') }}" class="back-button">Volver</a>
+                <a href="{{ route('Home') }}" class="back-button">Volver</a>
             </div>
 
 

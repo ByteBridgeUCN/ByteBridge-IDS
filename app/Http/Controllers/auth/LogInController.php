@@ -42,13 +42,13 @@ class LogInController extends Controller {
 
         }
 
-        return redirect()->route('inicioAdministrador');
+        return redirect()->route('AdminHome');
     }
 
     public function logout() {
 
         auth()->logout();
-        return redirect()->route('inicio');
+        return redirect()->route('Home');
 
     }
 
