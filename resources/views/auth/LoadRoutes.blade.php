@@ -7,7 +7,7 @@
     <title>Turjoy | Cargar rutas</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
-    @vite('resources/css/cargarRutas.css')
+    @vite('resources/css/LoadRoutes.css')
     @extends('layouts.app')
 
 </head>
@@ -20,8 +20,8 @@
                     @csrf
                     <label>Escoge un archivo</label>
                     <input type="file" name="file" class="form-control" />
-                    <div>
-                        <button type="submit" class="btn btn-secondary" style="background-color: #2ecc71; color: #fff;" >Cargar</button>
+                    <div class = "load-file-button-container">
+                        <button type="submit" class="boton-cargar" >Cargar</button>
                     </div>
                 </form>
                 <div class="container-boton-volver">

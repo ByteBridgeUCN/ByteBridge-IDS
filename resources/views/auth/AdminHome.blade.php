@@ -4,8 +4,8 @@
 <head>
     <title>Turjoy | Administrador: {{ Auth::user()['name'] }}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    @vite(['resources/css/inicioAdministrador.css'])
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
+    @vite(['resources/css/AdminHome.css'])
     @extends('layouts.app')
 </head>
 

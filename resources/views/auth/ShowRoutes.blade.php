@@ -1,38 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    @vite(['resources/css/ShowRoutes.css'])
     <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #0a74d4;
-            color: #fff;
-        }
-
-        .error-fila {
-            background-color: #ff8a80;
-        }
-
-        .correcto-fila {
-            background-color: #a8e6cf;
-        }
-
-        .repetido-fila {
-            background-color: #e4e6a8;
-        }
-
-        tr:nth-child(even) {
-            background-color: #ffffff;
-        }
     </style>
 </head>
 <body>
