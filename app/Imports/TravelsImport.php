@@ -30,6 +30,26 @@ class TravelsImport implements ToModel, WithHeadingRow{
             $origin = City::where('name', $row['origen'])->first();
             $destination = City::where('name', $row['destino'])->first();
 
+            // Si la ciudad no existe, crea una nueva
+            if (!$origin) {
+
+                // Se crea la ciudad
+                $origin = new City([
+                    "name" => $row['origen']
+                ]);
+                $origin->save();
+            }
+
+            // Si la ciudad no existe, crea una nueva
+            if (!$destination) {
+
+                // Se crea la ciudad
+                $destination = new City([
+                    "name" => $row['destino']
+                ]);
+                $destination->save();
+            }
+
             // Obtener el tramo
             $travel = Travel::where('originId', $origin->id)->where('destinationId', $destination->id)->first();
 
