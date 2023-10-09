@@ -10,9 +10,12 @@ use App\Imports\OriginImport;
 use App\Imports\DestinationImport;
 use Maatwebsite\Excel\Facades\Excel;
 
-class ShowTravelsController extends Controller
-{
-    public function view(){
+class ShowTravelsController extends Controller {
+
+    public function view() {
+
         return view('auth.mostrarRutas');
+
     }
+
 }

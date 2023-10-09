@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TicketController extends Controller
-{
-    public function store(Request $request){
+class TicketController extends Controller {
+
+    public function store(Request $request) {
 
         // Create ticket
         Ticket::create(
@@ -19,5 +19,7 @@ class TicketController extends Controller
                 'price' => $request->price
             ]
         );
+
     }
+
 }
