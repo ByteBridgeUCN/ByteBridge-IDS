@@ -37,7 +37,7 @@ class GetTravelsController extends Controller {
 
         if ($validator->fails()) {
 
-            return redirect('LoadRoutes')->withErrors('error', 'el tamaño máximo del archivo a cargar no puede superar los 5 megabytes');
+            return redirect('LoadRoutes')->with('error', 'el tamaño máximo del archivo a cargar no puede superar los 5 megabytes');
 
         }
 
@@ -67,6 +67,7 @@ class GetTravelsController extends Controller {
             if (count($data) > 0) {
                 // Obtener la primera hoja del archivo Excel
                 $sheet = $data[0];
+                sleep(1);
                 return view('auth.ShowRoutes', compact('sheet'));
 
             } else {
@@ -78,7 +79,7 @@ class GetTravelsController extends Controller {
         }
 
         return redirect('LoadRoutes')->with('error', 'Pasó algo!');
-
+        
     }
-
+    
 }
