@@ -21,7 +21,7 @@
                     <label>Escoge un archivo</label>
                     <input type="file" name="file" class="form-control" />
                     <div class = "load-file-button-volver">
-                        <button type="submit" class="boton-cargar"><span>Subir</span><img src="{{asset('ticket.png')}}" height="32" width="32"></button>
+                        <button type="submit" class="load-file-button"><span>Subir</span><img src="{{asset('ticket.png')}}" height="32" width="32"></button>
                     </div>
                 </form>
                 <div class="back-button-container">
