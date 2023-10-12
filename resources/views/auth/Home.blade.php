@@ -15,8 +15,8 @@
         <div class="col-md-6 custom-rectangle">
             <img src="logoturjoy.png" alt="Logo" style="max-width: 100%;">
 
-            <button class="btn-buscar-reserva">Buscar reservas</button>
-            <button class="btn-reservar">Reservar pasajes</button>
+            <button class="btn-search-reservation">Buscar reservas</button>
+            <button class="btn-reservation">Reservar pasajes</button>
         </div>
     </div>
     <script>

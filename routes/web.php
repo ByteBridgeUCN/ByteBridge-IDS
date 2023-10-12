@@ -36,7 +36,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('ShowRoutes', [ShowTravelsController::class, 'view'])->name('ShowRoutes');
 
-    //Route::get('SearchTicket', [SearchTicketController::class, 'view'])->name('SearchTicket');
+    Route::get('SearchTicket', [SearchTicketController::class, 'view'])->name('SearchTicket');
 
 
 });

@@ -21,11 +21,11 @@
                     <label>Escoge un archivo</label>
                     <input type="file" name="file" class="form-control" />
                     <div class = "load-file-button-container">
-                        <button type="submit" class="boton-cargar" >Cargar</button>
+                        <button type="submit" class="load-file-button" >Cargar</button>
                     </div>
                 </form>
-                <div class="container-boton-volver">
-                    <a href="{{ route('AdminHome') }}" class="boton-volver">Volver</a>
+                <div class="back-button-container">
+                    <a href="{{ route('AdminHome') }}" class="back-button">Volver</a>
                 </div>
                 @if(session('error'))
                 <div class="alert alert-danger" role="alert">

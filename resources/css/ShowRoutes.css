@@ -14,15 +14,15 @@ th {
     color: #fff;
 }
 
-.error-fila {
+.error-row {
     background-color: #ff8a80;
 }
 
-.correcto-fila {
+.valid-row {
     background-color: #a8e6cf;
 }
 
-.repetido-fila {
+.repeated-row {
     background-color: #e4e6a8;
 }
 
