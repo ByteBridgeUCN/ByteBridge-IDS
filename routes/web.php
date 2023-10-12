@@ -19,8 +19,8 @@ use App\Http\Controllers\auth\MostrarRutasController;
 */
 
 Route::get('/', function () {
-    return view('auth.inicio');
-})->name('inicio')->middleware('guest');
+    return view('auth.Home');
+})->name('Home')->middleware('guest');
 
 Route::get('Login', [LogInController::class, 'view'])->name('Login');
 Route::post('/Login', [LogInController::class, 'auth'])->name('Auth');

@@ -13,21 +13,24 @@
 </head>
 <body>
     <div class="container">
-        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+        <div class="row justify-content-center align-items-center" >
             <div class="col-6 text-center">
                 <h1>Cargar Rutas</h1>
                 <form class="form" method="POST" action="{{ route('LoadRoutes.import') }}" enctype="multipart/form-data">
                     @csrf
                     <label>Escoge un archivo</label>
                     <input type="file" name="file" class="form-control" />
-                    <div>
-                        <button type="submit" class="btn btn-secondary" style="background-color: #2ecc71; color: #fff;" >Cargar</button>
+                    <div class = "load-file-button-volver">
+                        <button type="submit" class="boton-cargar"><span>Subir</span><img src="{{asset('ticket.png')}}" height="32" width="32"></button>
                     </div>
                 </form>
                 <div class="container-boton-volver">
                     <a href="{{ route('AdminHome') }}" class="boton-volver">Volver</a>
                 </div>
-                @if(session('error'))
+                
+            </div>
+            <div class = "alert-container">
+            @if(session('error'))
                 <div class="alert alert-danger" role="alert">
                     {{ session('error') }}
                 </div>
@@ -37,3 +40,5 @@
     </div>
 </body>
 </html>
+
+
