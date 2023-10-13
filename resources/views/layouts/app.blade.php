@@ -16,11 +16,11 @@
             <a class="navbar-brand">ByteBridge Inc.</a>
             <div class="navbar-text ml-auto">
                 @auth
-                    <a href="{{ route('cerrarSesion') }}">Cerrar sesión</a>
+                    <a href="{{ route('Logout') }}">Cerrar sesión</a>
                 @endauth
 
                 @guest
-                    <a href="{{ route('iniciarSesion') }}">Iniciar sesión</a>
+                    <a href="{{ route('Login') }}">Iniciar sesión</a>
                 @endguest
             </div>
         </div>

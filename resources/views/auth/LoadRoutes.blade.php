@@ -7,27 +7,31 @@
     <title>Turjoy | Cargar rutas</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
-    @vite('resources/css/cargarRutas.css')
+    @vite('resources/css/LoadRoutes.css')
     @extends('layouts.app')
 
 </head>
-<body>
+<body>  
+    
     <div class="container">
-        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+        <div class="row justify-content-center align-items-center" >
             <div class="col-6 text-center">
                 <h1>Cargar Rutas</h1>
-                <form class="form" method="POST" action="{{ route('cargarRutas.importar') }}" enctype="multipart/form-data">
+                <form class="form" method="POST" action="{{ route('LoadRoutes.import') }}" enctype="multipart/form-data">
                     @csrf
                     <label>Escoge un archivo</label>
-                    <input type="file" name="archivo" class="form-control" />
-                    <div>
-                        <button type="submit" class="btn btn-secondary" style="background-color: #2ecc71; color: #fff;" >Cargar</button>
+                    <input type="file" name="file" class="form-control" />
+                    <div class = "load-file-button-volver">
+                        <button type="submit" class="load-file-button"><span>Subir</span><img src="{{asset('ticket.png')}}" height="32" width="32"></button>
                     </div>
                 </form>
-                <div class="container-boton-volver">
-                    <a href="{{ route('inicioAdministrador') }}" class="boton-volver">Volver</a>
+                <div class="back-button-container">
+                    <a href="{{ route('AdminHome') }}" class="back-button">Volver</a>
                 </div>
-                @if(session('error'))
+
+            </div>
+            <div class = "alert-container">
+            @if(session('error'))
                 <div class="alert alert-danger" role="alert">
                     {{ session('error') }}
                 </div>
@@ -37,3 +41,5 @@
     </div>
 </body>
 </html>
+
+

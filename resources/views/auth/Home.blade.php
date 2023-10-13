@@ -5,7 +5,7 @@
     <title>Turjoy | ¡Reserva tus viajes ahora mismo!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <!-- Estilos personalizados -->
-    @vite('resources/css/inicio.css')
+    @vite('resources/css/Home.css')
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
     @extends('layouts.app')
 </head>
@@ -15,8 +15,8 @@
         <div class="col-md-6 custom-rectangle">
             <img src="logoturjoy.png" alt="Logo" style="max-width: 100%;">
 
-            <button class="btn-buscar-reserva">Buscar reservas</button>
-            <button class="btn-reservar">Reservar pasajes</button>
+            <button class="btn-search-reservation">Buscar reservas</button>
+            <button class="btn-reservation">Reservar pasajes</button>
         </div>
     </div>
     <script>

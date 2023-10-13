@@ -14,7 +14,7 @@ class ShowTravelsController extends Controller {
 
     public function view() {
 
-        return view('auth.mostrarRutas');
+        return view('auth.ShowRoutes');
 
     }
 

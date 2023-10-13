@@ -5,12 +5,12 @@ namespace App\Http\Controllers\auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class InicioAdminController extends Controller {
+class AdminHomeController extends Controller {
 
     // Crear función que muestre la vista de inicio de sesión de administrador
-    public function vista() {
+    public function view() {
 
-        return view('auth.inicioAdministrador');
+        return view('auth.AdminHome');
 
     }
 

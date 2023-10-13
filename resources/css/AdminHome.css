@@ -10,7 +10,7 @@ body {
 h1{
     margin: 50px;
 }
-.contenedor-administrador {
+.administrator-container {
     display: flex;
     flex-direction: column; /* Apila los elementos verticalmente */
     justify-content: center; /* Centrar verticalmente */
@@ -18,35 +18,13 @@ h1{
     height: 100vh; /* Ajusta la altura para ocupar el 100% del viewport */
 }
 
-.ripple-effect {
-    text-decoration: none;
-    font-weight: 500;
-    position: relative;
-    font-size: 14px;
-    color: #333;
-    background-color: #ddd;
-    display: block;
-    padding: 14px 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    div {
-      position: absolute;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      border-radius: 50rem;
-      background-color: red;
-      animation: rippleEffect 1s linear infinite;
-    }
-  }
-
-
-.boton-cargar-rutas{
+.load-routes-button{
     background-color: #0a74da;
     text-decoration: none;
     font-weight: 500;
     position: relative;
     font-size: 14px;
-    color: #333;
+    color: #333333;
     display: block;
     padding: 14px 20px;
     border-radius: 10px;
@@ -55,13 +33,13 @@ h1{
 
 }
 
-.boton-buscar-ruta{
+.search-routes-button{
     background-color: #f4f4f4;
     text-decoration: none;
     font-weight: 500;
     position: relative;
     font-size: 14px;
-    color: #333;
+    color: #333333;
     display: block;
     padding: 14px 20px;
     border-radius: 10px;
@@ -70,14 +48,14 @@ h1{
 
 }
 
-.boton-reporte-reserva{
+.reservation-report-button{
 
     background-color: #2ecc71;
     text-decoration: none;
     font-weight: 500;
     position: relative;
     font-size: 14px;
-    color: #333;
+    color: #333333;
     display: block;
     padding: 14px 20px;
     border-radius: 10px;

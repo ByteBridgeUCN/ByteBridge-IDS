@@ -5,9 +5,10 @@
     <title>Turjoy | Log-in</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite(['resources/css/login.css'])
+    <title>Iniciar Sesión</title>
+
+    @vite(['resources/css/Login.css'])
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 
 </head>
@@ -16,15 +17,15 @@
 
     <div class="container">
         <h1>Iniciar sesión</h1>
-        <form method="POST" action="{{ route('autenticar') }}" novalidate>
+        <form method="POST" action="{{ route('Auth') }}" novalidate>
             @csrf
-            <div class="correo-container">
+            <div class="email-container">
                 <input type="email" name="email" id="email" placeholder="Correo electrónico">
                 @error('email')
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <div class="contrasena-container">
+            <div class="password-container">
                 <input type="password" name="password" id="contrasena" placeholder="Contraseña">
 
                 <button type="button" class="show-password-button" onclick="togglePasswordVisibility()">Mostrar contraseña</button>
@@ -39,7 +40,7 @@
             @endif
             <div class="button-container">
                 <button type="submit" class="login-button">Ingresar</button>
-                <a href="{{ route('inicio') }}" class="back-button">Volver</a>
+                <a href="{{ route('Home') }}" class="back-button">Volver</a>
             </div>
 
 
