@@ -1,38 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    @vite(['resources/css/ShowRoutes.css'])
     <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #0a74d4;
-            color: #fff;
-        }
-
-        .error-fila {
-            background-color: #ff8a80;
-        }
-
-        .correcto-fila {
-            background-color: #a8e6cf;
-        }
-
-        .repetido-fila {
-            background-color: #e4e6a8;
-        }
-
-        tr:nth-child(even) {
-            background-color: #ffffff;
-        }
     </style>
 </head>
 <body>
@@ -80,13 +51,13 @@
                         is_numeric($row['origen']) || is_numeric($row['destino']) ||
                         $row['origen'] === $row['destino'] || !is_numeric($row['cantidad_asientos']) || !is_numeric($row['tarifa_base']) ||
                         (int)$row['cantidad_asientos'] < 0 || (int)$row['tarifa_base'] < 0) {
-                            echo '<td class="error-fila">' . $value . '</td>';
+                            echo '<td class="error-row">' . $value . '</td>';
                         }
                         elseif ($repeatedTravel) {
-                            echo '<td class="repetido-fila">' . $value . '</td>';
+                            echo '<td class="repeated-row">' . $value . '</td>';
                         }
                         else {
-                            echo '<td class="correcto-fila">' . $value . '</td>';
+                            echo '<td class="valid-row">' . $value . '</td>';
                         }
                     }
                     echo '</tr>';

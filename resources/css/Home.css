@@ -16,7 +16,7 @@ body.loaded {
 }
 
 
-.btn-reservar {
+.btn-reservation {
     background-color: #2ecc71;
     /* Otros estilos, como el color del texto, el padding, etc., si es necesario */
     color: #fff; /* Cambiar el color del texto a blanco para que se vea mejor en el fondo verde */
@@ -30,7 +30,7 @@ body.loaded {
 
 
 
-.btn-buscar-reserva {
+.btn-search-reservation {
     background-color: #0a74da;
     /* Otros estilos, como el color del texto, el padding, etc., si es necesario */
     color: #fff; /* Cambiar el color del texto a blanco para que se vea mejor en el fondo verde */
