@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <a href="{{ route('AdminHome') }}" class="btn btn-secondary" style="background-color: #0a74d4; color: #fff;">Volver</a>
+    <a href="{{ route('AdminHome') }}" class="back-button">Volver</a>
 
     <h1>Mostrar tabla de las rutas</h1>
 
