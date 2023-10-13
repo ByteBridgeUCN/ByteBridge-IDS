@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->id('id');
             $table->unsignedBigInteger('travelId');
             $table->foreign('travelId')->references('id')->on('travels');
-            $table->unsignedBigInteger('userId');
+            $table->unsignedBigInteger('userId')->nullable();
             $table->foreign('userId')->references('id')->on('users');
             $table->date('travelDate');
             $table->date('purchaseDate');
