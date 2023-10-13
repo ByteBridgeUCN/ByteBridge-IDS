@@ -43,3 +43,12 @@ th {
 tr:nth-child(even) {
     background-color: #ffffff;
 }
+
+.back-button{
+    background-color: #0a74d4;
+    color: #333333;
+    padding: 5px;
+    margin-top: 2px;
+    text-decoration: none;
+    border-radius: 5px;
+}
