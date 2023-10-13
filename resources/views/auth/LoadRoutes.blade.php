@@ -11,7 +11,8 @@
     @extends('layouts.app')
 
 </head>
-<body>
+<body>  
+    
     <div class="container">
         <div class="row justify-content-center align-items-center" >
             <div class="col-6 text-center">
