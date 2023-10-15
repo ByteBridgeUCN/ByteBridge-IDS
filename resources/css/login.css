@@ -19,14 +19,6 @@ body {
     align-items: center;
     background-color: white;
     min-height: 100vh;
-    transform: scale(1.1); /* Establece una escala inicial mayor que 1 */
-    opacity: 0; /* Establece la opacidad inicial en 0 para que el contenido no sea visible */
-    transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
-}
-
-body.loaded {
-    transform: scale(1);
-    opacity: 1; /* Establece la opacidad completa para mostrar el contenido */
 }
 
 .container {
@@ -35,6 +27,7 @@ body.loaded {
     border: 4px solid rgba(0, 0, 0, 1);
     border-radius: 20px;
     backdrop-filter: blur(15px);
+    margin: 50px;
     padding: 20px;
 }
 
@@ -59,22 +52,10 @@ p{
     color:#ff6b6b;
 }
 
-.show-password-button {
-    margin-top: 10px;
-    background: none;
-    border: none;
-    text-shadow: 3px 3px 6px;
-    font-size: 15px;
-    cursor:pointer;
-
-}
-
-
-
 .button-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -92,34 +73,6 @@ p{
     position: relative;
     min-width: 250px;
 
-    &::after {
-        font-family: "Font Awesome 5 Pro";
-        font-weight: 400;
-        position: absolute;
-        left: 80%;
-        top: 54%;
-        right: 0;
-        bottom: 0;
-        opacity: 0;
-        transform: translate(-50%, -50%);
-
-    }
-
-    &:hover {
-        background: #0A74DA;
-        transition: all 0.5s;
-        border-radius: 10px;
-        box-shadow: 0px 6px 15px #0000ff61;
-        padding: 1.5rem 3rem 1.5rem 1.5rem;
-        color: #ffffff;
-
-        &::after {
-            opacity: 1;
-            transition: all 0.5s;
-            color: #ffffff;
-
-        }
-    }
 }
 
 .back-button {
@@ -134,34 +87,7 @@ p{
     border-radius: 10px;
     width: auto;
     position: relative;
-    min-width: 240px;
+    min-width: 250px;
     text-decoration: none;
-
-    &::after {
-
-        position: absolute;
-        left: 80%;
-        top: 54%;
-        right: 0;
-        bottom: 0;
-        opacity: 0;
-        transform: translate(-50%, -50%);
-
-    }
-
-    &:hover {
-        background: #0A74DA;
-        transition: all 0.5s;
-        border-radius: 10px;
-        box-shadow: 0px 6px 15px #0000ff61;
-        padding: 1.5rem 3rem 1.5rem 1.5rem;
-        color: #ffffff;
-
-        &::after {
-            opacity: 1;
-            transition: all 0.5s;
-            color: #ffffff;
-
-        }
-    }
+    text-align: center;
 }
