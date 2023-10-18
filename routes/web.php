@@ -5,8 +5,9 @@ use App\Http\Controllers\auth\LogInController;
 use App\Http\Controllers\auth\InicioController;
 use App\Http\Controllers\auth\AdminHomeController;
 use App\Http\Controllers\auth\GetTravelsController;
-use App\Http\Controllers\auth\MostrarRutasController;
+use App\Http\Controllers\auth\ShowRoutesController;
 use App\Http\Controllers\auth\SearchTicketController;
+use App\Http\Controllers\TicketController;
 
 
 /*
@@ -27,6 +28,11 @@ Route::get('/', function () {
 Route::get('Login', [LogInController::class, 'view'])->name('Login');
 Route::post('/Login', [LogInController::class, 'auth'])->name('Auth');
 
+Route::get('BookTicket', [TicketController::class, 'view'])->name('BookTicket');
+
+Route::get('SearchTicket', [SearchTicketController::class, 'view'])->name('SearchTicket');
+
+
 Route::middleware(['auth'])->group(function () {
 
     Route::get('Home', [LogInController::class, 'logout'])->name('Logout');
@@ -37,7 +43,5 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/LoadRoutes', [GetTravelsController::class, 'importTravels'])->name('LoadRoutes.import');
 
     Route::get('ShowRoutes', [ShowTravelsController::class, 'view'])->name('ShowRoutes');
-
-    Route::get('SearchTicket', [SearchTicketController::class, 'view'])->name('SearchTicket');
 
 });
