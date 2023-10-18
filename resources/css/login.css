@@ -17,18 +17,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    min-height: 100vh;
+    background-image: url('https://images.pexels.com/photos/894359/pexels-photo-894359.jpeg');
+    background-size: cover; /* Para que la imagen de fondo se ajuste a toda la pantalla */
 }
 
-.container {
-    text-align: center;
-    background: transparent;
-    border: 4px solid rgba(0, 0, 0, 1);
+.container{
+    margin: 20px;
+    backdrop-filter: blur(10px); /* Ajusta el valor de desenfoque según tus preferencias */
+    background-color: rgba(333, 333, 333, 0.1); /* Agrega un color de fondo con opacidad para que el desenfoque sea más visible */
+    padding: 20px; /* Ajusta según tus necesidades */
     border-radius: 20px;
-    backdrop-filter: blur(15px);
-    margin: 50px;
-    padding: 20px;
+    width: 500px;
+    height: 400px;
 }
 
 
@@ -37,7 +37,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
 
+.email-input{
+    background-color: rgba(333, 333, 333, 0.3);
+    border: #333333;
+}
+
+.email-label{
+    text-align: left;
 }
 
 .password-container{
@@ -45,6 +53,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 5px;
+
+}
+
+.password-input{
+    background-color: rgba(333, 333, 333, 0.3);
+    border: #333333;
 
 }
 
@@ -67,12 +82,8 @@ p{
     font-size: 1.3em;
     padding: 0.5rem;
     border: 0;
-    transition: all 0.5s;
     border-radius: 10px;
-    width: auto;
-    position: relative;
-    min-width: 250px;
-
+    position:relative;
 }
 
 .back-button {
@@ -83,11 +94,9 @@ p{
     font-size: 1.3em;
     padding: 0.5rem;
     border: 0;
-    transition: all 0.5s;
     border-radius: 10px;
-    width: auto;
     position: relative;
-    min-width: 250px;
+    width: 120px;
     text-decoration: none;
     text-align: center;
 }

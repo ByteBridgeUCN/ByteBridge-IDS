@@ -14,29 +14,29 @@
 
 <body>
 
-
     <div class="container">
-
+        <h1>Iniciar sesión</h1>
         <form method="POST" action="{{ route('Auth') }}" novalidate>
-            <h1>Iniciar sesion</h1>
             @csrf
-            <div class="email-container">
-                <input type="email" name="email" id="email" placeholder="Correo electrónico">
+            <div class="mb-3">
+                <label for="emailInput" class="form-label">Correo electrónico</label>
+                <input  class="email-input form-control" type="email" name="email" id="email" aria-describedby="emailHelp">
                 @error('email')
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <div class="password-container">
-
-                <input type="password" name="password" id="contrasena" placeholder="Contraseña">
+            <div class="mb-3">
+                <label for="passwordInput" class="form-label">Contraseña</label>
+                <input class="password-input form-control" type="password" name="password" id="contrasena">
                 @error('password')
                     <p>{{ $message }}</p>
                 @enderror
+
+
             </div>
             @if (session('message'))
-            <p>{{ session('message') }}</p>
+                <p>{{ session('message') }}</p>
             @endif
-
             <div class="button-container">
                 <button type="submit" class="login-button">Ingresar</button>
                 <a href="{{ route('Home') }}" class="back-button">Volver</a>

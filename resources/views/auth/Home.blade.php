@@ -13,10 +13,10 @@
 <body>
     <div class="container-main">
         <div class="col-md-6 custom-rectangle">
-            <img src="logoturjoy.png" alt="Logo" style="max-width: 100%;">
+            <img src="logoturjoy.png" alt="Logo" style="max-width:100%;">
 
-            <button class="btn-search-reservation">Buscar reservas</button>
-            <button class="btn-reservation">Reservar pasajes</button>
+            <a href="#" class="btn-search-reservation">Buscar reservas</a>
+            <a href="{{ route('SearchTicket') }}" class="btn-reservation">Reservar pasajes</a>
         </div>
     </div>
     <script>

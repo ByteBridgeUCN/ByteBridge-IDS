@@ -6,6 +6,8 @@ use App\Http\Controllers\auth\InicioController;
 use App\Http\Controllers\auth\AdminHomeController;
 use App\Http\Controllers\auth\GetTravelsController;
 use App\Http\Controllers\auth\MostrarRutasController;
+use App\Http\Controllers\auth\SearchTicketController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('ShowRoutes', [ShowTravelsController::class, 'view'])->name('ShowRoutes');
 
     Route::get('SearchTicket', [SearchTicketController::class, 'view'])->name('SearchTicket');
-
 
 });
