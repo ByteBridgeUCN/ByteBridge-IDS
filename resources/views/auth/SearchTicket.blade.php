@@ -58,25 +58,7 @@
 
 </head>
     <body>
-        <h1>Reserva de Pasajes en Turjoy</h1>
-        <div id="reservation-form">
-            <form>
-                <label for="travel-date">Fecha de Viaje:</label>
-                <input type="date" id="travel-date" name="travel-date" required>
 
-                <label for="origin">Origen:</label>
-                <input type="text" id="origin" name="origin" required>
-
-                <label for="destination">Destino:</label>
-                <input type="text" id="destination" name="destination" required>
-
-                <label for="seat-count">Cantidad de Asientos:</label>
-                <input type="number" id="seat-count" name="seat-count" min="1" required>
-
-                <button type="submit">Reservar</button>
-            </form>
-            <div class="error-message" id="error-message"></div>
-        </div>
 
     </body>
 

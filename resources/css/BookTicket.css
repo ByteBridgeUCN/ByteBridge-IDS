@@ -1,0 +1,30 @@
+body {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#container {
+    text-align: center;
+}
+form label {
+    margin-bottom: 12px;
+
+}
+
+.book-ticket-button,.back-button{
+    text-decoration: none;
+    padding: 5px;
+    background-color: #2ecc71;
+    color: white;
+    border-radius: 6px;
+}
+
+.back-button{
+    background-color: #0a74da;
+
+}
+
+
