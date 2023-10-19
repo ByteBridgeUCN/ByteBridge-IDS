@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class TicketController extends Controller {
 
+    public function view(){
+
+        return view('auth.BookTicket');
+        
+    }
+
     public function store(Request $request) {
 
         // Create ticket

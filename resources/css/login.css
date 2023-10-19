@@ -17,25 +17,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    min-height: 100vh;
-    transform: scale(1.1); /* Establece una escala inicial mayor que 1 */
-    opacity: 0; /* Establece la opacidad inicial en 0 para que el contenido no sea visible */
-    transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
+    background-image: url('https://images.pexels.com/photos/894359/pexels-photo-894359.jpeg');
+    background-size: cover; /* Para que la imagen de fondo se ajuste a toda la pantalla */
 }
 
-body.loaded {
-    transform: scale(1);
-    opacity: 1; /* Establece la opacidad completa para mostrar el contenido */
-}
-
-.container {
-    text-align: center;
-    background: transparent;
-    border: 4px solid rgba(0, 0, 0, 1);
+.container{
+    margin: 20px;
+    backdrop-filter: blur(10px); /* Ajusta el valor de desenfoque según tus preferencias */
+    background-color: rgba(333, 333, 333, 0.1); /* Agrega un color de fondo con opacidad para que el desenfoque sea más visible */
+    padding: 20px; /* Ajusta según tus necesidades */
     border-radius: 20px;
-    backdrop-filter: blur(15px);
-    padding: 20px;
+    width: 500px;
+    height: 400px;
 }
 
 
@@ -44,7 +37,15 @@ body.loaded {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
 
+.email-input{
+    background-color: rgba(333, 333, 333, 0.3);
+    border: #333333;
+}
+
+.email-label{
+    text-align: left;
 }
 
 .password-container{
@@ -52,6 +53,13 @@ body.loaded {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 5px;
+
+}
+
+.password-input{
+    background-color: rgba(333, 333, 333, 0.3);
+    border: #333333;
 
 }
 
@@ -59,22 +67,10 @@ p{
     color:#ff6b6b;
 }
 
-.show-password-button {
-    margin-top: 10px;
-    background: none;
-    border: none;
-    text-shadow: 3px 3px 6px;
-    font-size: 15px;
-    cursor:pointer;
-
-}
-
-
-
 .button-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -86,40 +82,8 @@ p{
     font-size: 1.3em;
     padding: 0.5rem;
     border: 0;
-    transition: all 0.5s;
     border-radius: 10px;
-    width: auto;
-    position: relative;
-    min-width: 250px;
-
-    &::after {
-        font-family: "Font Awesome 5 Pro";
-        font-weight: 400;
-        position: absolute;
-        left: 80%;
-        top: 54%;
-        right: 0;
-        bottom: 0;
-        opacity: 0;
-        transform: translate(-50%, -50%);
-
-    }
-
-    &:hover {
-        background: #0A74DA;
-        transition: all 0.5s;
-        border-radius: 10px;
-        box-shadow: 0px 6px 15px #0000ff61;
-        padding: 1.5rem 3rem 1.5rem 1.5rem;
-        color: #ffffff;
-
-        &::after {
-            opacity: 1;
-            transition: all 0.5s;
-            color: #ffffff;
-
-        }
-    }
+    position:relative;
 }
 
 .back-button {
@@ -130,38 +94,9 @@ p{
     font-size: 1.3em;
     padding: 0.5rem;
     border: 0;
-    transition: all 0.5s;
     border-radius: 10px;
-    width: auto;
     position: relative;
-    min-width: 240px;
+    width: 120px;
     text-decoration: none;
-
-    &::after {
-
-        position: absolute;
-        left: 80%;
-        top: 54%;
-        right: 0;
-        bottom: 0;
-        opacity: 0;
-        transform: translate(-50%, -50%);
-
-    }
-
-    &:hover {
-        background: #0A74DA;
-        transition: all 0.5s;
-        border-radius: 10px;
-        box-shadow: 0px 6px 15px #0000ff61;
-        padding: 1.5rem 3rem 1.5rem 1.5rem;
-        color: #ffffff;
-
-        &::after {
-            opacity: 1;
-            transition: all 0.5s;
-            color: #ffffff;
-
-        }
-    }
+    text-align: center;
 }

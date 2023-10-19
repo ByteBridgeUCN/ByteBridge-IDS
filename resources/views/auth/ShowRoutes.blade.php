@@ -3,15 +3,17 @@
 <head>
     @vite(['resources/css/ShowRoutes.css'])
     <style>
-
+       h2{
+              text-align: center;
+       }
     </style>
 </head>
 <body>
 
     <a href="{{ route('AdminHome') }}" class="back-button">Volver</a>
 
-    <h1>Mostrar tabla de las rutas</h1>
-
+    <h1>Rutas procesadas</h1>
+    <h2>Cantidad de rutas procesadas: {{count($sheet)}}</h2>
     @if (isset($error))
         <div class="alert alert-danger">
             {{ $error }}
