@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
 body {
     display: grid;
     justify-content: center;
@@ -6,11 +7,56 @@ body {
     margin: 0;
 }
 
-#container {
-    text-align: center;
+
+input {
+    background: 0;
+    border: 0;
+    outline: none;
+    width: 80vw;
+    max-width: 400px;
+    font-size: 1.5em;
+    transition: padding 0.3s 0.2s ease;
 }
+input:focus {
+    padding-bottom: 5px;
+}
+input:focus + .line:after {
+    transform: scaleX(1);
+}
+
+.city-form {
+position: relative;
+}
+
+.city-form .line {
+width: 100%;
+height: 3px;
+position: absolute;
+bottom: -8px;
+background: #bdc3c7;
+}
+
+.city-form .line:after {
+content: " ";
+position: absolute;
+float: right;
+width: 100%;
+height: 3px;
+transform: scalex(0);
+transition: transform 0.3s ease;
+background: #1abc9c;
+}
+
+
 form label {
-    margin-bottom: 12px;
+    margin-bottom: 4px;
+    border: 2px;
+
+}
+
+.form city-form{
+    border: 2px;
+    background-color: #0a74da;
 
 }
 
@@ -20,11 +66,91 @@ form label {
     background-color: #2ecc71;
     color: white;
     border-radius: 6px;
+    margin-top: 4px;
+
 }
 
 .back-button{
     background-color: #0a74da;
-
 }
 
 
+form h1{
+    text-align: center;
+}
+
+
+/* only animate if the device supports hover */
+@media (hover: hover) {
+    #creditcard {
+      /*  set start position */
+      transform: translateY(110px);
+      transition: transform 0.1s ease-in-out;
+      /*  set transition for mouse enter & exit */
+    }
+
+    #money {
+      /*  set start position */
+      transform: translateY(180px);
+      transition: transform 0.1s ease-in-out;
+      /*  set transition for mouse enter & exit */
+    }
+
+    button:hover #creditcard {
+      transform: translateY(0px);
+      transition: transform 0.2s ease-in-out;
+      /*  overide transition for mouse enter */
+    }
+
+    button:hover #money {
+      transform: translateY(0px);
+      transition: transform 0.3s ease-in-out;
+      /*  overide transition for mouse enter */
+    }
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-0.25rem);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .button:hover .button__text span {
+    transform: translateY(-0.25rem);
+    transition: transform .2s ease-in-out;
+  }
+
+  .button {
+    border: none;
+    outline: none;
+    background-color: #0a74da;
+    margin: 20px;
+    padding-inline: 50px;
+    position: relative;
+    border-radius: 8px;
+    letter-spacing: 0.7px;
+    background-color: #0a74da;
+    color: #fff;
+    font-size: 21px;
+    font-family: "Lato", sans-serif;
+    cursor: pointer;
+    box-shadow: rgba(0, 9, 61, 0.2) 0px 4px 8px 0px;
+  }
+
+  .button:active {
+    transform: translateY(1px);
+  }
+
+  .button__svg {
+    position: absolute;
+    overflow: visible;
+    bottom: 6px;
+    right: -0.1rem;
+    height: 100%;
+  }
