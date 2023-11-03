@@ -3,8 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use App\Models\Role;
-use App\Models\UserRole;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -55,44 +53,6 @@ class UserTableSeeder extends Seeder {
             'email' => 'pablo.robledo@gmail.cl',
             'password' => 'pablo123',
             'state' => 'Inhabilitado'
-        ]);
-
-        Role::create([
-            'name' => 'Administrador'
-        ]);
-
-        Role::create([
-            'name' => 'Cliente'
-        ]);
-
-        UserRole::create([
-            'roleId' => Role::where('name', 'Administrador')->first()->id,
-            'userId' => User::where('name', 'Ítalo Donoso')->first()->id
-        ]);
-
-        UserRole::create([
-            'roleId' => Role::where('name', 'Cliente')->first()->id,
-            'userId' => User::where('name', 'Alexis Contreras')->first()->id
-        ]);
-
-        UserRole::create([
-            'roleId' => Role::where('name', 'Cliente')->first()->id,
-            'userId' => User::where('name', 'Giantt Rivera')->first()->id
-        ]);
-
-        UserRole::create([
-            'roleId' => Role::where('name', 'Administrador')->first()->id,
-            'userId' => User::where('name', 'María Guarda')->first()->id
-        ]);
-
-        UserRole::create([
-            'roleId' => Role::where('name', 'Cliente')->first()->id,
-            'userId' => User::where('name', 'Ivan Dorador')->first()->id
-        ]);
-
-        UserRole::create([
-            'roleId' => Role::where('name', 'Administrador')->first()->id,
-            'userId' => User::where('name', 'Pablo Robledo')->first()->id
         ]);
 
     }

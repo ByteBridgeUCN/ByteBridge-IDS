@@ -19,11 +19,10 @@ return new class extends Migration {
             $table->unsignedBigInteger('userId')->nullable();
             $table->foreign('userId')->references('id')->on('users');
             $table->date('travelDate');
-            $table->date('purchaseDate');
+            $table->timestamp('purchaseDate')->useCurrent();
             $table->integer('purchasedSeats');
             $table->integer('price');
-            $table->timestamps();
-
+            $table->string('ticketCode')->unique();
         });
 
     }

@@ -20,7 +20,6 @@ return new class extends Migration {
             $table->foreign('destinationId')->references('id')->on('cities');
             $table->integer('totalSeats');
             $table->integer('baseRate');
-            $table->timestamps();
 
         });
 

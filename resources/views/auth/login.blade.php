@@ -27,7 +27,7 @@
             </div>
             <div class="mb-3">
                 <label for="passwordInput" class="form-label">Contraseña</label>
-                <input class="password-input form-control" type="password" name="password" id="contrasena">
+                <input class="password-input form-control" type="password" name="password" id="password">
                 @error('password')
                     <p>{{ $message }}</p>
                 @enderror

@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Model {
 
+    public $timestamps = false;
+
     use HasFactory;
 
     protected $fillable = [
@@ -15,7 +17,8 @@ class Ticket extends Model {
         'travelDate',
         'purchaseDate',
         'purchasedSeats',
-        'price'
+        'price',
+        'ticketCode',
     ];
 
 }
