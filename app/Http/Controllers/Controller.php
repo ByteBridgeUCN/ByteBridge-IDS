@@ -10,4 +10,11 @@ class Controller extends BaseController {
 
     use AuthorizesRequests, ValidatesRequests;
 
+    public function redirectToPreviousView()    {
+
+        return back();
+
+    }
+
+
 }

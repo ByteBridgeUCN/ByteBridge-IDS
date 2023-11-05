@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\auth\LogInController;
 use App\Http\Controllers\auth\InicioController;
 use App\Http\Controllers\auth\AdminHomeController;
@@ -25,12 +26,17 @@ Route::get('/', function () {
     return view('auth.Home');
 })->name('Home')->middleware('guest');
 
+Route::get('Controller', [Controller::class, 'redirectToPreviousView'])->name('back');
+
 Route::get('Login', [LogInController::class, 'view'])->name('Login');
 Route::post('/Login', [LogInController::class, 'auth'])->name('Auth');
 
 Route::get('BookTicket', [TicketController::class, 'view'])->name('BookTicket');
+Route::post('/BookTicket', [TicketController::class, 'bookTicket'])->name('BookTicket.bookTicket');
 
 Route::get('SearchTicket', [SearchTicketController::class, 'view'])->name('SearchTicket');
+Route::post('/SearchTicket', [SearchTicketController::class, 'search'])->name('SearchTicket.search');
+
 
 
 Route::middleware(['auth'])->group(function () {

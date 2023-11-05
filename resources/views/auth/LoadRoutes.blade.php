@@ -11,8 +11,10 @@
     @extends('layouts.app')
 
 </head>
-<body>  
-    
+<body>
+    <div class="back-button-container">
+        <a href="{{ route('AdminHome') }}" class="back-button">Volver</a>
+    </div>
     <div class="container">
         <div class="row justify-content-center align-items-center" >
             <div class="col-6 text-center">
@@ -25,10 +27,6 @@
                         <button type="submit" class="load-file-button"><span>Subir</span></button>
                     </div>
                 </form>
-                <div class="back-button-container">
-                    <a href="{{ route('AdminHome') }}" class="back-button">Volver</a>
-                </div>
-
             </div>
             <div class = "alert-container">
             @if(session('error'))
@@ -39,6 +37,7 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>
 
