@@ -15,23 +15,29 @@
     <div class="row">
         <div class="col-lg-7">
             <form id="reservation-form">
-                <h5>Donde quiere viejar</h5>
-                <div class="city-form">
-                    <input type="text" id="origin" placeholder="Ciudad origen" required><br>
-                    <input type="text" id="destination" placeholder="Ciudad destino" required><br>
 
+                <div class="date-form">
+                    <h5>¿CUÁNDO QUIERES VIAJAR?</h5>
+                    <input type="date" id="travel-date" placeholder="Fecha" required><br>
                 </div>
 
-                <input type="date" id="travel-date" required><br>
+                <div class="city-form">
+                    <h5>¿DONDE QUIERES VIAJAR?</h5>
+                    <input type="text" id="origin" placeholder="Ciudad origen" required><br>
+                    <input type="text" id="destination" placeholder="Ciudad destino" required><br>
+                </div>
 
-                <label for="seat-count">Cantidad de Asientos:</label>
-                <input type="number" id="seat-count" required><br>
+                <div class="seat-form">
+                    <h5>¿CUÁNTOS ASIENTOS DESEA RESERVAR?</h5>
+                    <input type="number" id="seat-count" required><br>
+                </div>
+
 
 
             </form>
             <div class="button-container">
                 <button class="button" id="submit-button">
-                    <label>Reservar pasaje</label>
+                    <span>R</span><span>e</span>s</span><span>e</span><span>r</span><span>v</span><span>a</span><span>r</span>
                     <svg class="button__svg" role="presentational" viewBox="0 0 600 600">
                         <defs>
                         <clipPath id="myClip">

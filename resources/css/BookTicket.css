@@ -1,69 +1,53 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
+
 body {
     display: grid;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
 }
 
 
 input {
-    background: 0;
-    border: 0;
-    outline: none;
+    border: color #f4f4f4;;
+    border-radius: 6px;
     width: 80vw;
     max-width: 400px;
     font-size: 1.5em;
-    transition: padding 0.3s 0.2s ease;
 }
 input:focus {
     padding-bottom: 5px;
 }
-input:focus + .line:after {
-    transform: scaleX(1);
+
+.reservation-form{
+    justify-content: center;
+    align-items: center;
 }
 
-.city-form {
-position: relative;
-}
-
-.city-form .line {
-width: 100%;
-height: 3px;
-position: absolute;
-bottom: -8px;
-background: #bdc3c7;
-}
-
-.city-form .line:after {
-content: " ";
-position: absolute;
-float: right;
-width: 100%;
-height: 3px;
-transform: scalex(0);
-transition: transform 0.3s ease;
-background: #1abc9c;
-}
-
-
-form label {
-    margin-bottom: 4px;
-    border: 2px;
-
-}
-
-.form city-form{
-    border: 2px;
+.date-form{
     background-color: #0a74da;
-
 }
+.date-form{
+    /*background-color: #ff6b6b;*/
+    padding: 10px;
+}
+
+.city-form{
+    border: 1px;
+    border-radius: 2px;
+}
+
+.city-form h5{
+    text-align: center;
+}
+
+
+
 
 .book-ticket-button,.back-button{
     text-decoration: none;
     padding: 5px;
-    background-color: #2ecc71;
+    background-color: #ff6b6b;
     color: white;
     border-radius: 6px;
     margin-top: 4px;
@@ -71,7 +55,7 @@ form label {
 }
 
 .back-button{
-    background-color: #0a74da;
+    background-color: #ff6b6b;
 }
 
 
@@ -137,8 +121,6 @@ form h1{
     letter-spacing: 0.7px;
     background-color: #0a74da;
     color: #fff;
-    font-size: 21px;
-    font-family: "Lato", sans-serif;
     cursor: pointer;
     box-shadow: rgba(0, 9, 61, 0.2) 0px 4px 8px 0px;
   }
