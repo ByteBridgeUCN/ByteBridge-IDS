@@ -136,3 +136,13 @@ form h1{
     right: -0.1rem;
     height: 100%;
   }
+
+  .city-list {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    max-height: 100px;
+    overflow-y: auto;
+}
+

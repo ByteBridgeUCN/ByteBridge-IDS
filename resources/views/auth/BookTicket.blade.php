@@ -12,176 +12,58 @@
 </head>
 
 <body>
-    <div class="row">
-        <div class="col-lg-7">
-            <form id="reservation-form">
-
-                <div class="date-form">
-                    <h5>¿CUÁNDO QUIERES VIAJAR?</h5>
-                    <input type="date" id="travel-date" placeholder="Fecha" required><br>
-                </div>
-
-                <div class="city-form">
-                    <h5>¿DONDE QUIERES VIAJAR?</h5>
-                    <input type="text" id="origin" placeholder="Ciudad origen" required><br>
-                    <input type="text" id="destination" placeholder="Ciudad destino" required><br>
-                </div>
-
-                <div class="seat-form">
-                    <h5>¿CUÁNTOS ASIENTOS DESEA RESERVAR?</h5>
-                    <input type="number" id="seat-count" required><br>
-                </div>
-
-
-
-            </form>
-            <div class="button-container">
-                <button class="button" id="submit-button">
-                    <span>R</span><span>e</span>s</span><span>e</span><span>r</span><span>v</span><span>a</span><span>r</span>
-                    <svg class="button__svg" role="presentational" viewBox="0 0 600 600">
-                        <defs>
-                        <clipPath id="myClip">
-                            <rect x="0" y="0" width="100%" height="50%" />
-                        </clipPath>
-                        </defs>
-                        <g clip-path="url(#myClip)">
-                        <g id="money">
-                            <path d="M441.9,116.54h-162c-4.66,0-8.49,4.34-8.62,9.83l.85,278.17,178.37,2V126.37C450.38,120.89,446.56,116.52,441.9,116.54Z" fill="#699e64" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
-                            <path d="M424.73,165.49c-10-2.53-17.38-12-17.68-24H316.44c-.09,11.58-7,21.53-16.62,23.94-3.24.92-5.54,4.29-5.62,8.21V376.54H430.1V173.71C430.15,169.83,427.93,166.43,424.73,165.49Z" fill="#699e64" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
-                        </g>
-                        <g id="creditcard">
-                            <path d="M372.12,181.59H210.9c-4.64,0-8.45,4.34-8.58,9.83l.85,278.17,177.49,2V191.42C380.55,185.94,376.75,181.57,372.12,181.59Z" fill="#a76fe2" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
-                            <path d="M347.55,261.85H332.22c-3.73,0-6.76-3.58-6.76-8v-35.2c0-4.42,3-8,6.76-8h15.33c3.73,0,6.76,3.58,6.76,8v35.2C354.31,258.27,351.28,261.85,347.55,261.85Z" fill="#ffdc67" />
-                            <path d="M249.73,183.76h28.85v274.8H249.73Z" fill="#323c44" />
-                        </g>
-                        </g>
-                        <g id="wallet">
-                        <path d="M478,288.23h-337A28.93,28.93,0,0,0,112,317.14V546.2a29,29,0,0,0,28.94,28.95H478a29,29,0,0,0,28.95-28.94h0v-229A29,29,0,0,0,478,288.23Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
-                        <path d="M512.83,382.71H416.71a28.93,28.93,0,0,0-28.95,28.94h0V467.8a29,29,0,0,0,28.95,28.95h96.12a19.31,19.31,0,0,0,19.3-19.3V402a19.3,19.3,0,0,0-19.3-19.3Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
-                        <path d="M451.46,435.79v7.88a14.48,14.48,0,1,1-29,0v-7.9a14.48,14.48,0,0,1,29,0Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
-                        <path d="M147.87,541.93V320.84c-.05-13.2,8.25-21.51,21.62-24.27a42.71,42.71,0,0,1,7.14-1.32l-29.36-.63a67.77,67.77,0,0,0-9.13.45c-13.37,2.75-20.32,12.57-20.27,25.77l.38,221.24c-1.57,15.44,8.15,27.08,25.34,26.1l33-.19c-15.9,0-28.78-10.58-28.76-25.93Z" fill="#7b8f91" />
-                        <path d="M148.16,343.22a6,6,0,0,0-6,6v92a6,6,0,0,0,12,0v-92A6,6,0,0,0,148.16,343.22Z" fill="#323c44" />
-                        </g>
-
-                    </svg>
-                </button>
-
-
-                <a class="back-button" href="{{ route('Home') }}">Volver</a>
+    <div class="container mt-5">
+        <h5>Donde quiere viejar</h5>
+        <form method="POST" action="{{ route('BookTicket.bookTicket') }}" novalidate>
+            @csrf
+            <div class="form-group">
+                <input type="text" class="form-control" id="origin" name="origin" placeholder="Ciudad origen" required><br>
+                <input type="text" class="form-control" id="destination" name="destination" placeholder="Ciudad destino" required><br>
+                <input type="date" class="form-control" id="travelDate" name="travelDate" min="{{ date('Y-m-d') }}" required><br>
+                @error('travelDate')
+                    <p>{{ $message }}</p>
+                @enderror
+                <label for="seat-count">Cantidad de Asientos:</label>
+                <input type="number" class="form-control" id="purchasedSeats" name="purchasedSeats" min="1" required><br>
+                @error('purchasedSeats')
+                    <p>{{ $message }}</p>
+                @enderror
             </div>
-        </div>
+            <button type="submit" class="button">
+                <label>Reservar pasaje</label>
+                <svg class="button__svg" role="presentational" viewBox="0 0 600 600">
+                    <defs>
+                    <clipPath id="myClip">
+                        <rect x="0" y="0" width="100%" height="50%" />
+                    </clipPath>
+                    </defs>
+                    <g clip-path="url(#myClip)">
+                    <g id="money">
+                        <path d="M441.9,116.54h-162c-4.66,0-8.49,4.34-8.62,9.83l.85,278.17,178.37,2V126.37C450.38,120.89,446.56,116.52,441.9,116.54Z" fill="#699e64" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+                        <path d="M424.73,165.49c-10-2.53-17.38-12-17.68-24H316.44c-.09,11.58-7,21.53-16.62,23.94-3.24.92-5.54,4.29-5.62,8.21V376.54H430.1V173.71C430.15,169.83,427.93,166.43,424.73,165.49Z" fill="#699e64" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+                    </g>
+                    <g id="creditcard">
+                        <path d="M372.12,181.59H210.9c-4.64,0-8.45,4.34-8.58,9.83l.85,278.17,177.49,2V191.42C380.55,185.94,376.75,181.57,372.12,181.59Z" fill="#a76fe2" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+                        <path d="M347.55,261.85H332.22c-3.73,0-6.76-3.58-6.76-8v-35.2c0-4.42,3-8,6.76-8h15.33c3.73,0,6.76,3.58,6.76,8v35.2C354.31,258.27,351.28,261.85,347.55,261.85Z" fill="#ffdc67" />
+                        <path d="M249.73,183.76h28.85v274.8H249.73Z" fill="#323c44" />
+                    </g>
+                    </g>
+                    <g id="wallet">
+                    <path d="M478,288.23h-337A28.93,28.93,0,0,0,112,317.14V546.2a29,29,0,0,0,28.94,28.95H478a29,29,0,0,0,28.95-28.94h0v-229A29,29,0,0,0,478,288.23Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+                    <path d="M512.83,382.71H416.71a28.93,28.93,0,0,0-28.95,28.94h0V467.8a29,29,0,0,0,28.95,28.95h96.12a19.31,19.31,0,0,0,19.3-19.3V402a19.3,19.3,0,0,0-19.3-19.3Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+                    <path d="M451.46,435.79v7.88a14.48,14.48,0,1,1-29,0v-7.9a14.48,14.48,0,0,1,29,0Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+                    <path d="M147.87,541.93V320.84c-.05-13.2,8.25-21.51,21.62-24.27a42.71,42.71,0,0,1,7.14-1.32l-29.36-.63a67.77,67.77,0,0,0-9.13.45c-13.37,2.75-20.32,12.57-20.27,25.77l.38,221.24c-1.57,15.44,8.15,27.08,25.34,26.1l33-.19c-15.9,0-28.78-10.58-28.76-25.93Z" fill="#7b8f91" />
+                    <path d="M148.16,343.22a6,6,0,0,0-6,6v92a6,6,0,0,0,12,0v-92A6,6,0,0,0,148.16,343.22Z" fill="#323c44" />
+                    </g>
 
+                </svg>
+            </button>
+        </form>
+        @if (session('message'))
+            <p>{{ session('message') }}</p>
+        @endif
+        <a class="back-button" href="{{ route('Home') }}">Volver</a>
     </div>
-
-
-
-
-    <div id="confirmation" style="display: none;">
-        <h2>Resumen de la Reserva</h2>
-        <p>Fecha de Viaje: <span id="confirm-date"></span></p>
-        <p>Origen: <span id="confirm-origin"></span></p>
-        <p>Destino: <span id="confirm-destination"></span></p>
-        <p>Cantidad de Asientos: <span id="confirm-seats"></span></p>
-        <p>Código de Reserva: <span id="confirm-code"></span></p>
-        <button type="button" id="print-button">Imprimir Detalle de la Reserva</button>
-    </div>
-
-    <div id="print-details" style="display: none;">
-        <h2>Detalle de la Reserva</h2>
-        <p>Código de Reserva: <span id="print-code"></span></p>
-    </div>
-
-
-    <script>
-        const form = document.getElementById("reservation-form");
-        const confirmationDiv = document.getElementById("confirmation");
-        const printDetailsDiv = document.getElementById("print-details");
-        const submitButton = document.getElementById("submit-button");
-        const printButton = document.getElementById("print-button");
-
-        submitButton.addEventListener("click", () => {
-            const date = document.getElementById("travel-date").value;
-            const origin = document.getElementById("origin").value;
-            const destination = document.getElementById("destination").value;
-            const seatCount = document.getElementById("seat-count").value;
-            const code = generateReservationCode();
-
-            if (!date) {
-                displayErrorMessage("Debe seleccionar la fecha del viaje antes de realizar la reserva");
-                return;
-            }
-
-            if (!seatCount) {
-                displayErrorMessage("Debe seleccionar la cantidad de asientos antes de realizar la reserva");
-                return;
-            }
-
-            if (date < getCurrentDate()) {
-                displayErrorMessage("El día del viaje no puede ser anterior al día actual");
-                return;
-            }
-
-            if (!isValidRoute(origin, destination)) {
-                displayErrorMessage("No hay rutas disponibles entre las ciudades seleccionadas");
-                return;
-            }
-
-            if (!hasAvailableSeats(date, origin, destination, seatCount)) {
-                displayErrorMessage("No hay servicios disponibles para la ruta seleccionada");
-                return;
-            }
-
-            resetErrorMessage();
-
-            document.getElementById("confirm-date").textContent = date;
-            document.getElementById("confirm-origin").textContent = origin;
-            document.getElementById("confirm-destination").textContent = destination;
-            document.getElementById("confirm-seats").textContent = seatCount;
-            document.getElementById("confirm-code").textContent = code;
-
-            confirmationDiv.style.display = "block";
-        });
-
-        printButton.addEventListener("click", () => {
-            printDetailsDiv.style display = "block";
-        });
-
-        function getCurrentDate() {
-            const today = new Date();
-            return today.toISOString().split("T")[0];
-        }
-
-        function isValidRoute(origin, destination) {
-            // Implementar la lógica para verificar si existe una ruta válida.
-            // Devolver true si la ruta es válida, de lo contrario, devolver false.
-        }
-
-        function hasAvailableSeats(date, origin, destination, seatCount) {
-            // Implementar la lógica para verificar si hay asientos disponibles para la fecha, origen y destino especificados.
-            // Devolver true si hay asientos disponibles, de lo contrario, devolver false.
-        }
-
-        function displayErrorMessage(message) {
-            const errorMessage = document.createElement("p");
-            errorMessage.textContent = message;
-            errorMessage.style.color = "#ff8a80";
-            confirmationDiv.appendChild(errorMessage);
-        }
-
-        function resetErrorMessage() {
-            const errorMessages = confirmationDiv.querySelectorAll("p");
-            errorMessages.forEach((element) => {
-                confirmationDiv.removeChild(element);
-            });
-        }
-
-        function generateReservationCode() {
-            const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            const randomLetters = Array.from({ length: 4 }, () => letters[Math.floor(Math.random() * letters.length)]);
-            const randomNumbers = Array.from({ length: 2 }, () => Math.floor(Math.random() * 10));
-            return randomLetters.join('') + randomNumbers.join('');
-        }
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
