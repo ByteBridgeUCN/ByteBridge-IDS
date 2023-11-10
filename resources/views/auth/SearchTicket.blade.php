@@ -8,7 +8,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
         @extends('layouts.app')
-        @vite(['resources/css/BookTicket.css'])
+        @vite(['resources/css/SearchTicket.css'])
     </head>
 
     <body>
@@ -23,13 +23,16 @@
                         <p>{{ $message }}</p>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-primary">Buscar Reserva</button>
+                <div class="divino">
+                <button type="submit" class="btn btn-primary" >Buscar </button>
             </form>
             @if (session('message'))
                 <p>{{ session('message') }}</p>
             @endif
-            <a class="back-button" href="{{ route('Home') }}">Volver</a>
+            <a class="search-back-button" href="{{ route('Home') }}">Volver</a>
+            </div>        
         </div>
+
     </body>
 
     <script>
