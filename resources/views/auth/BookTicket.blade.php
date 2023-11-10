@@ -9,7 +9,7 @@
 
 
     @extends('layouts.app')
-    @vite(['resources/css/BookTicket.css'])
+    @vite(['resources/css/BookTicket.css','resources/js/BookTicket.js'])
 </head>
 
 <body>
@@ -17,23 +17,30 @@
         <h5 style="text-align: center;">¿DÓNDE QUIERES VIAJAR?</h5>
         <form method="POST" action="{{ route('BookTicket.bookTicket') }}" novalidate>
             @csrf
-            <div class="form-group ">
-                <input type="text" class="form-control" id="origin" name="origin" placeholder="Ciudad origen" required><br>
-                <input type="text" class="form-control" id="destination" name="destination" placeholder="Ciudad destino" required><br>
-                <h5 style="text-align: center;">¿CUÁNDO QUIERES VIAJAR?
-                </h5>
+            <div class="form-group">
+                <select id="origin" class="form-select">
+                    <option selected>Seleccione el lugar de origen </option>
+                </select>
+
+                <select id="destination" class="form-select">
+                    <option selected>Seleccione el lugar de destino </option>
+                </select>
+
+
+                <h5 style="text-align: center;">¿CUÁNDO QUIERES VIAJAR?</h5>
                 <input type="date" class="form-control" id="travelDate" name="travelDate" min="{{ date('Y-m-d') }}" required><br>
                 @error('travelDate')
                     <p>{{ $message }}</p>
                 @enderror
-                <h5 for="seat-count">¿CUÁNTOS ASIENTOS DESEA RESERVAR?
-                </h5>
-                <input type="number" class="form-control" id="purchasedSeats" name="purchasedSeats" min="1" required><br>
+                <h5 for="seat-count">¿CUÁNTOS ASIENTOS DESEA RESERVAR?</h5>
+                <select id="purchasedSeats" class="form-select">
+                    <option selected>Seleccione la cantidad de asientos </option>
+                </select>
                 @error('purchasedSeats')
                     <p>{{ $message }}</p>
                 @enderror
-            </div>
 
+            </div>
 
         </form>
 
@@ -83,38 +90,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
-        // Escucha el clic en el botón
-        document.getElementById('confirmButton').addEventListener('click', function(event) {
-            // Previene el comportamiento predeterminado del formulario
-            event.preventDefault();
-            const origin = document.getElementById('origin').value;
-            const destination = document.getElementById('destination').value;
-            const travelDate = document.getElementById('travelDate').value;
-            const purchasedSeats = document.getElementById('purchasedSeats').value;
-            const total = 1;
-            // Muestra la alerta de confirmación
-            Swal.fire({
-                title: "Confirmar reserva",
-                text: "El total de la reserva entre " + origin + " y " + destination + " para el día " + travelDate + " es de $" + total + " (" + purchasedSeats + " asientos) ¿Desea continuar?",
-                icon: "warning",
-                showCancelButton: true,
-                cancelButtonText:"Volver",
-                confirmButtonColor: "#2ecc71",
-                cancelButtonColor: "#ff8a80",
-                confirmButtonText: "Confirmar"
-
-            }).then((result) => {
-                // Verifica si el usuario hizo clic en "Confirmar"
-                if (result.isConfirmed) {
-                    document.querySelector('.container').style.position = 'fixed';
-                    document.body.style.overflow = 'hidden';
-                  // Envía el formulario de manera programática
-                  document.querySelector('form').submit();
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>
