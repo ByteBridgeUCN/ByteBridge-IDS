@@ -18,11 +18,11 @@
         <form method="POST" action="{{ route('BookTicket.bookTicket') }}" novalidate>
             @csrf
             <div class="form-group">
-                <select id="origin" class="form-select">
+                <select id="origin" name="origin" class="form-select">
                     <option selected>Seleccione el lugar de origen </option>
                 </select>
 
-                <select id="destination" class="form-select">
+                <select id="destination" name="destination" class="form-select">
                     <option selected>Seleccione el lugar de destino </option>
                 </select>
 
@@ -33,9 +33,11 @@
                     <p>{{ $message }}</p>
                 @enderror
                 <h5 for="seat-count">¿CUÁNTOS ASIENTOS DESEA RESERVAR?</h5>
+
                 <select id="purchasedSeats" class="form-select">
                     <option selected>Seleccione la cantidad de asientos </option>
                 </select>
+
                 @error('purchasedSeats')
                     <p>{{ $message }}</p>
                 @enderror
