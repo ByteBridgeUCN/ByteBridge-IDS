@@ -106,6 +106,11 @@ class TicketController extends Controller {
 
         return view('auth.showTicket', compact('ticket', 'origin', 'destination'));
 
+        //Alexis: Agrege el return view para obtener los datos pero no estoy seguro si
+        //se hace en esta funcion o se debe de crear otra funcion
+        //@PabloRobledo
+        return view('auth.BookTicket', compact('ticket', 'origin', 'destination'));
+
     }
 
     private function generateTicketCode(){

@@ -1,10 +1,9 @@
 //#region Selecion
 
-const selectOrigin = document.getElementById('origin').value;
-const selectDestination = document.getElementById('destination').value;
+const selectOrigin = document.getElementById('origin');
+const selectDestination = document.getElementById('destination');
+const selectSeat = document.getElementById('purchasedSeats');
 const selectTravelDate = document.getElementById('travelDate').value;
-const selectPurchasedSeats = document.getElementById('purchasedSeats').value;
-const total = 1;
 
 const clearSelectSeat = () => {
     while (selectPurchasedSeats.firstChild) {
@@ -34,7 +33,7 @@ const addSeatingToSelect = (seat, travel) => {
 const verifySeating = () => {
     const origin = selectOrigin.value;
     const destination = selectDestination.value;
-    const date = selectPurchasedSeats.value;
+    const date = selectTravelDate.value;
 
     if (origin && destination && date) {
         fetch(`/seating/${origin}/${destination}/${date}`)
@@ -79,7 +78,7 @@ const loadedDestinations = (e) => {
             .then(response => response.json())
             .then(data => {
                 // Manipula los datos recibidos aquí
-                const destinations = data.destination;
+                const destinations = data.destinationIds;
                 console.log(destinations);
                 addDestinationsToSelect(destinations);
                 // console.log(data);
@@ -105,8 +104,8 @@ const loadedOrigins = (e) => {
         .then(response => response.json())
         .then(data => {
             // Manipula los datos recibidos aquí
-            const origins = data.origins;
-            // console.log(origins);
+            const origins = data.originIds;
+            console.log(origins);
             addOriginsToSelect(origins);
             // console.log(data);
 
@@ -116,11 +115,11 @@ const loadedOrigins = (e) => {
             console.error('Hubo un error:', error);
         });
 }
-
 document.addEventListener('DOMContentLoaded', loadedOrigins)
 selectOrigin.addEventListener('change', loadedDestinations)
 selectDestination.addEventListener('change', verifySeating)
-selectPurchasedSeats.addEventListener('change', verifySeating)
+selectSeat.addEventListener('change', verifySeating)
+
 //#endregion
 
 
@@ -132,7 +131,7 @@ document.getElementById('confirmButton').addEventListener('click', function(even
     // Muestra la alerta de confirmación
     Swal.fire({
         title: "Confirmar reserva",
-        text: "El total de la reserva entre " + origin + " y " + destination + " para el día " + travelDate + " es de $" + total + " (" + purchasedSeats + " asientos) ¿Desea continuar?",
+        // text: "El total de la reserva entre " + origin + " y " + destination + " para el día " + travelDate + " es de $" + total + " (" + purchasedSeats + " asientos) ¿Desea continuar?",
         icon: "warning",
         showCancelButton: true,
         cancelButtonText:"Volver",

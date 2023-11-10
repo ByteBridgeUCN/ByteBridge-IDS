@@ -9,6 +9,7 @@ use App\Http\Controllers\auth\GetTravelsController;
 use App\Http\Controllers\auth\ShowRoutesController;
 use App\Http\Controllers\auth\SearchTicketController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\TravelController;
 
 
 /*
@@ -37,6 +38,12 @@ Route::post('/BookTicket', [TicketController::class, 'bookTicket'])->name('BookT
 Route::get('SearchTicket', [SearchTicketController::class, 'view'])->name('SearchTicket');
 Route::post('/SearchTicket', [SearchTicketController::class, 'search'])->name('SearchTicket.search');
 
+
+
+Route::get('/get/origins', [TravelController::class, 'obtainOrigins']);
+Route::get('/get/destinations/{origin}', [TravelController::class, 'searchDestinations']);
+Route::get('/seating/{origin}/{destination}/{date}', [TravelController::class, 'seatings']);
+Route::post('/check', [TravelController::class, 'checkTravel'])->name('travels.check');
 
 
 Route::middleware(['auth'])->group(function () {
