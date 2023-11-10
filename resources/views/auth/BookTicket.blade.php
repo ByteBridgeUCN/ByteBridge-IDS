@@ -14,10 +14,11 @@
 
 <body>
     <div class="container mt-5">
-        <h5 style="text-align: center;">¿DÓNDE QUIERES VIAJAR?</h5>
+
         <form method="POST" action="{{ route('BookTicket.bookTicket') }}" novalidate>
             @csrf
             <div class="form-group">
+                <h5 style="text-align: center;">¿DÓNDE QUIERES VIAJAR?</h5>
                 <select id="origin" name="origin" class="form-select">
                     <option selected>Seleccione el lugar de origen </option>
                 </select>
@@ -28,13 +29,13 @@
 
 
                 <h5 style="text-align: center;">¿CUÁNDO QUIERES VIAJAR?</h5>
-                <input type="date" class="form-control" id="travelDate" name="travelDate" min="{{ date('Y-m-d') }}" required><br>
+                <input type="date" class="form-control" id="travelDate" name="travelDate" min="{{ date('Y-m-d') }}" required ><br>
                 @error('travelDate')
                     <p>{{ $message }}</p>
                 @enderror
-                <h5 for="seat-count">¿CUÁNTOS ASIENTOS DESEA RESERVAR?</h5>
 
-                <select id="purchasedSeats" class="form-select">
+                <h5 for="seat-count">¿CUÁNTOS ASIENTOS DESEA RESERVAR?</h5>
+                <select id="purchasedSeats" name="purchasedSeats" class="form-select">
                     <option selected>Seleccione la cantidad de asientos </option>
                 </select>
 

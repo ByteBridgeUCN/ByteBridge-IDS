@@ -25,11 +25,11 @@ class TicketController extends Controller {
             'purchasedSeats' => ['required', 'numeric'],
         ],$message);
 
-        $originName = $request->input('origin');
+        $originId = $request->input('origin');
 
         try{
 
-            $originId = City::where('name', $originName)->first()->id;
+            $originId = City::where('id', $originId)->first()->id;
 
         }catch( \Exception $e ){
 
@@ -37,11 +37,11 @@ class TicketController extends Controller {
 
         }
 
-        $destinationName = $request->input('destination');
+        $destinationId = $request->input('destination');
 
         try{
 
-            $destinationId = City::where('name', $destinationName)->first()->id;
+            $destinationId = City::where('id', $destinationId)->first()->id;
 
         }catch( \Exception $e ){
 
@@ -73,10 +73,14 @@ class TicketController extends Controller {
 
             if($availableSeats < $request->input('purchasedSeats')){
 
-                return back()->with('message', "no hay servicios disponibles para la ruta seleccionada");
+                return back()->with('message', "debe seleccionar la cantidad de asientos antes de realizar la reserva");
 
             }
 
+        }
+
+        if(!$request->input('purchasedSeats')){
+            return back()->with('message', "deben exister asientos");
         }
 
         $price = $travel->baseRate * $request->input('purchasedSeats');
@@ -114,19 +118,16 @@ class TicketController extends Controller {
     }
 
     private function generateTicketCode(){
-        $letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $randomLetters = '';
-        $randomNumbers = '';
+        do {
 
-        for ($i = 0; $i < 4; $i++) {
-            $randomLetters .= $letters[rand(0, strlen($letters) - 1)];
-        }
+            $randomLetters = strtoupper(Str::random(4));
+            $randomNumbers = str_pad(rand(10, 99), 2, '0', STR_PAD_LEFT);
 
-        for ($i = 0; $i < 2; $i++) {
-            $randomNumbers .= rand(0, 9);
-        }
+            $ticketCode = $randomLetters . $randomNumbers;
 
-        $ticketCode = $randomLetters . $randomNumbers;
+            $response = Ticket::where('ticketCode', $ticketCode)->first();
+
+        } while($response);
 
         return $ticketCode;
     }

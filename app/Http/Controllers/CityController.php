@@ -17,4 +17,12 @@ class CityController extends Controller {
 
     }
 
+    public function getName($id){
+        $name = City::where('id', $id)->pluck('name');
+        return response()->json([
+            'cityName' => $name,
+        ]);
+    }
+
+
 }
