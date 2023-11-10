@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Tramo;
 use App\Models\Travel;
 use App\Models\Ticket;
+use App\Models\City;
 
 use Illuminate\Http\Request;
 
@@ -27,8 +28,13 @@ class TravelController extends Controller {
     {
         $origins = Travel::distinct()->orderBy('originId', 'asc')->pluck('originId');
 
+        $names = City::whereIn('id', $origins)
+                    ->orderByRaw("FIELD(id, " . implode(",", $origins->toArray()) . ")")
+                    ->pluck('name');
+
         return response()->json([
             'originIds' => $origins,
+            'originNames'=> $names
         ]);
     }
 
@@ -36,17 +42,26 @@ class TravelController extends Controller {
     {
         $destinations = Travel::distinct()->orderBy('destinationId', 'asc')->pluck('destinationId');
 
+        $names = City::whereIn('id', $destinations)
+                    ->orderByRaw("FIELD(id, " . implode(",", $destinations->toArray()) . ")")
+                    ->pluck('name');
+
         return response()->json([
             'destinationIds' => $destinations,
+            'destinationNames'=> $names,
         ]);
     }
 
     public function searchDestinations($origin)
     {
         $destinations = Travel::where('originId', $origin)->orderBy('destinationId', 'asc')->pluck('destinationId');
+        $names = City::whereIn('id', $destinations)
+                    ->orderByRaw("FIELD(id, " . implode(",", $destinations->toArray()) . ")")
+                    ->pluck('name');
 
         return response()->json([
             'destinationIds' => $destinations,
+            'destinationNames'=> $names,
         ]);
     }
 
@@ -58,7 +73,7 @@ class TravelController extends Controller {
         if ($travel) {
             $tickets = Ticket::where('travelId', $travel->id)->where('travelDate', $date)->sum('purchasedSeats');
 
-            $seatNow = $travel->seat_quantity - $tickets;
+            $seatNow = $travel->totalSeats - $tickets;
 
             return response()->json(['purchasedSeats' => $seatNow, 'travelId' => $travel]);
         }
