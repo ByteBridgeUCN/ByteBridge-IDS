@@ -101,7 +101,8 @@ const loadedDestinations = (e) => {
                 // Maneja los errores aquí
                 console.error('Hubo un error:', error);
             });
-    }
+            updateReserveButtonStatus();
+        }
 }
 
 const verifySeating = () => {
@@ -121,18 +122,21 @@ const verifySeating = () => {
                 // Maneja los errores aquí
                 console.error('Hubo un error:', error);
             });
-    }
+            updateReserveButtonStatus();
+        }
 }
 
 selectOrigin.addEventListener('change', () => {
     clearSelectDestination();
     selectTravelDate.value = "";
     clearSelectSeat();
+    updateReserveButtonStatus();
 })
 
 selectDestination.addEventListener('change', () => {
     selectTravelDate.value = "";
     clearSelectSeat();
+    updateReserveButtonStatus();
 })
 
 selectTravelDate.addEventListener('change', () => {
@@ -178,10 +182,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function updateButtonState() {
-    const originSelected = selectOrigin.value;
-    const destinationSelected = selectDestination.value;
-    confirmButton.disabled = !originSelected || !destinationSelected;
+const updateReserveButtonStatus = () => {
+    const reserveButton = document.getElementById('confirmButton');
+
+    // Verifica si tanto selectOrigin como selectDestination tienen valores seleccionados
+    const isButtonDisabled = !selectOrigin.value || !selectDestination.value;
+
+    // Actualiza el estado del botón
+    reserveButton.disabled = isButtonDisabled;
 }
 
 // Escucha el clic en el botón
@@ -195,26 +203,31 @@ document.getElementById('confirmButton').addEventListener('click', function(even
     const travelDataSelected = document.getElementById('travelDate').value;
     const formattedDate = formatDate(travelDataSelected);
 
+    if (originSelected && destinationSelected && seatAmountSelected && travelDataSelected) {
 
-    // Muestra la alerta de confirmación
-    Swal.fire({
-        title: "Confirmar reserva",
-        text: "El total de la reserva entre " + originSelected + " y " + destinationSelected + " para el día " + formattedDate + " es de $"  + " (" + seatAmountSelected + " asientos) ¿Desea continuar?",
-        icon: "warning",
-        showCancelButton: true,
-        cancelButtonText:"Volver",
-        confirmButtonColor: "#2ecc71",
-        cancelButtonColor: "#ff8a80",
-        confirmButtonText: "Confirmar"
 
-    }).then((result) => {
-        // Verifica si el usuario hizo clic en "Confirmar"
-        if (result.isConfirmed) {
-            document.querySelector('.container').style.position = 'fixed';
-            document.body.style.overflow = 'hidden';
-            // Envía el formulario de manera programática
-            document.querySelector('form').submit();
-        }
-    });
+        // Muestra la alerta de confirmación
+        Swal.fire({
+            title: "Confirmar reserva",
+            text: "El total de la reserva entre " + originSelected + " y " + destinationSelected + " para el día " + formattedDate + " es de $"  + " (" + seatAmountSelected + " asientos) ¿Desea continuar?",
+            icon: "warning",
+            showCancelButton: true,
+            cancelButtonText:"Volver",
+            confirmButtonColor: "#2ecc71",
+            cancelButtonColor: "#ff8a80",
+            confirmButtonText: "Confirmar"
+
+        }).then((result) => {
+            // Verifica si el usuario hizo clic en "Confirmar"
+            if (result.isConfirmed) {
+                document.querySelector('.container').style.position = 'fixed';
+                document.body.style.overflow = 'hidden';
+                // Envía el formulario de manera programática
+                document.querySelector('form').submit();
+            }
+        });
+
+    }
+
 });
 //#endregion
