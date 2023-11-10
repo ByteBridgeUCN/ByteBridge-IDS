@@ -25,12 +25,16 @@ p{
 .container{
     text-align: center; /* Alinea el contenido al centro */
     position: relative;
-
 }
 
 .form-group{
     max-width: 400px; /* Establece el ancho máximo del formulario */
     margin: auto; /* Centra el formulario horizontalmente */
+}
+
+.form-select{
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .button-container-reservation{
