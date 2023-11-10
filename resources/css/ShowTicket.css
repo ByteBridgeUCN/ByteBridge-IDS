@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif; /* Aplica la fuente a todo el cuerpo o ajusta según sea necesario */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.modal-content {
+    position: relative;
+    /* background-color: burlywood; */
+    border: 1px solid #000; /* Añade un borde negro */
+    border-radius: 8px; /* Agrega esquinas redondeadas si lo deseas */
+    box-shadow: rgba(0, 9, 61, 0.45) 0px 4px 8px 0px;
+}
+
+
+
+
+.modal-body {
+    /* Estilos para el cuerpo del modal */
+    padding: 20px; /* Ajusta el relleno según sea necesario */
+    /* background-color: skyblue; */
+}
+
+.modal-title {
+    text-align: center; /* Centra el título */
+    font-size: 24px; /* Ajusta el tamaño de la fuente según sea necesario */
+}
+
+
+.back-button-ticket {
+    position: absolute;
+    top: -60px; /* Ajusta la posición vertical según sea necesario */
+    left: -120px; /* Ajusta la posición horizontal según sea necesario */
+    color: #333333;
+    text-decoration: none;
+}
+
+.back-button-menu{
+    text-decoration: none;
+    color: #333333;
+    background-color: #ff6b6b; /* Color del texto */
+    padding: 15px;
+    padding-inline: 20px;
+    border-radius: 4px;
+    box-shadow: rgba(0, 9, 61, 0.45) 0px 4px 8;
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+

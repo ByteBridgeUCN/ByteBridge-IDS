@@ -17,14 +17,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('https://images.pexels.com/photos/894359/pexels-photo-894359.jpeg');
+    background-color: #C9DDE6;
+    /* background-image: url('https://images.pexels.com/photos/894359/pexels-photo-894359.jpeg'); */
     background-size: cover; /* Para que la imagen de fondo se ajuste a toda la pantalla */
 }
 
 .container{
     margin: 20px;
     backdrop-filter: blur(10px); /* Ajusta el valor de desenfoque según tus preferencias */
-    background-color: rgba(333, 333, 333, 0.1); /* Agrega un color de fondo con opacidad para que el desenfoque sea más visible */
+    background-color: rgba(333, 333, 333, 0.3); /* Agrega un color de fondo con opacidad para que el desenfoque sea más visible */
+    box-shadow: rgba(0, 9, 61, 0.45) 0px 4px 8px 0px;
     padding: 20px; /* Ajusta según tus necesidades */
     border-radius: 20px;
     width: 500px;

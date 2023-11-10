@@ -15,8 +15,11 @@
         <div class="col-md-6 custom-rectangle">
             <img src="logoturjoy.png" alt="Logo" style="max-width:100%;">
 
-            <a href={{ route('SearchTicket') }} class="btn-search-reservation">Buscar reservas</a>
-            <a href="{{ route('BookTicket') }}" class="btn-reservation">Reservar pasajes</a>
+            <div class="home-button-container">
+                <a href={{ route('SearchTicket') }} class="btn-search-reservation">Buscar reservas</a>
+                <a href="{{ route('BookTicket') }}" class="btn-reservation">Reservar pasajes</a>
+            </div>
+
         </div>
     </div>
     <script>
