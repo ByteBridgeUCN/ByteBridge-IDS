@@ -13,12 +13,12 @@
 
     <body>
         <div class="container mt-5">
-            <h2>Buscar Reserva por Código de Viaje</h2>
+            <h2>Buscar reserva por código de viaje</h2>
             <form method="POST" action="{{ route('SearchTicket.search') }}" novalidate>
                 @csrf
                 <div class="form-group">
-                    <label for="ticketCode">Código de la reserva:</label>
-                    <input type="text" class="form-control" id="ticketCode" name="ticketCode"  maxlength="6" style="text-transform: uppercase;" required >
+                    <label for="ticketCode" ></label>
+                    <input type="text" class="form-control" id="ticketCode" name="ticketCode" placeholder="Código de la reserva"  maxlength="6" style="text-transform: uppercase;" required >
                     @error('ticketCode')
                         <p>{{ $message }}</p>
                     @enderror

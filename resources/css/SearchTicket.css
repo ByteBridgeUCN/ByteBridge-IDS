@@ -5,6 +5,9 @@ body {
 h1 {
     color: #333;
 }
+h5{
+    text-align: center;
+}
 
 .error-message {
     color: #ff8a80;
