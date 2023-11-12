@@ -119,6 +119,9 @@ class TicketController extends Controller {
     }
 
     private function generateTicketCode(){
+
+        $pattern = '/^[A-Z]{4}\d{2}$/';
+
         do {
 
             $randomLetters = strtoupper(Str::random(4));
@@ -128,9 +131,10 @@ class TicketController extends Controller {
 
             $response = Ticket::where('ticketCode', $ticketCode)->first();
 
-        } while($response);
+        } while(!preg_match($pattern, $ticketCode));
 
         return $ticketCode;
+
     }
 
 }
