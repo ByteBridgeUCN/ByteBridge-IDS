@@ -1,5 +1,8 @@
+/* Definir Poppins como fuente predeterminada */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+
 body {
-    font-family: Arial, sans-serif;
     align-items: center;
     display: flex;
     justify-content: center;
@@ -7,7 +10,7 @@ body {
     height: 100vh;
     width: 100%;
     margin:0;
-
+    font-family: 'poppins',sans-serif;
 }
 
 h1 {
@@ -16,15 +19,16 @@ h1 {
 
 h2{
     text-align: center;
-    
+
 }
 
-.error-message {
+p {
     color: #ff8a80;
+    text-align: center;
 }
 
 #reservation-form {
-    width: 400px;
+    width: 00px;
     margin: 0 auto;
 }
 
@@ -71,21 +75,21 @@ button:hover {
     text-decoration: none;
     box-shadow: rgba(0, 9, 61, 0.45) 0px 4px 8px 0px;
 
-    
+
 }
 
-.divino{
-display: flex;
-justify-content: center;
-align-items: center;
-margin-bottom: 40px;
+.search-ticket-button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
 }
 
 
 
 .form-group{
     position: relative;
-    
+
     align-items: center;
     justify-content: center;
     align-content: center;

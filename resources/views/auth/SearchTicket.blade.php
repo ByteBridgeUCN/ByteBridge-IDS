@@ -22,16 +22,20 @@
                     @error('ticketCode')
                         <p>{{ $message }}</p>
                     @enderror
+
+                    @if (session('message'))
+                    <p>{{ session('message') }}</p>
+                    @endif
                 </div>
-                <div class="divino">
-                <button type="submit" class="btn btn-primary" >Buscar </button>
+                <div class="search-ticket-button-container">
+                    <button type="submit" class="btn btn-primary" >Buscar </button>
+                    <a class="search-back-button" href="{{ route('Home') }}">Volver</a>
+
+                </div>
             </form>
-            @if (session('message'))
-                <p>{{ session('message') }}</p>
-            @endif
-            <a class="search-back-button" href="{{ route('Home') }}">Volver</a>
-            </div>        
         </div>
+
+
 
     </body>
 
