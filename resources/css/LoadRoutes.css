@@ -33,19 +33,6 @@ body {
     justify-content: center;
 }
 
-.load-file-button {
-    background-color: #2ecc71;
-    position: absolute;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 14px;
-    color: #333;
-    padding: 11px 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-}
 
 .load-file-button-volver{
     display: flex;
@@ -74,3 +61,56 @@ body {
     justify-content: center;
     margin-top: 70px;
 }
+
+.load-file-button{
+	width: 150px;
+	height: 50px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	background: red;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+	background: #2ecc71;
+}
+
+.load-file-button, .load-file-button span {
+	transition: 200ms;
+}
+
+.load-file-button .text {
+	transform: translateX(35px);
+	color: white;
+	font-weight: bold;
+}
+
+.load-file-button .icon {
+	position: absolute;
+	transform: translateX(57px);
+	height: 20px;
+	width: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.load-file-button:hover {
+	background: #2ecc71;
+}
+
+.load-file-button:hover .text {
+	color: transparent;
+}
+
+.load-file-button:hover .icon {
+	width: 150px;
+	border-left: none;
+	transform: translateX(0);
+}
+
+.load-file-button:focus {
+	outline: none;
+}
+

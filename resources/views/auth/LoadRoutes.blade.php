@@ -24,7 +24,17 @@
                     <label>Escoge un archivo</label>
                     <input type="file" name="file" class="form-control" />
                     <div class = "load-file-button-volver">
-                        <button type="submit" class="load-file-button"><span>Subir</span></button>
+                        <button type="submit" class="load-file-button">
+                            <span class = 'text'>Subir</span>
+                            <span class = 'icon'>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-upload" width="12" height="12" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
+                                    <path d="M7 9l5 -5l5 5" />
+                                    <path d="M12 4l0 12" />
+                                </svg>
+                            </span>
+                        </button>
                     </div>
                 </form>
             </div>
