@@ -33,19 +33,6 @@ body {
     justify-content: center;
 }
 
-.load-file-button {
-    background-color: #2ecc71;
-    position: absolute;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 14px;
-    color: #333;
-    padding: 11px 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-}
 
 .load-file-button-volver{
     display: flex;
@@ -75,79 +62,55 @@ body {
     margin-top: 70px;
 }
 
-@keyframes extend {
-    0% {
-        width: 75px;
-        height: 46px;
-
-    }
-    10% {
-        width: 70px;
-        height: 46px;
-
-    }
-    20% {
-        width: 60px;
-        height: 46px;
-
-    }
-    100% {
-        width: 46px;
-        height: 46px;
-        border-radius: 100px;
-    }
+.load-file-button{
+	width: 150px;
+	height: 50px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	background: red;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+	background: #2ecc71;
 }
 
-@keyframes disappear {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+.load-file-button, .load-file-button span {
+	transition: 200ms;
 }
 
-@keyframes appear {
-    0% {
-        opacity: 0;
-    }
-    70% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+.load-file-button .text {
+	transform: translateX(35px);
+	color: white;
+	font-weight: bold;
 }
 
-input,
-.load-file-button,
-submit {
-    border: none;
+.load-file-button .icon {
+	position: absolute;
+	transform: translateX(57px);
+	height: 20px;
+	width: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.load-file-button > span {
-    font-size: 16px;
-    color: #ffff;
+
+.load-file-button:hover {
+	background: #2ecc71;
 }
 
-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    opacity: 0
+.load-file-button:hover .text {
+	color: transparent;
+}
+
+.load-file-button:hover .icon {
+	width: 150px;
+	border-left: none;
+	transform: translateX(0);
 }
 
 .load-file-button:focus {
-    animation: extend 0.9s ease-in-out forwards;
+	outline: none;
 }
 
-.load-file-button:focus > span {
-    animation: disappear 0.5s ease-in-out forwards;
-}
-
-.load-file-button:focus > img {
-    animation: appear 1s ease-in-out forwards;
-}
