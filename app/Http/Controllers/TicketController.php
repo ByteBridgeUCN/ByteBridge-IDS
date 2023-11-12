@@ -6,6 +6,7 @@ use App\Models\City;
 use App\Models\Travel;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class TicketController extends Controller {
 
@@ -49,11 +50,12 @@ class TicketController extends Controller {
 
         }
 
+
         $travel = Travel::where('originId', $originId)->where('destinationId', $destinationId)->first();
 
         if(!$travel){
 
-            return back()->with('message', "no hay rutas disponibles entre las ciudades seleccionadas");
+            return back()->with('message', "por el momento no es posible realizar reservas, intente más tarde.");
 
         }
 
@@ -109,11 +111,6 @@ class TicketController extends Controller {
         $destination = City::where('id', $travel->destinationId)->first();
 
         return view('auth.showTicket', compact('ticket', 'origin', 'destination'));
-
-        //Alexis: Agrege el return view para obtener los datos pero no estoy seguro si
-        //se hace en esta funcion o se debe de crear otra funcion
-        //@PabloRobledo
-        return view('auth.BookTicket', compact('ticket', 'origin', 'destination'));
 
     }
 

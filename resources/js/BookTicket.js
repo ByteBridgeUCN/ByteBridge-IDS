@@ -197,7 +197,7 @@ document.getElementById('confirmButton').addEventListener('click', function(even
     // Previene el comportamiento predeterminado del formulario
     event.preventDefault();
 
-    const originSelected = document.getElementById('origin').value;
+    const originSelected = document.getElementById('origin');
     const destinationSelected = document.getElementById('destination').value;
     const seatAmountSelected = document.getElementById('purchasedSeats').value;
     const travelDataSelected = document.getElementById('travelDate').value;

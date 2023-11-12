@@ -84,7 +84,7 @@
             <a class="back-button-home separate" href="{{ route('Home') }}">Volver</a>
         </div>
         @if (session('message'))
-        <p>{{ session('message') }}</p>
+            <p>{{ session('message') }}</p>
         @endif
 
 
