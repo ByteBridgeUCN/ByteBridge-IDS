@@ -19,7 +19,6 @@ class GetTravelsController extends Controller {
     public function importTravels(Request $request) {
 
         if(!$request->hasFile('file')) {
-
             return redirect('LoadRoutes')->with('error', 'No se ha seleccionado ningún archivo.');
 
         }
@@ -28,7 +27,6 @@ class GetTravelsController extends Controller {
         $extension = $file->getClientOriginalExtension();
 
         if ($extension !== 'xlsx') {
-
             return redirect('LoadRoutes')->with('error', 'el archivo seleccionado no es Excel con extensión .xlsx.');
 
         }
@@ -36,7 +34,6 @@ class GetTravelsController extends Controller {
         $validator = Validator::make($request->all(), ['file' => 'required|file|max:5120',]);
 
         if ($validator->fails()) {
-
             return redirect('LoadRoutes')->with('error', 'el tamaño máximo del archivo a cargar no puede superar los 5 megabytes');
 
         }
@@ -48,7 +45,7 @@ class GetTravelsController extends Controller {
         foreach (['origen', 'destino', 'cantidad_asientos', 'tarifa_base'] as $column) {
 
             if (!in_array($column, $columnsNames[0])) {
-
+                
                 return redirect('LoadRoutes')->with('error', 'el archivo Excel que ha cargado posee errores, por favor, verifique su archivo.');
 
             }
@@ -60,18 +57,15 @@ class GetTravelsController extends Controller {
 
         // Cargar el archivo excel
         if($travel != null) {
-
             $data = Excel::toArray($travelsImport, $request->file('file'));
 
             // Comprobar si hay datos
             if (count($data) > 0) {
                 // Obtener la primera hoja del archivo Excel
                 $sheet = $data[0];
-                sleep(1);
                 return view('auth.ShowRoutes', compact('sheet'));
 
             } else {
-
                 return view('auth.LoadRoutes')->with('error', 'El archivo Excel está vacío.');
 
             }
