@@ -6,6 +6,7 @@ use App\Models\City;
 use App\Models\Travel;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class TicketController extends Controller {
 
