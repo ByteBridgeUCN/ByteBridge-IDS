@@ -1,4 +1,4 @@
-
+/* Definir Poppins como fuente predeterminada */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 *{
@@ -46,9 +46,12 @@ tr:nth-child(even) {
 
 .back-button{
     background-color: #0a74d4;
-    color: #333333;
-    padding: 5px;
-    margin-top: 2px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    padding: 15px;
     text-decoration: none;
     border-radius: 5px;
+    margin-inline-start: 25px;
+    margin-top: 20px;
 }
