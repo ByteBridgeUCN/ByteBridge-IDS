@@ -22,10 +22,17 @@
                 <select id="origin" name="origin" class="form-select">
                     <option selected>Seleccione el lugar de origen </option>
                 </select>
+                @error('origin')
+                <p>{{ $message }}</p>
+                @enderror
+
 
                 <select id="destination" name="destination" class="form-select">
                     <option selected>Seleccione el lugar de destino </option>
                 </select>
+                @error('destination')
+                <p>{{ $message }}</p>
+                @enderror
 
 
                 <h5 style="text-align: center;">¿CUÁNDO QUIERES VIAJAR?</h5>
@@ -48,7 +55,7 @@
         </form>
 
         <div class="button-container-reservation">
-            <button id="confirmButton" type="submit" class="button" >
+            <button id="confirmButton" type="submit" class="button" onclick="document.querySelector('form').submit()">
                 <span class="button__text">
                   <span>R</span><span>e</span>s</span><span>e</span><span>r</span><span>v</span><span>a</span><span>r</span>
                 </span>

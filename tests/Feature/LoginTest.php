@@ -15,14 +15,15 @@ class LoginTest extends TestCase
     {
         $this->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class);
 
-        // Crea un usuario de prueba
+
         $response = $this->post('/Login', [
             'email' => 'italo.donoso@ucn.cl',
             'password' => 'Turjoy91',
         ]);
 
-        $response->assertStatus(302); // Verifica el código de estado de la respuesta (redirección)
+        $response->assertStatus(302);
         $response->assertRedirect('/');
     }
 
 }
+

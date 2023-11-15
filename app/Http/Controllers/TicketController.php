@@ -28,6 +28,7 @@ class TicketController extends Controller {
 
         $originId = $request->input('origin');
 
+
         try{
 
             $originId = City::where('id', $originId)->first()->id;
@@ -79,6 +80,10 @@ class TicketController extends Controller {
 
             }
 
+            if ($purchasedSeats == "") {
+                return back()->with('message', "debe seleccionar la cantidad de asientos antes de realizar la reserva");
+
+            }
         }
 
         if(!$request->input('purchasedSeats')){

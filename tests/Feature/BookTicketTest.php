@@ -27,7 +27,7 @@ class BookTicketTest extends TestCase
 
         $response->assertStatus(200);
     }
-    
+
     /**
      * Tests the book ticket main page.
      */

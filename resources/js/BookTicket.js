@@ -66,8 +66,7 @@ const addSeatingToSelect = (seat, travel) => {
 
 
 const addDestinationsToSelect = (destinations, names) => {
-    // Limpiar el select
-    clearSelectDestination();
+
     // Crear la opcion por defecto
     const option = document.createElement('option');
     option.value = "";
@@ -101,7 +100,7 @@ const loadedDestinations = (e) => {
                 // Maneja los errores aquí
                 console.error('Hubo un error:', error);
             });
-            updateReserveButtonStatus();
+            //updateReserveButtonStatus();
         }
 }
 
@@ -122,21 +121,19 @@ const verifySeating = () => {
                 // Maneja los errores aquí
                 console.error('Hubo un error:', error);
             });
-            updateReserveButtonStatus();
+            //updateReserveButtonStatus();
         }
 }
 
 selectOrigin.addEventListener('change', () => {
     clearSelectDestination();
-    selectTravelDate.value = "";
     clearSelectSeat();
-    updateReserveButtonStatus();
+    //updateReserveButtonStatus();
 })
 
 selectDestination.addEventListener('change', () => {
-    selectTravelDate.value = "";
     clearSelectSeat();
-    updateReserveButtonStatus();
+    //updateReserveButtonStatus();
 })
 
 selectTravelDate.addEventListener('change', () => {
@@ -185,23 +182,25 @@ document.addEventListener('DOMContentLoaded', function() {
 const updateReserveButtonStatus = () => {
     const reserveButton = document.getElementById('confirmButton');
 
-    // Verifica si tanto selectOrigin como selectDestination tienen valores seleccionados
-    const isButtonDisabled = !selectOrigin.value || !selectDestination.value;
 
-    // Actualiza el estado del botón
-    reserveButton.disabled = isButtonDisabled;
+    // Verifica si tanto selectOrigin, selectDestination, selectTravelDate y selectSeat tienen valores seleccionados
+    const isButtonEnabled = selectOrigin.value && selectDestination.value && selectTravelDate.value && selectSeat.value;
+
+    // Actualiza el estado del botón y cambia el color
+    reserveButton.disabled = !isButtonEnabled;
+    reserveButton.style.backgroundColor = isButtonEnabled ? '#0A74DA' : '#333333';
 }
 
 // Escucha el clic en el botón
 document.getElementById('confirmButton').addEventListener('click', function(event) {
-    // Previene el comportamiento predeterminado del formulario
-    event.preventDefault();
 
-    const originSelected = document.getElementById('origin');
-    const destinationSelected = document.getElementById('destination').value;
+
+    const originSelected = selectOrigin.options[selectOrigin.selectedIndex].text;
+    const destinationSelected = selectDestination.options[selectDestination.selectedIndex].text;;
     const seatAmountSelected = document.getElementById('purchasedSeats').value;
     const travelDataSelected = document.getElementById('travelDate').value;
     const formattedDate = formatDate(travelDataSelected);
+
 
     if (originSelected && destinationSelected && seatAmountSelected && travelDataSelected) {
 
@@ -209,7 +208,7 @@ document.getElementById('confirmButton').addEventListener('click', function(even
         // Muestra la alerta de confirmación
         Swal.fire({
             title: "Confirmar reserva",
-            text: "El total de la reserva entre " + originSelected + " y " + destinationSelected + " para el día " + formattedDate + " es de $"  + " (" + seatAmountSelected + " asientos) ¿Desea continuar?",
+            text: "El total de la reserva entre " + originSelected + " y " + destinationSelected + " para el día " + formattedDate + " es de $"+  " (" + seatAmountSelected + " asientos) ¿Desea continuar?",
             icon: "warning",
             showCancelButton: true,
             cancelButtonText:"Volver",
@@ -220,14 +219,15 @@ document.getElementById('confirmButton').addEventListener('click', function(even
         }).then((result) => {
             // Verifica si el usuario hizo clic en "Confirmar"
             if (result.isConfirmed) {
-                document.querySelector('.container').style.position = 'fixed';
-                document.body.style.overflow = 'hidden';
                 // Envía el formulario de manera programática
                 document.querySelector('form').submit();
             }
         });
 
     }
+
+    // Previene el comportamiento predeterminado del formulario
+    event.preventDefault();
 
 });
 //#endregion

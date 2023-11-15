@@ -21,4 +21,8 @@ class Ticket extends Model {
         'ticketCode',
     ];
 
+    public function travel()
+    {
+        return $this->belongsTo(Travel::class, 'travelId');
+    }
 }
