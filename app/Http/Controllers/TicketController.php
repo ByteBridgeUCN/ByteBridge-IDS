@@ -7,6 +7,8 @@ use App\Models\Travel;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use PDF;
+use Storage;
 
 class TicketController extends Controller {
 
@@ -108,12 +110,17 @@ class TicketController extends Controller {
                 'purchaseDate' => now(),
                 'purchasedSeats' => $request->input('purchasedSeats'),
                 'price' => $price,
-                'ticketCode' => $this->generateTicketCode()
+                'ticketCode' => $ticketCode
             ]
         );
 
         $origin = City::where('id', $travel->originId)->first();
         $destination = City::where('id', $travel->destinationId)->first();
+
+        // Generate PDF
+        $pdf = PDF::loadView('auth.showTicket', compact('ticket', 'origin', 'destination'));
+        $pdfPath = 'pdf/' . $ticketCode . '_turjoy.pdf';
+        Storage::disk('public')->put($pdfPath, $pdf->output());
 
         return view('auth.showTicket', compact('ticket', 'origin', 'destination'));
 
