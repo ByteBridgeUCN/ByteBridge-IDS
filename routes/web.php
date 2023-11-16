@@ -36,6 +36,7 @@ Route::post('/Login', [LogInController::class, 'auth'])->name('Auth');
 Route::get('BookTicket', [TicketController::class, 'view'])->name('BookTicket');
 Route::post('/BookTicket', [TicketController::class, 'bookTicket'])->name('BookTicket.bookTicket');
 
+
 Route::get('SearchTicket', [SearchTicketController::class, 'view'])->name('SearchTicket');
 Route::post('/SearchTicket', [SearchTicketController::class, 'search'])->name('SearchTicket.search');
 

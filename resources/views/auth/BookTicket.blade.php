@@ -55,7 +55,7 @@
         </form>
 
         <div class="button-container-reservation">
-            <button id="confirmButton" type="submit" class="button" onclick="document.querySelector('form')">
+            <button id="confirmButton" type="submit" class="button">
                 <span class="button__text">
                   <span>R</span><span>e</span>s</span><span>e</span><span>r</span><span>v</span><span>a</span><span>r</span>
                 </span>

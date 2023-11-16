@@ -5,20 +5,21 @@ const selectSeat = document.getElementById('purchasedSeats');
 const selectTravelDate = document.getElementById('travelDate');
 
 const clearSelectSeat = () => {
-
     while (selectSeat.firstChild) {
         selectSeat.removeChild(selectSeat.firstChild);
     }
-
+    // Forzar un repintado (Reflow)
+    selectSeat.offsetHeight;
 }
 
 const clearSelectDestination = () => {
-
     while (selectDestination.firstChild) {
         selectDestination.removeChild(selectDestination.firstChild);
     }
-
+    // Forzar un repintado (Reflow)
+    selectDestination.offsetHeight;
 }
+
 
 const clearSelectTravelDate = () => {
 
@@ -108,7 +109,7 @@ const loadedDestinations = (e) => {
             // Maneja los errores aquí
             console.error('Hubo un error:', error);
         });
-        //updateReserveButtonStatus();
+        updateReserveButtonStatus();
 
     }
 }
@@ -132,7 +133,7 @@ const verifySeating = () => {
             // Maneja los errores aquí
             console.error('Hubo un error:', error);
         });
-        //updateReserveButtonStatus();
+        updateReserveButtonStatus();
 
     }
 }
@@ -141,14 +142,14 @@ selectOrigin.addEventListener('change', () => {
 
     clearSelectDestination();
     clearSelectSeat();
-    //updateReserveButtonStatus();
+    updateReserveButtonStatus();
 
 })
 
 selectDestination.addEventListener('change', () => {
 
     clearSelectSeat();
-    //updateReserveButtonStatus();
+    updateReserveButtonStatus();
 
 })
 
