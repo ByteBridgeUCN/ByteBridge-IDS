@@ -28,7 +28,6 @@ class LogInController extends Controller {
         ],$message);
 
         if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
-
             return back()->with('message', 'usuario no registrado o contraseña incorrecta.');
 
         }

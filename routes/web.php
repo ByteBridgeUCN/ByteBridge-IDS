@@ -56,4 +56,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('ShowRoutes', [ShowTravelsController::class, 'view'])->name('ShowRoutes');
 
+    Route::get('TicketReport', [TicketController::class, 'ticketReport'])->name('TicketReport');
+
 });
