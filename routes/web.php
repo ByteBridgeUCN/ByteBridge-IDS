@@ -24,9 +24,7 @@ use App\Http\Controllers\CityController;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.Home');
-})->name('Home')->middleware('guest');
+Route::get('/', function () { return view('auth.Home'); })->name('Home')->middleware('guest');
 
 Route::get('Controller', [Controller::class, 'redirectToPreviousView'])->name('back');
 

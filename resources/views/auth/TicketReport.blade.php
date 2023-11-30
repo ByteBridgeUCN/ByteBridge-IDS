@@ -25,7 +25,7 @@
             <input type="date" id="beginDate" name="beginDate" class="flatpickr" placeholder="Seleccionar fecha">
 
             <label for="endDate">Fecha de Fin:</label>
-            <input type="date" id="endDate" name="endDate" class="flatpickr" placeholder="Seleccionar fecha">
+            <input type="text" id="endDate" name="endDate" class="flatpickr" placeholder="Seleccionar fecha">
 
             <button type="button" onclick="filterTickets()">Filtrar</button>
         </form>
