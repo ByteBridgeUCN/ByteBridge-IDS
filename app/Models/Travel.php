@@ -20,4 +20,14 @@ class Travel extends Model {
         'baseRate'
     ];
 
+    public function originCity()
+    {
+        return $this->belongsTo(City::class, 'originId');
+    }
+
+    public function destinationCity()
+    {
+        return $this->belongsTo(City::class, 'destinationId');
+    }
+
 }

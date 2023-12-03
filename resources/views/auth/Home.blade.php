@@ -5,7 +5,7 @@
     <title>Turjoy | ¡Reserva tus viajes ahora mismo!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <!-- Estilos personalizados -->
-    @vite('resources/css/Home.css')
+    @vite(['resources/css/Home.css'])
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
     @extends('layouts.app')
 </head>

@@ -11,7 +11,7 @@ use App\Http\Controllers\auth\SearchTicketController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TravelController;
 use App\Http\Controllers\CityController;
-
+use App\Http\Controllers\DailyRoutesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +44,7 @@ Route::get('/seating/{origin}/{destination}/{date}', [TravelController::class, '
 Route::get('/checkBaseRate/{origin}/{destination}', [TravelController::class, 'checkBaseRate']);
 
 Route::get('DailyRoutes', [DailyRoutesController::class, 'view'])->name('DailyRoutes');
+Route::get('DailyRoutes', [DailyRoutesController::class, 'showDailyRoutes'])->name('DailyRoutes');
 
 
 Route::middleware(['auth'])->group(function () {
