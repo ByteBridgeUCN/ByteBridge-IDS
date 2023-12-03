@@ -43,6 +43,8 @@ Route::get('/get/destinations/{origin}', [TravelController::class, 'searchDestin
 Route::get('/seating/{origin}/{destination}/{date}', [TravelController::class, 'seatings']);
 Route::get('/checkBaseRate/{origin}/{destination}', [TravelController::class, 'checkBaseRate']);
 
+Route::get('DailyRoutes', [DailyRoutesController::class, 'view'])->name('DailyRoutes');
+
 
 Route::middleware(['auth'])->group(function () {
 
