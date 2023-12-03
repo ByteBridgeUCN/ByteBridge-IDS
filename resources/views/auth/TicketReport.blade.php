@@ -11,7 +11,7 @@
     @vite(['resources/css/ShowRoutes.css'])
     <style>
        h2{
-              text-align: center;
+            text-align: center;
        }
     </style>
 </head>

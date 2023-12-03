@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+span{
+    margin: 10px;
+}
+table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #0a74d4;
+    color: #fff;
+}
+
+.dr-button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row; /* Cambiado a fila para disposición horizontal */
+    text-align: center;
+    margin-top: 20px; /* Ajusta según sea necesario */
+}
+
+.back-button-home{
+    margin: 20px;
+    padding: 15px;
+    padding-inline: 55px;
+    position: relative;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 21px;
+    text-align: center;
+    background-color: #ff6b6b;
+    box-shadow: rgba(0, 9, 61, 0.45) 0px 4px 8px 0px;
+    color: white;
+    margin-left: 250px; /* Ajusta según sea necesario */
+
+}
+/* Defines button styles for reloading the page */
+.reload-page-button {
+    margin: 20px;
+    padding: 15px;
+    padding-inline: 55px;
+    position: relative;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 21px;
+    text-align: center;
+    background-color: #0a74d4;
+    box-shadow: rgba(0, 9, 61, 0.45) 0px 4px 8px 0px;
+    color: white;
+    margin-left: 250px; /* Ajusta según sea necesario */
+}
