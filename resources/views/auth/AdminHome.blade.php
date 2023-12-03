@@ -15,7 +15,7 @@
         <div class="button-container">
             <a href="{{ route('LoadRoutes') }}" class="load-routes-button">Cargar rutas</a>
             <a href="{{ route('SearchTicket') }}" class="search-routes-button">Buscar reservas</a>
-            <a href="#" class="reservation-report-button">Reportes de reserva</a>
+            <a href="{{ route('TicketReport') }}" class="reservation-report-button">Reportes de reserva</a>
         </div>
     </div>
 

@@ -24,9 +24,7 @@ use App\Http\Controllers\CityController;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.Home');
-})->name('Home')->middleware('guest');
+Route::get('/', function () { return view('auth.Home'); })->name('Home')->middleware('guest');
 
 Route::get('Controller', [Controller::class, 'redirectToPreviousView'])->name('back');
 
@@ -45,6 +43,8 @@ Route::get('/get/destinations/{origin}', [TravelController::class, 'searchDestin
 Route::get('/seating/{origin}/{destination}/{date}', [TravelController::class, 'seatings']);
 Route::get('/checkBaseRate/{origin}/{destination}', [TravelController::class, 'checkBaseRate']);
 
+Route::get('DailyRoutes', [DailyRoutesController::class, 'view'])->name('DailyRoutes');
+
 
 Route::middleware(['auth'])->group(function () {
 
@@ -57,4 +57,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('ShowRoutes', [ShowTravelsController::class, 'view'])->name('ShowRoutes');
 
+
+    Route::get('TicketReport', [TicketController::class, 'ticketReport'])->name('TicketReport');
 });
