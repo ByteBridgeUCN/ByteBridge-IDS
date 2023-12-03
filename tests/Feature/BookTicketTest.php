@@ -19,41 +19,56 @@ class BookTicketTest extends TestCase
     }
 
     /**
-     * Tests the book ticket main page.
+     * Tests select an origin.
      */
-    public function testBookTicketOriginFound(): void
+    public function testBookTicketOrigin(): void
     {
-        $response = $this->get('/BookTicket', ['origin' => '1']);
+        $response = $this->post('/BookTicket', ['origin' => '1']);
 
-        $response->assertStatus(200);
+        $response->assertStatus(302);
     }
 
     /**
-     * Tests the book ticket main page.
+     * Tests select a destination.
      */
-    public function testBookTicketDestinationFound(): void
+    public function testBookTicketDestination(): void
     {
-        $response = $this->get('/BookTicket', ['destination' => '7']);
+        $response = $this->post('/BookTicket', ['destination' => '7']);
 
-        $response->assertStatus(200);
+        $response->assertStatus(302);
     }
 
     /**
-     * Tests the book ticket main page.
+     * Tests select a travel date.
      */
-    public function testBookTicketTravelDateFound(): void
+    public function testBookTicketTravelDate(): void
     {
-        $response = $this->get('/BookTicket', ['date' => '2023-12-12']);
+        $response = $this->post('/BookTicket', ['date' => '2023-12-12']);
 
-        $response->assertStatus(200);
+        $response->assertStatus(302);
     }
 
     /**
-     * Tests the book ticket main page.
+     * Tests select a seat.
      */
-    public function testBookTicketPurchasedSeat(): void
+    public function testBookTicketPurchased(): void
     {
-        $response = $this->get('/BookTicket', ['purchasedSeats' => '1']);
+        $response = $this->post('/BookTicket', ['purchasedSeats' => '1']);
+
+        $response->assertStatus(302);
+    }
+
+    /**
+     * Tests book ticket
+     */
+    public function testBookTicket(): void
+    {
+        $response = $this->post('/BookTicket', [
+            'origin' => '1',
+            'destination' => '7',
+            'travelDate' => '2023-12-12',
+            'purchasedSeats' => '1'
+        ]);
 
         $response->assertStatus(200);
     }
