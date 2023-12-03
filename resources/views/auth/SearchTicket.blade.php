@@ -28,8 +28,9 @@
                     @endif
                 </div>
                 <div class="search-ticket-button-container">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
-                    <a class="search-back-button" href="{{ Auth::user() ? route('AdminHome') : route('Home') }}">Volver</a>
+                    <button type="submit" class="btn btn-primary" >Buscar </button>
+                    <a class="search-back-button" href="{{ route('Home') }}">Volver</a>
+
                 </div>
             </form>
         </div>

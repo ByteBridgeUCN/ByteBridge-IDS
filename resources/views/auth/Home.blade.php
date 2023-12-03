@@ -17,9 +17,7 @@
 
             <div class="home-button-container">
                 <a href={{ route('SearchTicket') }} class="btn-search-reservation">Buscar reservas</a>
-                <a href="{{ route('DailyRoutes') }}" class="btn-dialy-routes">Rutas del día</a>
                 <a href="{{ route('BookTicket') }}" class="btn-reservation">Reservar pasajes</a>
-
             </div>
 
         </div>
