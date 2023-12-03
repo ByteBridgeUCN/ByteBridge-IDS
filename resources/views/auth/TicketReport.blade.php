@@ -8,27 +8,43 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
     @extends('layouts.app')
-    @vite(['resources/css/ShowRoutes.css'])
+    @vite(['resources/css/TicketReport.css'])
     <style>
-       h2{
-            text-align: center;
-       }
+         body {
+        display: flex;
+    }
+
+    .date-container,
+    .table-container {
+        margin: 10px; /* Ajusta el margen según sea necesario */
+    }
+        
     </style>
 </head>
 <body>
+    
     <div class="back-button-container">
         <a href="{{ route('AdminHome') }}" class="back-button">Volver</a>
     </div>
-    <div class="container">
-        <form id="dateFilterForm">
+    <div class = "date-container">
+        <form id="dateFilterForm" class = "dateFilter">
             <label for="beginDate">Fecha de Inicio:</label>
+            <br>
             <input type="date" id="beginDate" name="beginDate" class="flatpickr" placeholder="Seleccionar fecha">
+            
+            <br>
 
             <label for="endDate">Fecha de Fin:</label>
+            <br>
             <input type="date" id="endDate" name="endDate" class="flatpickr" placeholder="Seleccionar fecha">
 
-            <button type="button" onclick="filterTickets()">Filtrar</button>
+            <br>
+            
+            <button type="button" onclick="filterTickets()">Filtrar</button> 
         </form>
+    </div>
+    
+    <div class = "table-container">
         @if($listTickets)
             <table>
                 <thead>
