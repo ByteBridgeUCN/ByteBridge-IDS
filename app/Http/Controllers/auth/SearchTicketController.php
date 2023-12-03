@@ -8,6 +8,8 @@ use App\Models\City;
 use App\Helpers\MyHelper;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use PDF;
+use Storage;
 
 class SearchTicketController extends Controller {
 
@@ -35,6 +37,10 @@ class SearchTicketController extends Controller {
         $travel = Travel::where('id', $ticket->travelId)->first();
         $origin = City::where('id', $travel->originId)->first();
         $destination = City::where('id', $travel->destinationId)->first();
+        $pdf = PDF::loadView('auth.showTicket', compact('ticket', 'origin', 'destination'));
+        $pdfPath = 'pdf/' . $ticketCode . '_turjoy.pdf';
+        Storage::disk('public')->put($pdfPath, $pdf->output());
+
         return view('auth.showTicket', compact('ticket', 'origin', 'destination'));
     }
 

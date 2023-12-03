@@ -79,12 +79,11 @@ class TravelController extends Controller {
         }
     }
 
-    public function checkTravel(Request $request)
+    public function checkBaseRate($origin, $destination)
     {
-        dd($request);
+        // Obtenemos el viaje segun el origen y destino ingresado.
+        $travelBaseRate = Travel::where('originId', $origin)->where('destinationId', $destination)->first()->baseRate;
+        return response()->json(['baseRate' => $travelBaseRate]);
     }
-
-
-
 
 }

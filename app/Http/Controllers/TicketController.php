@@ -7,6 +7,8 @@ use App\Models\Travel;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use PDF;
+use Storage;
 
 class TicketController extends Controller {
 
@@ -27,6 +29,7 @@ class TicketController extends Controller {
         ],$message);
 
         $originId = $request->input('origin');
+
 
         try{
 
@@ -79,6 +82,10 @@ class TicketController extends Controller {
 
             }
 
+            if ($purchasedSeats == "") {
+                return back()->with('message', "debe seleccionar la cantidad de asientos antes de realizar la reserva");
+
+            }
         }
 
         if(!$request->input('purchasedSeats')){
@@ -103,12 +110,17 @@ class TicketController extends Controller {
                 'purchaseDate' => now(),
                 'purchasedSeats' => $request->input('purchasedSeats'),
                 'price' => $price,
-                'ticketCode' => $this->generateTicketCode()
+                'ticketCode' => $ticketCode
             ]
         );
 
         $origin = City::where('id', $travel->originId)->first();
         $destination = City::where('id', $travel->destinationId)->first();
+
+        // Generate PDF
+        $pdf = PDF::loadView('auth.showTicket', compact('ticket', 'origin', 'destination'));
+        $pdfPath = 'pdf/' . $ticketCode . '_turjoy.pdf';
+        Storage::disk('public')->put($pdfPath, $pdf->output());
 
         return view('auth.showTicket', compact('ticket', 'origin', 'destination'));
 
@@ -131,6 +143,30 @@ class TicketController extends Controller {
 
         return $ticketCode;
 
+    }
+
+    public function ticketReport(){
+
+        $listTickets = [];
+
+        $tickets = Ticket::orderBy('purchaseDate')->get();
+
+        foreach($tickets as $ticket){
+
+            $travel = Travel::where('id', $ticket->travelId)->first();
+
+            $origin = City::where('id', $travel->originId)->first();
+            $destination = City::where('id', $travel->destinationId)->first();
+
+            $listTickets[] = [
+                'ticket' => $ticket,
+                'origin' => $origin,
+                'destination' => $destination
+            ];
+
+        }
+
+        return view('auth.ticketReport', compact('listTickets'));
     }
 
 }

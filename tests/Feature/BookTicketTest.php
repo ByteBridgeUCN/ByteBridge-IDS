@@ -27,7 +27,7 @@ class BookTicketTest extends TestCase
 
         $response->assertStatus(302);
     }
-    
+
     /**
      * Tests select a destination.
      */
