@@ -21,7 +21,7 @@ class DailyRoutesController extends Controller
 
         $listRoutes = Travel::with('originCity', 'destinationCity')
         ->orderBy('id')
-        ->get();
+        ->paginate(10);
         return view('auth.DailyRoutes', compact('listRoutes'));
     }
 }

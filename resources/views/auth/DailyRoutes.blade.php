@@ -14,7 +14,7 @@
     <div class="container-main">
         <h1>Rutas del día</h1>
         <span id="datetime"></span>
-        @if($listRoutes)
+        @if($listRoutes->count() > 0)
             <table>
                 <thead>
                     <tr>
@@ -33,9 +33,15 @@
                     @endforeach
                 </tbody>
             </table>
+
+            {{-- <div class="custom-pagination">
+                {{ $listRoutes->links() }}
+            </div> --}}
+
         @else
             <p>no hay reservas en sistema</p>
         @endif
+
 
         <div class="dr-button-container">
 

@@ -65,3 +65,31 @@ th {
     color: white;
     margin-left: 250px; /* Ajusta según sea necesario */
 }
+.custom-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.custom-pagination .pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-pagination .pagination li {
+    margin: 0 5px;
+}
+
+.custom-pagination .pagination a {
+    padding: 8px 12px;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    color: #333;
+    border-radius: 4px;
+}
+
+.custom-pagination .pagination a:hover {
+    background-color: #f0f0f0;
+}
