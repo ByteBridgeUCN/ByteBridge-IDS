@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 body {
+    font-family: 'Poppins', sans-serif;
     background-color: #ffff;
     display: flex;
     justify-content: center;
@@ -31,8 +32,8 @@ body.loaded {
     padding: 10px 20px;
     border: none; /* Si deseas quitar el borde del botón */
     text-decoration: none; /* Para quitar subrayado si es un enlace */
+    box-shadow: rgba(0, 9, 61, 0.45) 0px 4px 8px 0px;
     border-radius: 5px; /* Agrega bordes redondos */
-
     transition: all 0.3;
 }
 
@@ -42,6 +43,7 @@ body.loaded {
     background-color: #0a74da;
     /* Otros estilos, como el color del texto, el padding, etc., si es necesario */
     color: #fff; /* Cambiar el color del texto a blanco para que se vea mejor en el fondo verde */
+    box-shadow: rgba(0, 9, 61, 0.45) 0px 4px 8px 0px;
     padding: 10px 20px;
     border: none; /* Si deseas quitar el borde del botón */
     text-decoration: none; /* Para quitar subrayado si es un enlace */
@@ -57,12 +59,13 @@ body.loaded {
 }
 
 .btn-dialy-routes{
-    background-color: #333;
+    background-color: #f4f4f4;
     /* Otros estilos, como el color del texto, el padding, etc., si es necesario */
-    color: white; /* Cambiar el color del texto a blanco para que se vea mejor en el fondo verde */
+    color: #0a74da; /* Cambiar el color del texto a blanco para que se vea mejor en el fondo verde */
     padding: 10px 20px;
     border: none; /* Si deseas quitar el borde del botón */
     text-decoration: none; /* Para quitar subrayado si es un enlace */
     border-radius: 5px; /* Agrega bordes redondos */
     transition: all 0.3;
+    box-shadow: rgba(0, 9, 61, 0.45) 0px 4px 8px 0px;
 }

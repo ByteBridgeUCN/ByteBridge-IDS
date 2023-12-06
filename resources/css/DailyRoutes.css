@@ -7,6 +7,10 @@ body {
     box-sizing: border-box;
 }
 
+p{
+    color:#ff8a80;
+    font-size: 20px;
+}
 span{
     margin: 10px;
 }
@@ -25,14 +29,22 @@ th {
     background-color: #0a74d4;
     color: #fff;
 }
-
-.dr-button-container{
+.dr-button-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row; /* Cambiado a fila para disposición horizontal */
+    flex-direction: row; /* Cambiado a columna para disposición vertical */
     text-align: center;
     margin-top: 20px; /* Ajusta según sea necesario */
+}
+.dr-button-container a {
+    margin: 10px; /* Modificado para separación vertical entre botones */
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 21px;
+    text-align: center;
+    box-shadow: rgba(0, 9, 61, 0.45) 0px 4px 8px 0px;
+    color: white;
 }
 
 .back-button-home{
@@ -72,17 +84,19 @@ th {
 }
 
 .custom-pagination .pagination {
-    display: flex;
-    list-style: none;
-    padding: 0;
+    list-style-type: none;
     margin: 0;
+    padding: 0;
 }
 
-.custom-pagination .pagination li {
+.custom-pagination .pagination-item {
+    display: inline-block;
     margin: 0 5px;
+    font-size: 14px; /* Ajusta el tamaño de fuente según sea necesario */
 }
 
-.custom-pagination .pagination a {
+.custom-pagination .pagination-link {
+    display: block;
     padding: 8px 12px;
     text-decoration: none;
     border: 1px solid #ccc;
@@ -90,6 +104,12 @@ th {
     border-radius: 4px;
 }
 
-.custom-pagination .pagination a:hover {
+.custom-pagination .pagination-link:hover {
     background-color: #f0f0f0;
+}
+
+.custom-pagination .pagination-item.active .pagination-link {
+    background-color: #0a74d4;
+    color: white;
+    border: 1px solid #0a74d4;
 }

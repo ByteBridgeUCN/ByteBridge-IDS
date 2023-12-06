@@ -13,7 +13,7 @@ class DailyRoutesController extends Controller
     public function view() {
 
         $fechaActual = now();
-        return view('auth.DailyRoutes', ['fechaActual' => $fechaActual]);
+        return view('auth.DailyRoutes');
 
     }
 
