@@ -9,25 +9,15 @@
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
     @extends('layouts.app')
     @vite(['resources/css/TicketReport.css'])
-    <style>
-         body {
-        display: flex;
-    }
-
-    .date-container,
-    .table-container {
-        margin: 10px; /* Ajusta el margen según sea necesario */
-    }
-        
-    </style>
 </head>
 <body>
+    <h1>Reporte de Reservas</h1>
     
     <div class="back-button-container">
         <a href="{{ route('AdminHome') }}" class="back-button">Volver</a>
     </div>
     <div class = "date-container">
-        <form id="dateFilterForm" class = "dateFilter">
+        <form id="dateFilterForm">
             <label for="beginDate">Fecha de Inicio:</label>
             <br>
             <input type="date" id="beginDate" name="beginDate" class="flatpickr" placeholder="Seleccionar fecha">
@@ -42,9 +32,8 @@
             
             <button type="button" onclick="filterTickets()">Filtrar</button> 
         </form>
-    </div>
-    
-    <div class = "table-container">
+
+        <div class = "table-container">
         @if($listTickets)
             <table>
                 <thead>
@@ -76,5 +65,8 @@
             <p>no hay reservas en sistema</p>
         @endif
     </div>
+    </div>
+    
+    
 </body>
 </html>
