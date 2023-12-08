@@ -169,4 +169,47 @@ class TicketController extends Controller {
         return view('auth.ticketReport', compact('listTickets'));
     }
 
+    public function filterTicketReport(Request $request) {
+        $beginDate = $request->input('beginDate');
+        $endDate = $request->input('endDate');
+
+        // Validar que las fechas sean válidas y que endDate sea mayor o igual a beginDate
+        if (!$this->validateDate($beginDate) || !$this->validateDate($endDate)) {
+            return back()->with('message', 'Las fechas ingresadas no son válidas.');
+        }
+
+        else if ($endDate < $beginDate) {
+            return back()->with('message', 'la fecha de inicio a consultar no puede ser mayor que la fecha de término de la consulta');
+        }
+
+        $beginDateCarbon = \Carbon\Carbon::parse($beginDate)->startOfDay();
+        $endDateCarbon = \Carbon\Carbon::parse($endDate)->endOfDay();
+
+        $tickets = Ticket::whereBetween('purchaseDate', [$beginDateCarbon, $endDateCarbon])->orderBy('purchaseDate')->get();
+
+        if (count($tickets) == 0) {
+            return back()->with('message', 'no se encontraron reservas dentro del rango seleccionado');
+        }
+
+        $listTickets = [];
+
+        foreach ($tickets as $ticket) {
+            $travel = Travel::where('id', $ticket->travelId)->first();
+            $origin = City::where('id', $travel->originId)->first();
+            $destination = City::where('id', $travel->destinationId)->first();
+
+            $listTickets[] = [
+                'ticket' => $ticket,
+                'origin' => $origin,
+                'destination' => $destination
+            ];
+        }
+
+        return view('auth.ticketReport', compact('listTickets'));
+    }
+
+    private function validateDate($date) {
+        $d = \DateTime::createFromFormat('Y-m-d', $date);
+        return $d && $d->format('Y-m-d') === $date;
+    }
 }
