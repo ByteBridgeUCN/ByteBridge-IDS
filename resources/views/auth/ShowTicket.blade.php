@@ -36,7 +36,7 @@
                         <p>Reserva no encontrada</p>
                     @endif
                 </div>
-                <a class="back-button-menu" href="{{ route('Home') }}">Volver</a>
+                <a class="back-button-menu" href="{{ Auth::user() ? route('AdminHome') : route('Home') }}">Volver</a>
             </div>
         </div>
     </div>

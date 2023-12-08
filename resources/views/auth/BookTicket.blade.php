@@ -45,11 +45,9 @@
                 <select id="purchasedSeats" name="purchasedSeats" class="form-select">
                     <option selected>Seleccione la cantidad de asientos </option>
                 </select>
-
                 @error('purchasedSeats')
                     <p>{{ $message }}</p>
                 @enderror
-
             </div>
 
         </form>
@@ -93,6 +91,8 @@
         @if (session('message'))
             <p>{{ session('message') }}</p>
         @endif
+        <p></p>
+        <p>Debe ingresar todos los campos para poder reservar.</p>
 
 
     </div>
