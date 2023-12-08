@@ -62,7 +62,7 @@ const loadedOrigins = (e) => {
 
 const addSeatingToSelect = (seat, travel) => {
 
-    for (let index = 1; index <= seat; index++) {
+    for (let index = 0; index <= seat; index++) {
         const option = document.createElement('option');
         option.value = index;
         option.text = index;
@@ -159,6 +159,12 @@ selectTravelDate.addEventListener('change', () => {
 
 });
 
+selectSeat.addEventListener('change', () => {
+    if (selectSeat.value == 0) {
+        clearSelectSeat();
+    }
+});
+
 document.addEventListener('DOMContentLoaded', loadedOrigins)
 selectOrigin.addEventListener('change', loadedDestinations)
 selectTravelDate.addEventListener('change', verifySeating)
@@ -243,8 +249,6 @@ const showTicket = (originSelected, destinationSelected, seatAmountSelected, tra
 
 // Escucha el clic en el botón
 document.getElementById('confirmButton').addEventListener('click', function(event) {
-
-
     const originSelected = selectOrigin.options[selectOrigin.selectedIndex].text;
     const destinationSelected = selectDestination.options[selectDestination.selectedIndex].text;;
     const seatAmountSelected = document.getElementById('purchasedSeats').value;
