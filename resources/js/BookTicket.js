@@ -217,22 +217,26 @@ const updateReserveButtonStatus = () => {
     reserveButton.style.backgroundColor = isButtonEnabled ? '#0A74DA' : '#333333';
 
 }
-
 const showTicket = (originSelected, destinationSelected, seatAmountSelected, travelDataSelected, formattedDate, totalPrice) => {
 
     if (originSelected && destinationSelected && seatAmountSelected && travelDataSelected) {
 
+        // Formatea el precio como moneda en Pesos Chilenos
+        const formattedPrice = (totalPrice * parseInt(seatAmountSelected)).toLocaleString('es-CL', {
+            style: 'currency',
+            currency: 'CLP'
+        });
+
         // Muestra la alerta de confirmación
         Swal.fire({
             title: "Confirmar reserva",
-            text: "El total de la reserva entre " + originSelected + " y " + destinationSelected + " para el día " + formattedDate + " es de $"+ (totalPrice*parseInt(seatAmountSelected)) + " (" + seatAmountSelected + " asientos) ¿Desea continuar?",
+            text: `El total de la reserva entre ${originSelected} y ${destinationSelected} para el día ${formattedDate} es de ${formattedPrice} (${seatAmountSelected} asientos). ¿Desea continuar?`,
             icon: "warning",
             showCancelButton: true,
-            cancelButtonText:"Volver",
+            cancelButtonText: "Volver",
             confirmButtonColor: "#2ecc71",
             cancelButtonColor: "#ff8a80",
             confirmButtonText: "Confirmar"
-
         }).then((result) => {
             // Verifica si el usuario hizo clic en "Confirmar"
             if (result.isConfirmed) {
@@ -241,10 +245,9 @@ const showTicket = (originSelected, destinationSelected, seatAmountSelected, tra
             }
         });
 
+        // Evita que el formulario se envíe automáticamente
         event.preventDefault();
-
     }
-
 };
 
 // Escucha el clic en el botón

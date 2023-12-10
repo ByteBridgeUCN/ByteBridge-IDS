@@ -5,11 +5,27 @@
     font-family: 'poppins',sans-serif;
 }
 
+p{
+    color:  #ff8a80;
+    font-size: 20px;
+
+}
+
+.warning-display{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Esto asegura que ocupe el 100% del alto de la ventana */
+}
 
 h1{
     margin-top: 120px;
-    text-align: center;
     color: #333333;
+    position: relative;
+    top: 50%;
+    transform: translateY(10%);
+    transform: translateX(4%);
+    text-align: center;
 }
 
 .date-container{

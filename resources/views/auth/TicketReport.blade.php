@@ -65,7 +65,10 @@
                     </tbody>
                 </table>
             @else
+            <div class="warning-display">
                 <p>no hay reservas en sistema</p>
+            </div>
+
             @endif
         </div>
     </div>

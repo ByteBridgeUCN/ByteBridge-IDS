@@ -90,14 +90,27 @@
     <script>
         // create a function to update the date and time
         function updateDateTime() {
-          // create a new `Date` object
-          const now = new Date();
+            // create a new `Date` object
+            const now = new Date();
 
-          // get the current date and time as a string
-          const currentDateTime = now.toLocaleString();
+            // get the current date
+            const day = now.getDate();
+            const month = now.getMonth() + 1; // Note: January is 0
+            const year = now.getFullYear();
 
-          // update the `textContent` property of the `span` element with the `id` of `datetime`
-          document.querySelector('#datetime').textContent = currentDateTime;
+            // format the date as day-month-year
+            const formattedDate = `${day}/${month}/${year}`;
+
+            // get the current time
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            // format the time as HH:MM:SS
+            const formattedTime = `${hours}:${minutes}:${seconds}`;
+
+            // update the `textContent` property of the `span` element with the `id` of `datetime`
+            document.querySelector('#datetime').textContent = `${formattedDate} ${formattedTime}`;
         }
 
         // call the `updateDateTime` function every second
