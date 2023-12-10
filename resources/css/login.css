@@ -79,7 +79,7 @@ p{
 .login-button {
 
     background: #2ecc71;
-    color: black;
+    color: white;
     cursor: pointer;
     font-size: 1.3em;
     padding: 0.5rem;
@@ -91,7 +91,7 @@ p{
 .back-button {
 
     background: #ff6b6b;
-    color: black;
+    color: white;
     cursor: pointer;
     font-size: 1.3em;
     padding: 0.5rem;

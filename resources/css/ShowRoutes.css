@@ -1,10 +1,15 @@
-/* Definir Poppins como fuente predeterminada */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 *{
     font-family: 'poppins',sans-serif;
 }
 
+.table-routes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
 
 h1{
     text-align:center;
@@ -14,7 +19,7 @@ h1{
 
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 50%;
 }
 
 th, td {

@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
-body {
+*{
     font-family: 'Poppins', sans-serif; /* Aplica la fuente a todo el cuerpo o ajusta según sea necesario */
+}
+body {
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,7 +54,20 @@ body {
     position: absolute;
     bottom: -100px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-140%);
 
 }
+.print-button{
+    text-decoration: none;
+    color: #fff;
+    background-color: #2ecc71; /* Color del texto */
+    padding: 15px;
+    padding-inline: 20px;
+    border-radius: 4px;
+    box-shadow: rgba(0, 9, 61, 0.45) 0px 4px 8;
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-10%);
 
+}

@@ -67,13 +67,31 @@
         @endif
 
         <div class="dr-button-container">
-            <a class="back-button-home separate" href="{{ route('Home') }}">Volver</a>
-            <a class="reload-page-button separate" href="{{ route('DailyRoutes') }}">Recargar</a>
+            <a
+                class="back-button-home separate"
+                href="{{ route('Home') }}"
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                data-bs-title="Volver a la página principal"
+                >Volver
+            </a>
+            <a
+                class="reload-page-button separate"
+                href="{{ route('DailyRoutes') }}"
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                data-bs-title="Actualizar datos"
+                >Recargar
+            </a>
         </div>
     </div>
 
 
 
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
 
     <script
         src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -87,8 +105,14 @@
         crossorigin="anonymous">
     </script>
 
+
+
     <script>
-        // create a function to update the date and time
+
+        // function to format time component with leading zero if needed
+        function formatTimeComponent(timeComponent) {
+            return timeComponent < 10 ? `0${timeComponent}` : timeComponent;
+        }
         function updateDateTime() {
             // create a new `Date` object
             const now = new Date();
@@ -107,15 +131,20 @@
             const seconds = now.getSeconds();
 
             // format the time as HH:MM:SS
-            const formattedTime = `${hours}:${minutes}:${seconds}`;
+            const formattedTime = `${formatTimeComponent(hours)}:${formatTimeComponent(minutes)}:${formatTimeComponent(seconds)}`;
+
+            // get AM/PM
+            const ampm = hours >= 12 ? 'PM' : 'AM';
 
             // update the `textContent` property of the `span` element with the `id` of `datetime`
-            document.querySelector('#datetime').textContent = `${formattedDate} ${formattedTime}`;
+            document.querySelector('#datetime').textContent = `${formattedDate} ${formattedTime} ${ampm}`;
         }
 
         // call the `updateDateTime` function every second
         setInterval(updateDateTime, 1000);
-      </script>
+
+
+    </script>
 </body>
 
 </html>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Turjoy | Boleta </title>
+
     @vite(['resources/css/ShowTicket.css'])
 
 </head>
@@ -36,9 +37,42 @@
                         <p>Reserva no encontrada</p>
                     @endif
                 </div>
-                <a class="back-button-menu" href="{{ Auth::user() ? route('AdminHome') : route('Home') }}">Volver</a>
+                <a
+                    class="back-button-menu" href="{{ Auth::user() ? route('AdminHome') : route('Home') }}"
+                    class="back-button"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    data-bs-title="Volver al menú del administrador"
+                    >Volver
+                </a>
+
+                <a
+                    class="print-button" href="{{ Auth::user() ? route('AdminHome') : route('Home') }}"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    data-bs-title="Volver al menú del administrador"
+                    >Guardar boleta
+                </a>
+
             </div>
         </div>
     </div>
+
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous">
+    </script>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous">
+    </script>
 </body>
 </html>

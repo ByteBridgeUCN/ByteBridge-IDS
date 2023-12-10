@@ -21,6 +21,6 @@
         "create-vite": "^4.4.1",
         "jquery": "^3.7.1",
         "jspdf": "^2.5.1",
-        "sweetalert2": "^11.9.0"
+        "sweetalert2": "^11.6.13"
     }
 }
