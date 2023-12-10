@@ -42,6 +42,7 @@ Route::get('/get/origins', [TravelController::class, 'obtainOrigins']);
 Route::get('/get/destinations/{origin}', [TravelController::class, 'searchDestinations']);
 Route::get('/seating/{origin}/{destination}/{date}', [TravelController::class, 'seatings']);
 Route::get('/checkBaseRate/{origin}/{destination}', [TravelController::class, 'checkBaseRate']);
+Route::get('BookTicket', [TravelController::class, 'routesExists'])->name('BookTicket');
 
 Route::get('DailyRoutes', [DailyRoutesController::class, 'view'])->name('DailyRoutes');
 Route::get('DailyRoutes', [DailyRoutesController::class, 'showDailyRoutes'])->name('DailyRoutes');

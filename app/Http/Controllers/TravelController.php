@@ -86,4 +86,12 @@ class TravelController extends Controller {
         return response()->json(['baseRate' => $travelBaseRate]);
     }
 
+
+    public function routesExists(){
+
+        $hasRoutes = Travel::exists();
+        return view('auth.BookTicket', compact('hasRoutes'));
+
+    }
+
 }

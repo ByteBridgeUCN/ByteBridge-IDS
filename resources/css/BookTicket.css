@@ -13,6 +13,7 @@ body {
 
 p{
     color:#ff8a80;
+    font-size: 25px;
 }
 
 .reservation-form{
@@ -45,6 +46,21 @@ p{
 }
 
 
+
+.back-button{
+    text-decoration: none;
+    color: #fff;
+    background-color: #ff6b6b; /* Color del texto */
+    padding: 15px;
+    padding-inline: 20px;
+    border-radius: 4px;
+    box-shadow: rgba(0, 9, 61, 0.45) 0px 4px 8;
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-55%);
+
+}
 
 .back-button-home{
 
