@@ -32,7 +32,7 @@
                         <p>Día de la reserva: {{ \Carbon\Carbon::parse($ticket->travelDate)->format('d/m/Y') }}</p>
                         <p>Cantidad de asientos: {{ $ticket->purchasedSeats }}</p>
                         <p>Fecha de la compra: {{ \Carbon\Carbon::parse($ticket->purchaseDate)->format('d/m/Y H:i:s') }}</p>
-                        <p>Total: ${{ $ticket->price }}</p>
+                        <p>Total: ${{ number_format($ticket->price, 0, ',', '.') }}</p>
                     @else
                         <p>Reserva no encontrada</p>
                     @endif
