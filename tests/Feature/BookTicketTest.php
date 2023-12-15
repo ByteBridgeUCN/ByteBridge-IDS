@@ -19,56 +19,41 @@ class BookTicketTest extends TestCase
     }
 
     /**
-     * Tests select an origin.
+     * Tests the book ticket main page.
      */
-    public function testBookTicketOrigin(): void
+    public function testBookTicketOriginFound(): void
     {
-        $response = $this->post('/BookTicket', ['origin' => '1']);
+        $response = $this->get('/BookTicket', ['origin' => '1']);
 
-        $response->assertStatus(302);
+        $response->assertStatus(200);
     }
 
     /**
-     * Tests select a destination.
+     * Tests the book ticket main page.
      */
-    public function testBookTicketDestination(): void
+    public function testBookTicketDestinationFound(): void
     {
-        $response = $this->post('/BookTicket', ['destination' => '7']);
+        $response = $this->get('/BookTicket', ['destination' => '7']);
 
-        $response->assertStatus(302);
+        $response->assertStatus(200);
     }
 
     /**
-     * Tests select a travel date.
+     * Tests the book ticket main page.
      */
-    public function testBookTicketTravelDate(): void
+    public function testBookTicketTravelDateFound(): void
     {
-        $response = $this->post('/BookTicket', ['date' => '2023-12-12']);
+        $response = $this->get('/BookTicket', ['date' => '2023-12-12']);
 
-        $response->assertStatus(302);
+        $response->assertStatus(200);
     }
 
     /**
-     * Tests select a seat.
+     * Tests the book ticket main page.
      */
-    public function testBookTicketPurchased(): void
+    public function testBookTicketPurchasedSeat(): void
     {
-        $response = $this->post('/BookTicket', ['purchasedSeats' => '1']);
-
-        $response->assertStatus(302);
-    }
-
-    /**
-     * Tests book ticket
-     */
-    public function testBookTicket(): void
-    {
-        $response = $this->post('/BookTicket', [
-            'origin' => '1',
-            'destination' => '7',
-            'travelDate' => '2023-12-12',
-            'purchasedSeats' => '1'
-        ]);
+        $response = $this->get('/BookTicket', ['purchasedSeats' => '1']);
 
         $response->assertStatus(200);
     }

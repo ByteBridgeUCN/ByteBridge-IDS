@@ -145,29 +145,7 @@ class TicketController extends Controller {
 
     }
 
-    public function ticketReport(){
 
-        $listTickets = [];
-
-        $tickets = Ticket::orderBy('purchaseDate')->get();
-
-        foreach($tickets as $ticket){
-
-            $travel = Travel::where('id', $ticket->travelId)->first();
-
-            $origin = City::where('id', $travel->originId)->first();
-            $destination = City::where('id', $travel->destinationId)->first();
-
-            $listTickets[] = [
-                'ticket' => $ticket,
-                'origin' => $origin,
-                'destination' => $destination
-            ];
-
-        }
-
-        return view('auth.ticketReport', compact('listTickets'));
-    }
 
     public function filterTicketReport(Request $request) {
         $beginDate = $request->input('beginDate');
